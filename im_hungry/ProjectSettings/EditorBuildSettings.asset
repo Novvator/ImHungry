@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/burger scene.unity
-    guid: 45393d37ca8beb84aab78e9c30e1aad9
-  - enabled: 1
     path: Assets/Scenes/pattern scene.unity
     guid: b2002a11b0cc38b408da154a3f770bac
   m_configObjects: {}
