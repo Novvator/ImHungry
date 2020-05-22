@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ColliderDetector : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class ColliderDetector : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            Vector3 pos = Camera.main.ScreenToWorldPoint(touch.position);
+            Vector2 pos = Camera.main.ScreenToWorldPoint(touch.position);
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
             if (hit != null && hit.collider != null)
             {
@@ -28,6 +29,11 @@ public class ColliderDetector : MonoBehaviour
                     objects[0].SetActive(true);
                     objects[1].SetActive(true);
                     objects[2].SetActive(true);
+                }
+
+                else if(hit.collider.name == "next")
+                {
+                    SceneManager.LoadScene("pattern scene");
                 }
 
                 else
