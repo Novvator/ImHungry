@@ -1,48 +1,75 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+//using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PatternScript : MonoBehaviour
 {
-    public GameObject[] poz;
-    int endd = 0;
+    public GameObject[] burgers;
+    public GameObject[] stage;
+    int hitted = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        poz[1].SetActive(false);
+        burgers[1].SetActive(false);
+        burgers[2].SetActive(false);
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        for (var i = 0; i < Input.touchCount; ++i)
+        if (Input.touchCount == 1)
         {
-            Touch touch = Input.GetTouch(i);
+            Touch touch = Input.GetTouch(0);
             Vector2 pos = Camera.main.ScreenToWorldPoint(touch.position);
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
             if (hit != null && hit.collider != null)
             {
-                Debug.Log("I'm hitting " + hit.collider.name);
                 
-                    while (touch.phase == TouchPhase.Moved)
-                    {
-                        while (hit.collider.name == "tubee")
-                        {
-                            if (hit.collider.name == "finish")
-                            {
-                                endd = 1;
-                            }
-                            if (endd == 1) { break; }
+                Debug.Log("I'm hitting " + hit.collider.name);
 
-                        }
-                        if (endd == 1) { break; }
-                    }
-                    if (endd == 1) { poz[1].SetActive(true); }
-               
+                if (hit.collider.name == "tubee")
+                {
+                    hitted = 1;
+                }
 
+                if(hit.collider.name == "2" && hitted == 1)
+                {
+                    burgers[0].SetActive(false);
+                    burgers[1].SetActive(true);
+
+                }
+                
+                if(hit.collider.name == "3" && hitted == 1)
+                {
+                    burgers[1].SetActive(false);
+                    burgers[2].SetActive(true);
+
+                }
+                if (hit.collider.name == "finish" && hitted == 1)
+                {
+                    burgers[2].SetActive(false);
+                }
 
             }
+            else
+            {
+                if (hitted == 1)
+                {
+                    Debug.Log("Lost target");
+                    hitted = 0;
+
+                    //when leaving tube to reset first burger
+                    //burgers[0].SetActive(true);
+                    //burgers[1].SetActive(false);
+                    //burgers[2].SetActive(false);
+                }
+            }
+
+            
         }
     }
 }
