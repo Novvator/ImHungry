@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PatternScript : MonoBehaviour
+public class ZScript : MonoBehaviour
 {
 
-    public Sprite[] bsprite;
-    public GameObject burger;
+    public Sprite[] fsprite;
+    public GameObject fries;
     public GameObject[] stage;
     bool hitted = false;
     bool trg1 = false;
@@ -31,35 +31,35 @@ public class PatternScript : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
             if (hit != null && hit.collider != null && touch.phase != TouchPhase.Ended)
             {
-                
+
                 Debug.Log("I'm hitting " + hit.collider.name);
 
-                
 
-                if (hit.collider.name == "tubee")
+
+                if (hit.collider.name == "ztube")
                 {
                     hitted = true;
                 }
 
-                if(hit.collider.name == "2" && hitted)
+                if (hit.collider.name == "2" && hitted)
                 {
 
-                    burger.gameObject.GetComponent<SpriteRenderer>().sprite = bsprite[1];
+                    fries.gameObject.GetComponent<SpriteRenderer>().sprite = fsprite[1];
                     trg1 = true;
                 }
-                
-                if(hit.collider.name == "3" && hitted && trg1)
+
+                if (hit.collider.name == "3" && hitted && trg1)
                 {
 
-                    burger.gameObject.GetComponent<SpriteRenderer>().sprite = bsprite[2];
+                    fries.gameObject.GetComponent<SpriteRenderer>().sprite = fsprite[2];
                     trg2 = true;
 
                 }
                 if (hit.collider.name == "finish" && hitted && trg1 & trg2)
                 {
 
-                    burger.SetActive(false);
-                    SceneManager.LoadScene("scene2");
+                    fries.gameObject.GetComponent<SpriteRenderer>().sprite = fsprite[3];
+                    SceneManager.LoadScene("pattern scene");
                 }
 
             }
@@ -70,13 +70,13 @@ public class PatternScript : MonoBehaviour
                     Debug.Log("Lost target");
                     hitted = false;
 
-                    //when leaving tube to reset first burger
-                    burger.gameObject.GetComponent<SpriteRenderer>().sprite = bsprite[0];
+                    //when leaving tube to reset first sprite
+                    fries.gameObject.GetComponent<SpriteRenderer>().sprite = fsprite[0];
 
                 }
             }
 
-            
+
         }
     }
 }
