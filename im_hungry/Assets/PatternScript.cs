@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class PatternScript : MonoBehaviour
 {
-    public GameObject[] burgers;
+
+    public Sprite[] bsprite;
+    public GameObject burger;
     public GameObject[] stage;
     bool hitted = false;
     bool trg1 = false;
@@ -15,9 +17,8 @@ public class PatternScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        burgers[1].SetActive(false);
-        burgers[2].SetActive(false);
-        
+
+
     }
 
     // Update is called once per frame
@@ -42,25 +43,22 @@ public class PatternScript : MonoBehaviour
 
                 if(hit.collider.name == "2" && hitted)
                 {
-                    burgers[0].SetActive(false);
-                    burgers[1].SetActive(true);
-                    burgers[2].SetActive(false);
+
+                    burger.gameObject.GetComponent<SpriteRenderer>().sprite = bsprite[1];
                     trg1 = true;
                 }
                 
                 if(hit.collider.name == "3" && hitted && trg1)
                 {
-                    burgers[0].SetActive(false);
-                    burgers[1].SetActive(false);
-                    burgers[2].SetActive(true);
+
+                    burger.gameObject.GetComponent<SpriteRenderer>().sprite = bsprite[2];
                     trg2 = true;
 
                 }
                 if (hit.collider.name == "finish" && hitted && trg1 & trg2)
                 {
-                    burgers[0].SetActive(false);
-                    burgers[1].SetActive(false);
-                    burgers[2].SetActive(false);
+
+                    burger.SetActive(false);
                     SceneManager.LoadScene("scene2");
                 }
 
@@ -73,22 +71,8 @@ public class PatternScript : MonoBehaviour
                     hitted = false;
 
                     //when leaving tube to reset first burger
-                    if(burgers[0].activeSelf == false)
-                    {
-                        burgers[0].SetActive(true);
-                    }
+                    burger.gameObject.GetComponent<SpriteRenderer>().sprite = bsprite[0];
 
-                    if (burgers[1].activeSelf == true)
-                    {
-                        burgers[1].SetActive(false);
-                    }
-
-                    if (burgers[2].activeSelf == true)
-                    {
-                        burgers[2].SetActive(false);
-                    }
-                    
-                  
                 }
             }
 
