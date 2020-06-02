@@ -1,22 +1,36 @@
-﻿using System.Collections;
+﻿//using System;
+using System.Collections;
 using System.Collections.Generic;
+//using System.Diagnostics;
 //using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PatternScript : MonoBehaviour
 {
-
+    private GameObject chosenpat;
     public Sprite[] bsprite;
+    public GameObject[] tubes;
     public GameObject burger;
     public GameObject[] stage;
     bool hitted = false;
     bool trg1 = false;
     bool trg2 = false;
+    int num;
 
     // Start is called before the first frame update
     void Start()
     {
+        num = Random.Range(0,2);
+        Debug.Log(num);
+        chosenpat = tubes[num];
+        foreach (GameObject go in tubes)
+        {
+            if(go != chosenpat)
+            {
+                go.SetActive(false);
+            }
+        }
 
 
     }
@@ -36,30 +50,40 @@ public class PatternScript : MonoBehaviour
 
                 
 
-                if (hit.collider.name == "tubee")
+                if (hit.collider.name == chosenpat.name)
                 {
                     hitted = true;
                 }
 
-                if(hit.collider.name == "2" && hitted)
+                if(hit.collider.name == "2"/*chosenpat.transform.GetChild(0).name*/ && hitted)
                 {
 
                     burger.gameObject.GetComponent<SpriteRenderer>().sprite = bsprite[1];
                     trg1 = true;
                 }
                 
-                if(hit.collider.name == "3" && hitted && trg1)
+                if(hit.collider.name == chosenpat.transform.GetChild(1).name && hitted && trg1)
                 {
 
                     burger.gameObject.GetComponent<SpriteRenderer>().sprite = bsprite[2];
                     trg2 = true;
 
                 }
-                if (hit.collider.name == "finish" && hitted && trg1 & trg2)
+                if (hit.collider.name == chosenpat.transform.GetChild(2).name && hitted && trg1 & trg2)
                 {
 
-                    burger.SetActive(false);
-                    SceneManager.LoadScene("scene2");
+                    //burger.SetActive(false);
+                    num = Random.Range(0, 2);
+                    Debug.Log(num);
+                    chosenpat = tubes[num];
+                    chosenpat.SetActive(true);
+                    foreach (GameObject go in tubes)
+                    {
+                        if (go != chosenpat)
+                        {
+                            go.SetActive(false);
+                        }
+                    }
                 }
 
             }
