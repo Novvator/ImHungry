@@ -9,7 +9,8 @@ using UnityEngine.SceneManagement;
 public class PatternScript : MonoBehaviour
 {
     private GameObject chosenpat;
-    public Sprite[] bsprite;
+    private GameObject chosenfood;
+    public GameObject[] food;
     public GameObject[] tubes;
     public GameObject burger;
     public GameObject[] stage;
@@ -17,18 +18,28 @@ public class PatternScript : MonoBehaviour
     bool trg1 = false;
     bool trg2 = false;
     int num;
+    int num2;
 
     // Start is called before the first frame update
     void Start()
     {
-        num = Random.Range(0,2);
-        Debug.Log(num);
+        num = Random.Range(0, 2);
         chosenpat = tubes[num];
         foreach (GameObject go in tubes)
         {
-            if(go != chosenpat)
+            if (go != chosenpat)
             {
                 go.SetActive(false);
+            }
+        }
+
+        num2 = Random.Range(0, 2);
+        chosenfood = food[num2];
+        foreach (GameObject gb in food)
+        {
+            if (gb != chosenfood)
+            {
+                gb.SetActive(false);
             }
         }
 
@@ -46,7 +57,7 @@ public class PatternScript : MonoBehaviour
             if (hit != null && hit.collider != null && touch.phase != TouchPhase.Ended)
             {
                 
-                Debug.Log("I'm hitting " + hit.collider.name);
+                //Debug.Log("I'm hitting " + hit.collider.name);
 
                 
 
@@ -57,15 +68,15 @@ public class PatternScript : MonoBehaviour
 
                 if(hit.collider.name == "2"/*chosenpat.transform.GetChild(0).name*/ && hitted)
                 {
-
-                    burger.gameObject.GetComponent<SpriteRenderer>().sprite = bsprite[1];
+                    chosenfood.GetComponent<Animator>().SetInteger("eat", 2);
+                    //burger.gameObject.GetComponent<SpriteRenderer>().sprite = bsprite[1];
                     trg1 = true;
                 }
                 
                 if(hit.collider.name == chosenpat.transform.GetChild(1).name && hitted && trg1)
                 {
 
-                    burger.gameObject.GetComponent<SpriteRenderer>().sprite = bsprite[2];
+                    chosenfood.GetComponent<Animator>().SetInteger("eat", 3);
                     trg2 = true;
 
                 }
@@ -73,9 +84,16 @@ public class PatternScript : MonoBehaviour
                 {
 
                     //burger.SetActive(false);
+
+                    //go to next pattern/food
+                    chosenfood.GetComponent<Animator>().SetInteger("eat", 1);
+
                     num = Random.Range(0, 2);
-                    Debug.Log(num);
+                    num2 = Random.Range(0, 2);
+
                     chosenpat = tubes[num];
+                    chosenfood = food[num2];
+
                     chosenpat.SetActive(true);
                     foreach (GameObject go in tubes)
                     {
@@ -84,6 +102,20 @@ public class PatternScript : MonoBehaviour
                             go.SetActive(false);
                         }
                     }
+
+                    chosenfood.SetActive(true);
+                    foreach (GameObject gb in food)
+                    {
+                        if (gb != chosenfood)
+                        {
+                            gb.SetActive(false);
+                        }
+                    }
+
+                    //reset triggers
+                    trg1 = false;
+                    trg2 = false;
+                    hitted = false;
                 }
 
             }
@@ -95,7 +127,7 @@ public class PatternScript : MonoBehaviour
                     hitted = false;
 
                     //when leaving tube to reset first burger
-                    burger.gameObject.GetComponent<SpriteRenderer>().sprite = bsprite[0];
+                    chosenfood.GetComponent<Animator>().SetInteger("eat", 1);
 
                 }
             }
