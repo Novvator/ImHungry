@@ -88,6 +88,9 @@ public class PatternScript : MonoBehaviour
                     //go to next pattern/food
                     chosenfood.GetComponent<Animator>().SetInteger("eat", 1);
 
+                    //update score
+                    ScoreScript.scoreValue += 10;
+
                     num = Random.Range(0, 2);
                     num2 = Random.Range(0, 2);
 
