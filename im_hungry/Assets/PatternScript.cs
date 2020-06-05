@@ -10,10 +10,11 @@ public class PatternScript : MonoBehaviour
 {
     private GameObject chosenpat;
     private GameObject chosenfood;
+
     public GameObject[] food;
     public GameObject[] tubes;
-    public GameObject burger;
     public GameObject[] stage;
+
     bool hitted = false;
     bool trg1 = false;
     bool trg2 = false;
@@ -49,6 +50,8 @@ public class PatternScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
@@ -56,20 +59,20 @@ public class PatternScript : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
             if (hit != null && hit.collider != null && touch.phase != TouchPhase.Ended)
             {
-                
+
                 //Debug.Log("I'm hitting " + hit.collider.name);
+               
 
-                
 
-                if (hit.collider.name == chosenpat.name)
+                if (hit.collider.name == "fdcc")
                 {
                     hitted = true;
+
                 }
 
-                if(hit.collider.name == "2"/*chosenpat.transform.GetChild(0).name*/ && hitted)
+                if(hit.collider.name == chosenpat.transform.GetChild(0).name && hitted)
                 {
                     chosenfood.GetComponent<Animator>().SetInteger("eat", 2);
-                    //burger.gameObject.GetComponent<SpriteRenderer>().sprite = bsprite[1];
                     trg1 = true;
                 }
                 
@@ -83,37 +86,29 @@ public class PatternScript : MonoBehaviour
                 if (hit.collider.name == chosenpat.transform.GetChild(2).name && hitted && trg1 & trg2)
                 {
 
-                    //burger.SetActive(false);
 
-                    //go to next pattern/food
+                    //reset food sprite
                     chosenfood.GetComponent<Animator>().SetInteger("eat", 1);
 
                     //update score
                     ScoreScript.scoreValue += 10;
 
+                    //disable previous food/pattern
+
+                    chosenpat.SetActive(false);
+                    chosenfood.SetActive(false);
+
+                    //choose next food/pattern
                     num = Random.Range(0, 2);
                     num2 = Random.Range(0, 2);
 
                     chosenpat = tubes[num];
                     chosenfood = food[num2];
 
-                    chosenpat.SetActive(true);
-                    foreach (GameObject go in tubes)
-                    {
-                        if (go != chosenpat)
-                        {
-                            go.SetActive(false);
-                        }
-                    }
+                    //set next chosen food/pattern
 
+                    chosenpat.SetActive(true);
                     chosenfood.SetActive(true);
-                    foreach (GameObject gb in food)
-                    {
-                        if (gb != chosenfood)
-                        {
-                            gb.SetActive(false);
-                        }
-                    }
 
                     //reset triggers
                     trg1 = false;
@@ -124,10 +119,15 @@ public class PatternScript : MonoBehaviour
             }
             else
             {
+
                 if (hitted == true)
                 {
                     Debug.Log("Lost target");
                     hitted = false;
+                    trg1 = false;
+                    trg2 = false;
+
+
 
                     //when leaving tube to reset first burger
                     chosenfood.GetComponent<Animator>().SetInteger("eat", 1);
@@ -135,7 +135,19 @@ public class PatternScript : MonoBehaviour
                 }
             }
 
-            
+
+
+        }
+
+        if( hitted == true)
+        {
+            chosenpat.transform.GetChild(3).transform.GetChild(0).GetComponent<Renderer>().enabled = false;
+            chosenpat.transform.GetChild(3).transform.GetChild(0).GetComponent<Animator>().enabled = false;
+        }
+        else
+        {
+            chosenpat.transform.GetChild(3).transform.GetChild(0).GetComponent<Renderer>().enabled = true;
+            chosenpat.transform.GetChild(3).transform.GetChild(0).GetComponent<Animator>().enabled = true;
         }
     }
 }
