@@ -1,6 +1,8 @@
 ﻿//using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Security.Cryptography;
 //using System.Diagnostics;
 //using System.Diagnostics;
 using UnityEngine;
@@ -14,8 +16,9 @@ public class PatternScript : MonoBehaviour
     public GameObject[] food;
     public GameObject[] tubes;
     public GameObject[] stage;
+    public GameObject target;
 
-    bool hitted = false;
+    public bool hitted = false;
     bool trg1 = false;
     bool trg2 = false;
     int num;
@@ -55,15 +58,14 @@ public class PatternScript : MonoBehaviour
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
-            Vector2 pos = Camera.main.ScreenToWorldPoint(touch.position);
-            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
+            Vector3 pos = Camera.main.ScreenToWorldPoint(touch.position);
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector3.zero);
             if (hit != null && hit.collider != null && touch.phase != TouchPhase.Ended)
             {
 
-                //Debug.Log("I'm hitting " + hit.collider.name);
-               
-
-
+                //Debug.Log("I'm hitting " + hit.collider.name
+                
+                //stages to complete pattern
                 if (hit.collider.name == "fdcc")
                 {
                     hitted = true;
@@ -90,6 +92,9 @@ public class PatternScript : MonoBehaviour
                     //reset food sprite
                     chosenfood.GetComponent<Animator>().SetInteger("eat", 1);
 
+                    //reset position of food
+                    chosenfood.transform.position = new Vector3(4f, 2.5f, 0f);
+
                     //update score
                     ScoreScript.scoreValue += 10;
 
@@ -106,9 +111,14 @@ public class PatternScript : MonoBehaviour
                     chosenfood = food[num2];
 
                     //set next chosen food/pattern
-
                     chosenpat.SetActive(true);
                     chosenfood.SetActive(true);
+
+                    //move chosen food to position
+
+
+                    // chosenpat.SetActive(true);
+                    // chosenfood.SetActive(true);
 
                     //reset triggers
                     trg1 = false;
@@ -119,6 +129,7 @@ public class PatternScript : MonoBehaviour
             }
             else
             {
+                //reset when removing touch
 
                 if (hitted == true)
                 {
