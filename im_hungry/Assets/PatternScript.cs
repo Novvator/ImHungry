@@ -2,31 +2,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Globalization;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 //using System.Diagnostics;
 //using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PatternScript : MonoBehaviour
 {
     private GameObject chosenpat;
     private GameObject chosenfood;
 
+    float currentTime = 0f;
+    float startingTime = 30f;
+    bool startTimer = false;
+    [SerializeField] Text countdownText;
+
+    public GameObject resetButton;
+
     public GameObject[] food;
     public GameObject[] tubes;
     public GameObject[] stage;
-    public GameObject target;
 
     public bool hitted = false;
     bool trg1 = false;
     bool trg2 = false;
     int num;
     int num2;
+    bool completedlvl = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentTime = startingTime;
+        resetButton.SetActive(false);
+
         num = Random.Range(0, 2);
         chosenpat = tubes[num];
         foreach (GameObject go in tubes)
@@ -57,10 +70,25 @@ public class PatternScript : MonoBehaviour
         
         if (Input.touchCount == 1)
         {
+
             Touch touch = Input.GetTouch(0);
             Vector3 pos = Camera.main.ScreenToWorldPoint(touch.position);
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector3.zero);
-            if (hit != null && hit.collider != null && touch.phase != TouchPhase.Ended)
+
+            //pressing reset button
+            if (hit !=  null && hit.collider != null && touch.phase != TouchPhase.Ended)
+            {
+                if (hit.collider.name == "resetButton")
+                {
+                    completedlvl = false;
+                    resetButton.SetActive(false);
+                    currentTime = 30f;
+                    ScoreScript.scoreValue = 0;
+
+                }
+            }
+
+            if (hit != null && hit.collider != null && touch.phase != TouchPhase.Ended && completedlvl == false)
             {
 
                 //Debug.Log("I'm hitting " + hit.collider.name
@@ -69,6 +97,7 @@ public class PatternScript : MonoBehaviour
                 if (hit.collider.name == "fdcc")
                 {
                     hitted = true;
+                    startTimer = true;
 
                 }
 
@@ -159,6 +188,23 @@ public class PatternScript : MonoBehaviour
         {
             chosenpat.transform.GetChild(3).transform.GetChild(0).GetComponent<Renderer>().enabled = true;
             chosenpat.transform.GetChild(3).transform.GetChild(0).GetComponent<Animator>().enabled = true;
+        }
+
+        if(startTimer == true)
+        {
+            currentTime -= 1 * Time.deltaTime;
+            countdownText.text = currentTime.ToString("N1", CultureInfo.InvariantCulture);
+
+            if(currentTime <= 0)
+            {
+                currentTime = 0;
+            }
+
+            if (currentTime == 0)
+            {
+                completedlvl = true;
+                resetButton.SetActive(true);
+            }
         }
     }
 }

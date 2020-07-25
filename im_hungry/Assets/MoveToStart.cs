@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MoveToStart : MonoBehaviour
 {
-    public float speed = 1f;
+    float speed = 12f;
     public GameObject target;
-    float Wradius = 1;
+    //float Wradius = 1;
     // Start is called before the first frame update
     void Start()
     {
