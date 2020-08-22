@@ -1,0 +1,7 @@
+canvas size: 420px x 420px
+
+rounded rectangle
+
+width 75px
+outline 3px
+color #7fD3EC
