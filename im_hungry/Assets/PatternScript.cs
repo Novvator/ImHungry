@@ -32,6 +32,8 @@ public class PatternScript : MonoBehaviour
     bool trg2 = false;
     int num;
     int num2;
+    int lastnum;
+    int lastnum2;
     bool completedlvl = false;
 
     // Start is called before the first frame update
@@ -40,7 +42,8 @@ public class PatternScript : MonoBehaviour
         currentTime = startingTime;
         resetButton.SetActive(false);
 
-        num = Random.Range(0, 2);
+        //choose first pattern/food
+        num = Random.Range(0, tubes.Length);
         chosenpat = tubes[num];
         foreach (GameObject go in tubes)
         {
@@ -50,7 +53,7 @@ public class PatternScript : MonoBehaviour
             }
         }
 
-        num2 = Random.Range(0, 2);
+        num2 = Random.Range(0, food.Length);
         chosenfood = food[num2];
         foreach (GameObject gb in food)
         {
@@ -133,8 +136,25 @@ public class PatternScript : MonoBehaviour
                     chosenfood.SetActive(false);
 
                     //choose next food/pattern
-                    num = Random.Range(0, 2);
-                    num2 = Random.Range(0, 2);
+
+                    
+                    lastnum = num;
+                    lastnum2 = num2;
+                    
+                    num = Random.Range(0, tubes.Length);
+                    num2 = Random.Range(0, food.Length);
+
+                    //dont choose last pattern
+
+                    if (num == lastnum)
+                    {
+                        num = (num + 1) % tubes.Length;
+                    }
+
+                    if (num2 == lastnum2)
+                    {
+                        num2 = (num2 + 1) % food.Length;
+                    }
 
                     chosenpat = tubes[num];
                     chosenfood = food[num2];
