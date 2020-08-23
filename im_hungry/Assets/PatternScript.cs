@@ -36,6 +36,8 @@ public class PatternScript : MonoBehaviour
     int lastnum2;
     bool completedlvl = false;
 
+    bool endhasPlayed = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +89,7 @@ public class PatternScript : MonoBehaviour
                     resetButton.SetActive(false);
                     currentTime = 30f;
                     ScoreScript.scoreValue = 0;
+                    endhasPlayed = false;
 
                 }
             }
@@ -106,20 +109,30 @@ public class PatternScript : MonoBehaviour
 
                 if(hit.collider.name == chosenpat.transform.GetChild(0).name && hitted)
                 {
+                    SoundManagerScript.PlaySound("eating1");
+                    //prevent replay of sound
+                    chosenpat.transform.GetChild(0).gameObject.SetActive(false);
                     chosenfood.GetComponent<Animator>().SetInteger("eat", 2);
                     trg1 = true;
                 }
                 
                 if(hit.collider.name == chosenpat.transform.GetChild(1).name && hitted && trg1)
                 {
-
+                    SoundManagerScript.PlaySound("eating1");
+                    //prevent replay of sound
+                    chosenpat.transform.GetChild(1).gameObject.SetActive(false);
                     chosenfood.GetComponent<Animator>().SetInteger("eat", 3);
                     trg2 = true;
 
                 }
                 if (hit.collider.name == chosenpat.transform.GetChild(2).name && hitted && trg1 & trg2)
                 {
+                    //play sound
+                    SoundManagerScript.PlaySound("okpattern");
 
+                    //reset stage triggers
+                    chosenpat.transform.GetChild(0).gameObject.SetActive(true);
+                    chosenpat.transform.GetChild(1).gameObject.SetActive(true);
 
                     //reset food sprite
                     chosenfood.GetComponent<Animator>().SetInteger("eat", 1);
@@ -182,12 +195,15 @@ public class PatternScript : MonoBehaviour
 
                 if (hitted == true)
                 {
+
                     Debug.Log("Lost target");
                     hitted = false;
                     trg1 = false;
                     trg2 = false;
 
-
+                    //reset stage triggers
+                    chosenpat.transform.GetChild(0).gameObject.SetActive(true);
+                    chosenpat.transform.GetChild(1).gameObject.SetActive(true);
 
                     //when leaving tube to reset first burger
                     chosenfood.GetComponent<Animator>().SetInteger("eat", 1);
@@ -199,6 +215,7 @@ public class PatternScript : MonoBehaviour
 
         }
 
+        //start-stop animation of begin indicator
         if( hitted == true)
         {
             chosenpat.transform.GetChild(3).transform.GetChild(0).GetComponent<Renderer>().enabled = false;
@@ -222,6 +239,10 @@ public class PatternScript : MonoBehaviour
 
             if (currentTime == 0)
             {
+                //play end sound
+                if(!endhasPlayed) { SoundManagerScript.PlaySound("end"); }
+                endhasPlayed = true;
+
                 completedlvl = true;
                 resetButton.SetActive(true);
             }
