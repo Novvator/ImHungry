@@ -21,11 +21,11 @@ public class PatternScript : MonoBehaviour
     bool startTimer = false;
     [SerializeField] Text countdownText;
 
-    public GameObject resetButton;
+    [SerializeField] private GameObject resetButton;
 
-    public GameObject[] food;
-    public GameObject[] tubes;
-    public GameObject[] stage;
+    [SerializeField] private GameObject[] food;
+    [SerializeField] private GameObject[] tubes;
+    [SerializeField] private GameObject[] stage;
 
     public bool hitted = false;
     bool trg1 = false;
@@ -41,32 +41,53 @@ public class PatternScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InitializePatternsAndFood();
         currentTime = startingTime;
         resetButton.SetActive(false);
 
         //choose first pattern/food
-        num = Random.Range(0, tubes.Length);
-        chosenpat = tubes[num];
-        foreach (GameObject go in tubes)
-        {
-            if (go != chosenpat)
-            {
-                go.SetActive(false);
-            }
-        }
+        //num = Random.Range(0, tubes.Length);
+        //chosenpat = tubes[num];
+        //foreach (GameObject go in tubes)
+        //{
+        //    if (go != chosenpat)
+        //    {
+        //        go.SetActive(false);
+        //    }
+        //}
 
-        num2 = Random.Range(0, food.Length);
-        chosenfood = food[num2];
-        foreach (GameObject gb in food)
-        {
-            if (gb != chosenfood)
-            {
-                gb.SetActive(false);
-            }
-        }
+        //num2 = Random.Range(0, food.Length);
+        //chosenfood = food[num2];
+        //foreach (GameObject gb in food)
+        //{
+        //    if (gb != chosenfood)
+        //    {
+        //        gb.SetActive(false);
+        //    }
+        //}
 
 
     }
+
+    void InitializePatternsAndFood()
+    {
+        int patternIndex = UnityEngine.Random.Range(0, tubes.Length);
+        chosenpat = tubes[patternIndex];
+
+        foreach (GameObject tube in tubes)
+        {
+            tube.SetActive(tube == chosenpat);
+        }
+
+        int foodIndex = UnityEngine.Random.Range(0, food.Length);
+        chosenfood = food[foodIndex];
+
+        foreach (GameObject foodObj in food)
+        {
+            foodObj.SetActive(foodObj == chosenfood);
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -83,15 +104,7 @@ public class PatternScript : MonoBehaviour
             //pressing reset button
             if (hit !=  null && hit.collider != null && touch.phase != TouchPhase.Ended)
             {
-                if (hit.collider.name == "resetButton")
-                {
-                    completedlvl = false;
-                    resetButton.SetActive(false);
-                    currentTime = 30f;
-                    ScoreScript.scoreValue = 0;
-                    endhasPlayed = false;
-
-                }
+                HandleResetButton(hit);
             }
 
             if (hit != null && hit.collider != null && touch.phase != TouchPhase.Ended && completedlvl == false)
@@ -205,6 +218,8 @@ public class PatternScript : MonoBehaviour
                     chosenpat.transform.GetChild(0).gameObject.SetActive(true);
                     chosenpat.transform.GetChild(1).gameObject.SetActive(true);
 
+
+
                     //when leaving tube to reset first burger
                     chosenfood.GetComponent<Animator>().SetInteger("eat", 1);
 
@@ -233,6 +248,19 @@ public class PatternScript : MonoBehaviour
 
                 completedlvl = true;
                 resetButton.SetActive(true);
+            }
+        }
+
+
+        void HandleResetButton(RaycastHit2D hit)
+        {
+            if (hit.collider.name == "resetButton")
+            {
+                completedlvl = false;
+                resetButton.SetActive(false);
+                currentTime = startingTime;
+                ScoreScript.scoreValue = 0;
+                endhasPlayed = false;
             }
         }
     }

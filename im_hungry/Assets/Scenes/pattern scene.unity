@@ -1249,7 +1249,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 571eb1cfaac056d4988e8cbb6a46822e, type: 3}
-    m_FontSize: 150
+    m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -3255,6 +3255,7 @@ MonoBehaviour:
   - {fileID: 1140602938}
   - {fileID: 2116829183}
   hitted: 0
+  flashRenderer: {fileID: 1826524029}
 --- !u!1 &1911758569
 GameObject:
   m_ObjectHideFlags: 0
@@ -3834,7 +3835,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 571eb1cfaac056d4988e8cbb6a46822e, type: 3}
-    m_FontSize: 150
+    m_FontSize: 130
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1

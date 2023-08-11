@@ -1,46 +1,132 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-[System.Serializable]
-public class Pattern : MonoBehaviour
+public class Patter : MonoBehaviour
 {
-    public Transform[] checkpoints;  // Define checkpoints in the Unity Inspector
-    public Transform destination;   // Define destination point in the Unity Inspector
-    public float timeLimit = 30f;   // Time limit for completing the pattern
+    private GameObject chosenPattern;
+    private GameObject chosenFood;
 
-    private bool isPatternCompleted;
-    private bool isPatternPart1Hit;
-    private bool isPatternPart2Hit;
-    
-    public void ResetPattern()
+    float currentTime = 0f;
+    float startingTime = 30f;
+    bool startTimer = false;
+    [SerializeField] Text countdownText;
+
+    private bool hitted;
+    private GameObject resetButton;
+
+    private GameObject[] food;
+    private GameObject[] tubes;
+    private GameObject[] stage;
+
+    bool completedLevel = false;
+    bool endSoundPlayed = false;
+
+    void Start()
     {
-        isPatternCompleted = false;
-        isPatternPart1Hit = false;
-        isPatternPart2Hit = false;
+        currentTime = startingTime;
+        resetButton.SetActive(false);
 
-        // Reset pattern visuals and animations here
+        InitializePatternsAndFood();
     }
 
-    public void UpdatePatternInteraction()
+    void Update()
     {
-        if (!isPatternCompleted)
+        HandleInput();
+        UpdateTimer();
+    }
+
+    void InitializePatternsAndFood()
+    {
+        int patternIndex = UnityEngine.Random.Range(0, tubes.Length);
+        chosenPattern = tubes[patternIndex];
+
+        foreach (GameObject tube in tubes)
         {
-            // Update pattern interaction logic based on touch input
+            tube.SetActive(tube == chosenPattern);
+        }
+
+        int foodIndex = UnityEngine.Random.Range(0, food.Length);
+        chosenFood = food[foodIndex];
+
+        foreach (GameObject foodObj in food)
+        {
+            foodObj.SetActive(foodObj == chosenFood);
         }
     }
 
-    // Add other methods for handling pattern interactions, animations, and more
-
-    private bool CheckIfPatternIsCompleted()
+    void HandleInput()
     {
-        // Check if the user has successfully completed the pattern based on checkpoint interactions
-        // and reaching the destination point
-        return isPatternPart1Hit && isPatternPart2Hit && IsTouchingDestination();
+        if (Input.touchCount == 1)
+        {
+            Touch touch = Input.GetTouch(0);
+            Vector3 pos = Camera.main.ScreenToWorldPoint(touch.position);
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector3.zero);
+
+            if (hit != null && hit.collider != null && touch.phase != TouchPhase.Ended)
+            {
+                HandleResetButton(hit);
+                HandlePatternInteraction(hit);
+            }
+            else
+            {
+                ResetOnTouchRelease();
+            }
+        }
     }
 
-    private bool IsTouchingDestination()
+    void HandleResetButton(RaycastHit2D hit)
     {
-        // Implement logic to check if the user's touch is within a certain threshold of the destination point
-        // This can involve distance calculations between the touch position and the destination point
-        return false;
+        if (hit.collider.name == "resetButton")
+        {
+            completedLevel = false;
+            resetButton.SetActive(false);
+            currentTime = startingTime;
+            ScoreScript.scoreValue = 0;
+            endSoundPlayed = false;
+        }
+    }
+
+    void HandlePatternInteraction(RaycastHit2D hit)
+    {
+        if (completedLevel || chosenPattern == null || chosenFood == null)
+            return;
+
+        if (hit.collider.name == "fdcc")
+        {
+            // Handle stage completion logic
+        }
+
+        if (hit.collider.name == chosenPattern.transform.GetChild(0).name)
+        {
+            // Handle pattern interaction logic
+        }
+
+        if (hit.collider.name == chosenPattern.transform.GetChild(1).name)
+        {
+            // Handle pattern interaction logic
+        }
+
+        if (hit.collider.name == chosenPattern.transform.GetChild(2).name)
+        {
+            // Handle pattern interaction logic
+        }
+    }
+
+    void ResetOnTouchRelease()
+    {
+        if (completedLevel || !hitted)
+            return;
+
+        // Reset logic when touch is released
+    }
+
+    void UpdateTimer()
+    {
+        if (hitted)
+        {
+            // Update timer and countdown text
+        }
     }
 }
