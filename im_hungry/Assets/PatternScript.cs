@@ -215,18 +215,6 @@ public class PatternScript : MonoBehaviour
 
         }
 
-        //start-stop animation of begin indicator
-        if( hitted == true)
-        {
-            //chosenpat.transform.GetChild(3).transform.GetChild(0).GetComponent<Renderer>().enabled = false;
-            //chosenpat.transform.GetChild(3).transform.GetChild(0).GetComponent<Animator>().enabled = false;
-        }
-        else
-        {
-            //chosenpat.transform.GetChild(3).transform.GetChild(0).GetComponent<Renderer>().enabled = true;
-            //chosenpat.transform.GetChild(3).transform.GetChild(0).GetComponent<Animator>().enabled = true;
-        }
-
         if(startTimer == true)
         {
             currentTime -= 1 * Time.deltaTime;
