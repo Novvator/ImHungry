@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BackgroundMoveMenu.cs" />
+    <Compile Include="Assets\FlashScreen.cs" />
     <Compile Include="Assets\LevelChanger.cs" />
     <Compile Include="Assets\MenuScript.cs" />
     <Compile Include="Assets\MoveToStart.cs" />
