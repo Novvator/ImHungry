@@ -268,6 +268,7 @@ public class PatternScript : MonoBehaviour
             if (Input.touchCount == 1)
             {
                 Touch touch = Input.GetTouch(0);
+
                 Vector3 pos = Camera.main.ScreenToWorldPoint(touch.position);
                 RaycastHit2D hit = Physics2D.Raycast(pos, Vector3.zero);
 
@@ -374,7 +375,7 @@ public class PatternScript : MonoBehaviour
 
         void ResetOnTouchRelease()
         {
-            if (hitted == true)
+            if (hitted == true && trg1 == true)
             {
                 Debug.Log("Lost target");
                 StartCoroutine(PlayRedFlash());
