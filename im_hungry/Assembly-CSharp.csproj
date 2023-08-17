@@ -72,6 +72,7 @@
     <Compile Include="Assets\Pattern.cs" />
     <Compile Include="Assets\PatternScript.cs" />
     <Compile Include="Assets\ScoreScript.cs" />
+    <Compile Include="Assets\Script Tools\NewBehaviourScript.cs" />
     <Compile Include="Assets\SoundManagerScript.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
