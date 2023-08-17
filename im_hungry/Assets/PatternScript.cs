@@ -25,7 +25,7 @@ public class PatternScript : MonoBehaviour
 
     [SerializeField] private GameObject[] food;
     [SerializeField] private GameObject[] tubes;
-    [SerializeField] private GameObject[] stage;
+    //[SerializeField] private GameObject[] stage;
 
     public bool hitted = false;
     bool trg1 = false;
@@ -293,25 +293,25 @@ public class PatternScript : MonoBehaviour
                 startTimer = true;
             }
 
-            if (hit.collider.name == chosenpat.transform.GetChild(0).name && hitted)
-            {
-                SoundManagerScript.PlaySound("eating1");
-                //prevent replay of sound
-                chosenpat.transform.GetChild(0).gameObject.SetActive(false);
-                chosenfood.GetComponent<Animator>().SetInteger("eat", 2);
-                trg1 = true;
-            }
-
-            if (hit.collider.name == chosenpat.transform.GetChild(1).name && hitted && trg1)
+            if (hit.collider.name == chosenpat.transform.GetChild(1).name && hitted)
             {
                 SoundManagerScript.PlaySound("eating1");
                 //prevent replay of sound
                 chosenpat.transform.GetChild(1).gameObject.SetActive(false);
+                chosenfood.GetComponent<Animator>().SetInteger("eat", 2);
+                trg1 = true;
+            }
+
+            if (hit.collider.name == chosenpat.transform.GetChild(2).name && hitted && trg1)
+            {
+                SoundManagerScript.PlaySound("eating1");
+                //prevent replay of sound
+                chosenpat.transform.GetChild(2).gameObject.SetActive(false);
                 chosenfood.GetComponent<Animator>().SetInteger("eat", 3);
                 trg2 = true;
             }
 
-            if (hit.collider.name == chosenpat.transform.GetChild(2).name && hitted && trg1 & trg2)
+            if (hit.collider.name == chosenpat.transform.GetChild(3).name && hitted && trg1 & trg2)
             {
                 // Handle pattern interaction logic
                 {
@@ -319,8 +319,8 @@ public class PatternScript : MonoBehaviour
                     SoundManagerScript.PlaySound("okpattern");
 
                     //reset stage triggers
-                    chosenpat.transform.GetChild(0).gameObject.SetActive(true);
                     chosenpat.transform.GetChild(1).gameObject.SetActive(true);
+                    chosenpat.transform.GetChild(2).gameObject.SetActive(true);
 
                     //reset food sprite
                     chosenfood.GetComponent<Animator>().SetInteger("eat", 1);
@@ -383,8 +383,8 @@ public class PatternScript : MonoBehaviour
                 trg2 = false;
 
                 //reset stage triggers
-                chosenpat.transform.GetChild(0).gameObject.SetActive(true);
                 chosenpat.transform.GetChild(1).gameObject.SetActive(true);
+                chosenpat.transform.GetChild(2).gameObject.SetActive(true);
 
 
 
