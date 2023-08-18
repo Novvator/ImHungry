@@ -1,0 +1,2 @@
+### When remote rejected with reason of file > 100mb
+git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch im_hungry/Library/PackageCache/com.unity.burst@1.8.7/.Runtime/libburst-llvm-15.dylib'
