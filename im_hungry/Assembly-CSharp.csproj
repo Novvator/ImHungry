@@ -53,7 +53,7 @@
     <UnityVersion>2022.3.7f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -62,9 +62,9 @@
     <Compile Include="Assets\Pattern.cs" />
     <Compile Include="Assets\Script Tools\NewBehaviourScript.cs" />
     <Compile Include="Assets\ScoreScript.cs" />
+    <Compile Include="Assets\FoodScript.cs" />
     <Compile Include="Assets\FlashScreen.cs" />
     <Compile Include="Assets\LevelChanger.cs" />
-    <Compile Include="Assets\MoveToStart.cs" />
     <Compile Include="Assets\MenuScript.cs" />
     <Compile Include="Assets\PatternScript.cs" />
     <Compile Include="Assets\SoundManagerScript.cs" />
