@@ -197,6 +197,7 @@ public class PatternScript : MonoBehaviour
             if (hitted == true && trg1 == true)
             {
                 Debug.Log("Lost target");
+                SoundManagerScript.PlaySound("fail");
                 StartCoroutine(PlayRedFlash());
                 hitted = false;
                 trg1 = false;
