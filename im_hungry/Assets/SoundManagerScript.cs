@@ -17,7 +17,7 @@ public class SoundManagerScript : MonoBehaviour
         eatSound = Resources.Load<AudioClip>("eating1");
         completeSound = Resources.Load<AudioClip>("okpattern");
         endSound = Resources.Load<AudioClip>("end");
-        failSound = Resources.Load<AudioClip>("fail");
+        failSound = Resources.Load<AudioClip>("fail3");
         audioSrc = GetComponent<AudioSource>();
 
     }

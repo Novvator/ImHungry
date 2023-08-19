@@ -7,29 +7,31 @@ public class LevelChanger : MonoBehaviour
 {
 
     public Animator animator;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float transitionTime = 1f;
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void FadeToLevel ()
+    public void LoadLevel(string level)
     {
-        animator.SetTrigger("FadeOut");
+        StartCoroutine(LoadLevelCoroutine(level));
     }
 
-    public void OnFadeOutComplete()
+    IEnumerator LoadLevelCoroutine(string level)
     {
-        SceneManager.LoadScene(1);
-        animator.SetTrigger("FadeIn");
+        //Play Animation
+        animator.SetTrigger("Start");
+        //Wait
+        yield return new WaitForSeconds(transitionTime);
+        //Load scene
+        SceneManager.LoadScene(level);
 
     }
+
+    
+
+    
 }
