@@ -227,7 +227,9 @@ public class PatternScript : MonoBehaviour
             //currentTime = startingTime;
             //ScoreScript.scoreValue = 0;
             //endhasPlayed = false;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("Level Menu");
 
 
     }
@@ -280,6 +282,7 @@ public class PatternScript : MonoBehaviour
         if (ScoreScript.scoreValue >= scoreGoal)
         {
             SoundManagerScript.PlaySound("win");
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " Completed", 1);
         }
         else
         {
