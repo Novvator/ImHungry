@@ -9,6 +9,7 @@ public class LevelChanger : MonoBehaviour
     public Animator animator;
     public float transitionTime = 1f;
 
+
     // Update is called once per frame
     void Update()
     {
