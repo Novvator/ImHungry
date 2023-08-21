@@ -375,6 +375,7 @@
 "Assets/FlashScreen.cs"
 "Assets/FoodScript.cs"
 "Assets/LevelChanger.cs"
+"Assets/LevelMenuManager.cs"
 "Assets/MenuScript.cs"
 "Assets/Pattern.cs"
 "Assets/PatternScript.cs"
