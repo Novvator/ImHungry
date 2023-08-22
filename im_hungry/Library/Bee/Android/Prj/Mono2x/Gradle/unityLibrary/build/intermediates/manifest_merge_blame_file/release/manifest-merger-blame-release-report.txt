@@ -1,0 +1,128 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:tools="http://schemas.android.com/tools"
+4    package="com.unity3d.player" >
+5
+6    <uses-sdk
+7        android:minSdkVersion="22"
+7-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml
+8        android:targetSdkVersion="32" />
+8-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml
+9
+10    <uses-permission android:name="android.permission.INTERNET" />
+10-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:3:3-65
+10-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:3:20-62
+11
+12    <uses-feature android:glEsVersion="0x00030000" />
+12-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:4:3-52
+12-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:4:17-49
+13    <uses-feature
+13-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:5:3-91
+14        android:name="android.hardware.vulkan.version"
+14-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:5:17-63
+15        android:required="false" />
+15-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:5:64-88
+16    <uses-feature
+16-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:6:3-88
+17        android:name="android.hardware.touchscreen"
+17-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:6:17-60
+18        android:required="false" />
+18-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:6:61-85
+19    <uses-feature
+19-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:7:3-99
+20        android:name="android.hardware.touchscreen.multitouch"
+20-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:7:17-71
+21        android:required="false" />
+21-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:7:72-96
+22    <uses-feature
+22-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:8:3-108
+23        android:name="android.hardware.touchscreen.multitouch.distinct"
+23-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:8:17-80
+24        android:required="false" />
+24-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:8:81-105
+25
+26    <application android:extractNativeLibs="true" >
+26-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:9:3-24:17
+26-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:9:16-48
+27        <meta-data
+27-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:10:5-69
+28            android:name="unity.splash-mode"
+28-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:10:16-48
+29            android:value="0" />
+29-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:10:49-66
+30        <meta-data
+30-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:11:5-74
+31            android:name="unity.splash-enable"
+31-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:11:16-50
+32            android:value="True" />
+32-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:11:51-71
+33        <meta-data
+33-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:12:5-78
+34            android:name="unity.launch-fullscreen"
+34-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:12:16-54
+35            android:value="True" />
+35-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:12:55-75
+36        <meta-data
+36-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:13:5-84
+37            android:name="unity.allow-resizable-window"
+37-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:13:16-59
+38            android:value="False" />
+38-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:13:60-81
+39        <meta-data
+39-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:14:5-81
+40            android:name="notch.config"
+40-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:14:16-43
+41            android:value="portrait|landscape" />
+41-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:14:44-78
+42        <meta-data
+42-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:15:5-84
+43            android:name="unity.auto-report-fully-drawn"
+43-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:15:16-60
+44            android:value="true" />
+44-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:15:61-81
+45
+46        <activity
+46-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:16:5-23:16
+47            android:name="com.unity3d.player.UnityPlayerActivity"
+47-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:16:15-68
+48            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
+48-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:16:180-361
+49            android:exported="true"
+49-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:16:433-456
+50            android:hardwareAccelerated="false"
+50-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:16:397-432
+51            android:launchMode="singleTask"
+51-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:16:148-179
+52            android:resizeableActivity="false"
+52-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:16:362-396
+53            android:screenOrientation="portrait"
+53-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:16:111-147
+54            android:theme="@style/UnityThemeSelector" >
+54-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:16:69-110
+55            <intent-filter>
+55-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:17:7-20:23
+56                <category android:name="android.intent.category.LAUNCHER" />
+56-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:18:9-69
+56-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:18:19-66
+57
+58                <action android:name="android.intent.action.MAIN" />
+58-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:19:9-61
+58-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:19:17-58
+59            </intent-filter>
+60
+61            <meta-data
+61-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:21:7-82
+62                android:name="unityplayer.UnityActivity"
+62-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:21:18-58
+63                android:value="true" />
+63-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:21:59-79
+64            <meta-data
+64-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:22:7-70
+65                android:name="notch_support"
+65-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:22:18-46
+66                android:value="true" />
+66-->D:\Users\SenpaiOrigin\Documents\ImHungry\im_hungry\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\AndroidManifest.xml:22:47-67
+67        </activity>
+68    </application>
+69
+70</manifest>

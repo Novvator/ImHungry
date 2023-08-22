@@ -1845,10 +1845,10 @@ MonoBehaviour:
   - {fileID: 1020448507}
   - {fileID: 1175588223}
   tubes:
-  - {fileID: 1781576596}
-  - {fileID: 1933446934}
   - {fileID: 886544076}
   - {fileID: 184864160}
+  - {fileID: 1933446934}
+  - {fileID: 1781576596}
   hitted: 0
   redFlashImage: {fileID: 118682023}
   redFlashDuration: 0.3
@@ -2230,10 +2230,10 @@ SceneRoots:
   m_Roots:
   - {fileID: 1851959510}
   - {fileID: 501082407}
-  - {fileID: 1781576595}
-  - {fileID: 1933446933}
   - {fileID: 974188512}
   - {fileID: 1206425013}
+  - {fileID: 1933446933}
+  - {fileID: 1781576595}
   - {fileID: 2622057762173367614}
   - {fileID: 734250653}
   - {fileID: 1529684832}
