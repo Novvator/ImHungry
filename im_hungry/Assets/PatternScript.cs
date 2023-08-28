@@ -5,8 +5,6 @@ using System.Collections.Specialized;
 using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
-//using System.Diagnostics;
-//using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,7 +14,8 @@ public class PatternScript : MonoBehaviour
     private GameObject chosenpat;
     private GameObject chosenfood;
     private FoodScript chosenfoodscript;
-    private TrailScript trailscript;
+    private GameObject activetrail;
+    private TrailScript activetrailscript;
 
     float currentTime = 0f;
     float startingTime = 30f;
@@ -30,7 +29,6 @@ public class PatternScript : MonoBehaviour
 
     [SerializeField] private GameObject[] food;
     [SerializeField] private GameObject[] tubes;
-    //[SerializeField] private GameObject[] stage;
 
     public bool hitted = false;
     bool trg1 = false;
@@ -54,7 +52,6 @@ public class PatternScript : MonoBehaviour
         InitializePatternsAndFood();
         currentTime = startingTime;
         resetButton.SetActive(false);
-        trailscript = Trail.GetComponent<TrailScript>();
     }
 
     void Update()
@@ -88,9 +85,15 @@ public class PatternScript : MonoBehaviour
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began) trailscript.InstantiateTrail(touch);
-
             Vector3 pos = Camera.main.ScreenToWorldPoint(touch.position);
+            if (touch.phase == TouchPhase.Began)
+            {
+                activetrail = Instantiate(Trail, pos, Quaternion.identity);
+                activetrailscript = activetrail.GetComponent<TrailScript>();
+                activetrailscript.InitTouch(touch);
+
+            }
+            
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector3.zero);
 
         if (hit != null && hit.collider != null && touch.phase != TouchPhase.Ended)
@@ -120,7 +123,6 @@ public class PatternScript : MonoBehaviour
             SoundManagerScript.PlaySound("eating1");
             //prevent replay of sound
             chosenpat.transform.GetChild(1).gameObject.SetActive(false);
-            //chosenfood.GetComponent<Animator>().SetInteger("eat", 2);
             chosenfoodscript.OnStage2();
             trg1 = true;
         }
@@ -130,7 +132,6 @@ public class PatternScript : MonoBehaviour
             SoundManagerScript.PlaySound("eating1");
             //prevent replay of sound
             chosenpat.transform.GetChild(2).gameObject.SetActive(false);
-            //chosenfood.GetComponent<Animator>().SetInteger("eat", 3);
             chosenfoodscript.OnStage3();
             trg2 = true;
         }
@@ -147,7 +148,6 @@ public class PatternScript : MonoBehaviour
                 chosenpat.transform.GetChild(2).gameObject.SetActive(true);
 
                 //reset food sprite
-                //chosenfood.GetComponent<Animator>().SetInteger("eat", 1);
                 chosenfoodscript.OnStage1();
 
                 //reset position of food
@@ -216,7 +216,6 @@ public class PatternScript : MonoBehaviour
 
 
             //when leaving tube to reset first burger
-            //chosenfood.GetComponent<Animator>().SetInteger("eat", 1);
             chosenfoodscript.OnStage1();
         }
         // Reset logic when touch is released
@@ -226,17 +225,8 @@ public class PatternScript : MonoBehaviour
     {
         if (hit.collider.name == "resetButton")
         {
-            //completedlvl = false;
-            //resetButton.SetActive(false);
-            //currentTime = startingTime;
-            //ScoreScript.scoreValue = 0;
-            //endhasPlayed = false;
-
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             SceneManager.LoadScene("Level Menu");
-
-
-    }
+        }
     }
 
     IEnumerator PlayRedFlash()
@@ -273,8 +263,6 @@ public class PatternScript : MonoBehaviour
                 //play end sound
                 if (!endhasPlayed) { checkIfWin(); }
                 endhasPlayed = true;
-                //if (!endhasPlayed) { SoundManagerScript.PlaySound("end"); }
-                //endhasPlayed = true;
 
                 completedlvl = true;
                 resetButton.SetActive(true);

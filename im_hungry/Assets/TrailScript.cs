@@ -64,16 +64,16 @@ using UnityEngine;
 public class TrailScript : MonoBehaviour
 {
     [SerializeField] GameObject trailPrefab;
+    private GameObject trail;
     private TrailRenderer trailRenderer;
     private SpriteRenderer spriteTrailRenderer;
-    private int activeTouchId = -1;
-    private GameObject currenttrail;
+    private Touch touch;
 
     private void Start()
     {
 
-        trailRenderer = GetComponent<TrailRenderer>();
-        spriteTrailRenderer = GetComponent<SpriteRenderer>();
+        trailRenderer = this.GetComponent<TrailRenderer>();
+        spriteTrailRenderer = this.GetComponent<SpriteRenderer>();
         spriteTrailRenderer.enabled = false;
     }
 
@@ -81,38 +81,28 @@ public class TrailScript : MonoBehaviour
     {
         if (Input.touchCount == 1)
         {
-            Touch touch = Input.GetTouch(0);
-            
+            touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
-                if (activeTouchId == -1)
-                {
-                    activeTouchId = touch.fingerId;
-                    Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-                    touchPosition.z = -1; // Ensure the trail is at the same depth as your game objects
-                    transform.position = touchPosition;
-                    EnableTrail(true);
-                }
+                
+                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                touchPosition.z = -1; // Ensure the trail is at the same depth as your game objects
+                Instantiate(trailPrefab, touchPosition, Quaternion.identity);
+                this.transform.position = touchPosition;
+                EnableTrail(true);
                 
             }
-            else if (touch.phase == TouchPhase.Moved)
+            if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
             {
-                if (touch.fingerId == activeTouchId)
-                {
-                    Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-                    touchPosition.z = -1; // Ensure the trail is at the same depth as your game objects
-                    transform.position = touchPosition;
-                }
+                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                touchPosition.z = -1; // Ensure the trail is at the same depth as your game objects
+                this.transform.position = touchPosition;
             }
             
-            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+            else if (touch.phase == TouchPhase.Ended)
             {
-                if (touch.fingerId == activeTouchId)
-                {
-                    // EnableTrail(false);
-                    Destroy(gameObject);
-                }
-                activeTouchId = -1;
+                // EnableTrail(false);
+                Destroy(this.gameObject);
             }
         }
     }
@@ -123,11 +113,17 @@ public class TrailScript : MonoBehaviour
         spriteTrailRenderer.enabled = state;
     }
 
-    public void InstantiateTrail(Touch touch)
+    public void InitTouch(Touch touch)
+    {
+        this.touch = touch;
+    }
+    
+    public GameObject InstantiateTrail(Touch touch)
     {
         Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
         touchPosition.z = -1;
-        currenttrail = Instantiate(gameObject, touchPosition, Quaternion.identity);
+        trail = Instantiate(this.gameObject, touchPosition, Quaternion.identity);
+        return trail;
     }
 }
 
