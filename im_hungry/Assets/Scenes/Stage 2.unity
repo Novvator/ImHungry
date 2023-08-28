@@ -1837,6 +1837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d4e884fb66ec4a9f79297b0f6dc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Trail: {fileID: 8132035923134161590, guid: d8ca301e3f4e6c042a915dc5168bc509, type: 3}
   scoreGoal: 120
   countdownText: {fileID: 2120119148}
   resetButton: {fileID: 1330082277}
