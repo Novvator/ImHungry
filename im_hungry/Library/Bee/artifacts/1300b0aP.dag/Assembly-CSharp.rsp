@@ -328,6 +328,7 @@
 "Assets/ScoreScript.cs"
 "Assets/Script Tools/NewBehaviourScript.cs"
 "Assets/SoundManagerScript.cs"
+"Assets/TrailScript.cs"
 -langversion:9.0
 
 /deterministic

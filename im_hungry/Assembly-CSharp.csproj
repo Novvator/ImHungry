@@ -69,6 +69,7 @@
     <Compile Include="Assets\LevelMenuManager.cs" />
     <Compile Include="Assets\PatternScript.cs" />
     <Compile Include="Assets\SoundManagerScript.cs" />
+    <Compile Include="Assets\TrailScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

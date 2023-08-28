@@ -16,11 +16,13 @@ public class PatternScript : MonoBehaviour
     private GameObject chosenpat;
     private GameObject chosenfood;
     private FoodScript chosenfoodscript;
+    private TrailScript trailscript;
 
     float currentTime = 0f;
     float startingTime = 30f;
     bool startTimer = false;
 
+    [SerializeField] GameObject Trail;
     [SerializeField] int scoreGoal;
     [SerializeField] Text countdownText;
 
@@ -52,6 +54,7 @@ public class PatternScript : MonoBehaviour
         InitializePatternsAndFood();
         currentTime = startingTime;
         resetButton.SetActive(false);
+        trailscript = Trail.GetComponent<TrailScript>();
     }
 
     void Update()
@@ -85,6 +88,7 @@ public class PatternScript : MonoBehaviour
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began) trailscript.InstantiateTrail(touch);
 
             Vector3 pos = Camera.main.ScreenToWorldPoint(touch.position);
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector3.zero);

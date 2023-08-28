@@ -9,6 +9,7 @@ ScriptsOnlyBuild:
     - PatternScript
     - ScoreScript
     - SoundManagerScript
+    - TouchTrail
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Animation.Runtime.dll:
@@ -35,16 +36,13 @@ ScriptsOnlyBuild:
     - UnityEngine.InputSystem.RemoteInputPlayerConnection
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    Unity.TextMeshPro:
-    - TMPro.TMP_FontAsset
-    - TMPro.TMP_Settings
-    - TMPro.TMP_SpriteAsset
-    - TMPro.TMP_StyleSheet
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -59,29 +57,10 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
   serializedClasses:
-    Unity.TextMeshPro:
-    - TMPro.FaceInfo_Legacy
-    - TMPro.FontAssetCreationSettings
-    - TMPro.KerningTable
-    - TMPro.TMP_Character
-    - TMPro.TMP_FontFeatureTable
-    - TMPro.TMP_FontWeightPair
-    - TMPro.TMP_GlyphAdjustmentRecord
-    - TMPro.TMP_GlyphPairAdjustmentRecord
-    - TMPro.TMP_GlyphValueRecord
-    - TMPro.TMP_Sprite
-    - TMPro.TMP_SpriteCharacter
-    - TMPro.TMP_SpriteGlyph
-    - TMPro.TMP_Style
     UnityEngine.CoreModule:
     - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
     - UnityEngine.Events.PersistentListenerMode
-    UnityEngine.TextCoreFontEngineModule:
-    - UnityEngine.TextCore.FaceInfo
-    - UnityEngine.TextCore.Glyph
-    - UnityEngine.TextCore.GlyphMetrics
-    - UnityEngine.TextCore.GlyphRect
     UnityEngine.UI:
     - UnityEngine.UI.AnimationTriggers
     - UnityEngine.UI.Button/ButtonClickedEvent
@@ -178,8 +157,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 49
-      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -197,8 +174,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16650}
     - Class: 114
-      Script: {instanceID: 17138}
-    - Class: 114
       Script: {instanceID: 17184}
     - Class: 114
       Script: {instanceID: 17526}
@@ -209,18 +184,10 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 18728}
     - Class: 114
-      Script: {instanceID: 18734}
-    - Class: 114
-      Script: {instanceID: 18962}
-    - Class: 114
-      Script: {instanceID: 19610}
-    - Class: 114
       Script: {instanceID: 20364}
     - Class: 114
       Script: {instanceID: 20516}
     - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -267,6 +234,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 95
       Script: {instanceID: 0}
+    - Class: 96
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
@@ -287,6 +256,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 19848}
     - Class: 114
       Script: {instanceID: 21782}
+    - Class: 114
+      Script: {instanceID: 22968}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1268,6 +1239,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: TouchTrail
   platform: 13
   scenePathNames:
   - Assets/Scenes/Main Menu.unity
