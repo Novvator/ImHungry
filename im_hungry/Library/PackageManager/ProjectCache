@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638278853615502013
-    m_Hash: 3380767677
+      ticks: 638283338869475706
+    m_Hash: 555019521
   m_LockFileStatus:
     m_FilePath: D:/Users/SenpaiOrigin/Documents/ImHungry/im_hungry/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638278853616544340
-    m_Hash: 361635435
+      ticks: 638283338869485715
+    m_Hash: 4070601285
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -1407,6 +1407,7 @@ m_ResolvedPackages:
     - 1.3.5
     - 1.3.7
     - 1.3.8
+    - 1.3.9
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -1421,6 +1422,7 @@ m_ResolvedPackages:
     - 1.3.5
     - 1.3.7
     - 1.3.8
+    - 1.3.9
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12

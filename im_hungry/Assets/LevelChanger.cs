@@ -9,6 +9,11 @@ public class LevelChanger : MonoBehaviour
     public Animator animator;
     public float transitionTime = 1f;
 
+    private void Awake()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
+    }
 
     // Update is called once per frame
     void Update()
