@@ -52,6 +52,7 @@ public class PatternScript : MonoBehaviour
         InitializePatternsAndFood();
         currentTime = startingTime;
         resetButton.SetActive(false);
+        ScoreScript.scoreGoal = scoreGoal;
     }
 
     void Update()
@@ -98,8 +99,8 @@ public class PatternScript : MonoBehaviour
 
         if (hit != null && hit.collider != null && touch.phase != TouchPhase.Ended)
             {
-                if (completedlvl) HandleResetButton(hit);
-                else HandlePatternInteraction(hit);
+                //if (completedlvl) HandleResetButton(hit);
+                if (!completedlvl) HandlePatternInteraction(hit);
 
             }
             else
@@ -221,13 +222,14 @@ public class PatternScript : MonoBehaviour
         // Reset logic when touch is released
     }
 
+    /*
     void HandleResetButton(RaycastHit2D hit)
     {
         if (hit.collider.name == "resetButton")
         {
             SceneManager.LoadScene("Level Menu");
         }
-    }
+    }*/
 
     IEnumerator PlayRedFlash()
     {
