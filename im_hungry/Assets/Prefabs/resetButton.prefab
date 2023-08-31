@@ -120,7 +120,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8188648436401553951, guid: c535c4c83dfa77443a23b446e43ea0ed,
+          type: 3}
         m_TargetAssemblyTypeName: LevelChanger, Assembly-CSharp
         m_MethodName: LoadLevel
         m_Mode: 5
@@ -129,6 +130,6 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level Menu
+          m_StringArgument: current
           m_BoolArgument: 0
         m_CallState: 2

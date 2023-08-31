@@ -23,7 +23,14 @@ public class LevelChanger : MonoBehaviour
 
     public void LoadLevel(string level)
     {
-        StartCoroutine(LoadLevelCoroutine(level));
+        if (level == "current")
+        {
+            StartCoroutine(LoadLevelCoroutine(SceneManager.GetActiveScene().name));
+        }
+        else
+        {
+            StartCoroutine(LoadLevelCoroutine(level));
+        }
     }
 
     IEnumerator LoadLevelCoroutine(string level)
@@ -36,6 +43,8 @@ public class LevelChanger : MonoBehaviour
         SceneManager.LoadScene(level);
 
     }
+
+
 
     
 
