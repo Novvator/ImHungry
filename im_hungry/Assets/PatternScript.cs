@@ -85,19 +85,26 @@ public class PatternScript : MonoBehaviour
 
     void HandleInput()
     {
-        if (Input.touchCount == 1)
+        foreach (Touch touch in Input.touches)
         {
-            Touch touch = Input.GetTouch(0);
+            if (touch.fingerId != 0)
+            {
+                continue; // Ignore touches with different IDs
+            }
+
             Vector3 pos = Camera.main.ScreenToWorldPoint(touch.position);
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector3.zero);
             if (touch.phase == TouchPhase.Began)
             {
+                
+                
                 activetrail = Instantiate(Trail, pos, Quaternion.identity);
                 activetrailscript = activetrail.GetComponent<TrailScript>();
-                activetrailscript.InitTouch(touch);
-
+                //activetrailscript.InitTouch(touch);
+                
             }
             
-            RaycastHit2D hit = Physics2D.Raycast(pos, Vector3.zero);
+            
 
         if (hit != null && hit.collider != null && touch.phase != TouchPhase.Ended)
             {
@@ -196,6 +203,7 @@ public class PatternScript : MonoBehaviour
                 trg1 = false;
                 trg2 = false;
                 hitted = false;
+                //activeTouchId = -1;
             }
         }
     }
@@ -219,6 +227,7 @@ public class PatternScript : MonoBehaviour
 
             //when leaving tube to reset first burger
             chosenfoodscript.OnStage1();
+
         }
         // Reset logic when touch is released
     }
