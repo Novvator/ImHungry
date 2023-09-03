@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Users\\SenpaiOrigin\\Documents\\ImHungry\\im_hungry\\Library\\Bee\\Android\\Prj\\Mono2x\\Gradle\\launcher\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\Paoka\\Documents\\ImHungry\\im_hungry\\Library\\Bee\\Android\\Prj\\Mono2x\\Gradle\\launcher\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "D:\\Users\\SenpaiOrigin\\Documents\\ImHungry\\im_hungry\\Library\\Bee\\Android\\Prj\\Mono2x\\Gradle\\launcher\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "2,2",
-                        "startOffsets": "55,101",
-                        "endColumns": "44,65",
-                        "endOffsets": "97,164"
-                    },
-                    "to": {
-                        "startLines": "8,9",
-                        "startColumns": "4,4",
-                        "startOffsets": "356,403",
-                        "endColumns": "46,67",
-                        "endOffsets": "398,466"
-                    }
-                },
-                {
-                    "source": "D:\\Users\\SenpaiOrigin\\Documents\\ImHungry\\im_hungry\\Library\\Bee\\Android\\Prj\\Mono2x\\Gradle\\unityLibrary\\build\\intermediates\\packaged_res\\release\\values\\values.xml",
+                    "source": "C:\\Users\\Paoka\\Documents\\ImHungry\\im_hungry\\Library\\Bee\\Android\\Prj\\Mono2x\\Gradle\\unityLibrary\\build\\intermediates\\packaged_res\\release\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -37,6 +20,23 @@
                         "endLines": "2,3,4,5,6,7,11,14,18",
                         "endColumns": "45,56,55,48,45,46,8,8,8",
                         "endOffsets": "96,153,209,258,304,351,566,704,931"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Paoka\\Documents\\ImHungry\\im_hungry\\Library\\Bee\\Android\\Prj\\Mono2x\\Gradle\\launcher\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "2,2",
+                        "startOffsets": "55,101",
+                        "endColumns": "44,65",
+                        "endOffsets": "97,164"
+                    },
+                    "to": {
+                        "startLines": "8,9",
+                        "startColumns": "4,4",
+                        "startOffsets": "356,403",
+                        "endColumns": "46,67",
+                        "endOffsets": "398,466"
                     }
                 }
             ]

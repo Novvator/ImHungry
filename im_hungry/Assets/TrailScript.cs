@@ -1,62 +1,3 @@
-/*using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-using UnityEngine;
-
-public class TouchManager : MonoBehaviour
-{
-    [SerializeField] GameObject trailPrefab;
-    [SerializeField] float trailLifetime = 2.0f;
-
-    private GameObject currentTrail;
-    private TrailRenderer currentTrailRenderer;
-
-    private void Update()
-    {
-        if (Input.touchCount == 1)
-        {
-            Touch touch = Input.GetTouch(0);
-            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-
-            if (touch.phase == TouchPhase.Began)
-            {
-                CreateTrail(touchPosition);
-            }
-            else if (touch.phase == TouchPhase.Moved)
-            {
-                UpdateTrailPosition(touchPosition);
-            }
-            else if (touch.phase == TouchPhase.Ended)
-            {
-                DestroyTrail();
-            }
-        }
-    }
-
-    private void CreateTrail(Vector3 initialPosition)
-    {
-        currentTrail = Instantiate(trailPrefab, initialPosition, Quaternion.identity);
-        currentTrailRenderer = currentTrail.GetComponent<TrailRenderer>();
-        Destroy(currentTrail, trailLifetime);
-    }
-
-    private void UpdateTrailPosition(Vector3 newPosition)
-    {
-        if (currentTrailRenderer != null)
-        {
-            currentTrail.transform.position = newPosition;
-        }
-    }
-
-    private void DestroyTrail()
-    {
-        Destroy(currentTrail);
-        currentTrailRenderer = null;
-    }
-}
-*/
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -67,11 +8,10 @@ public class TrailScript : MonoBehaviour
     private GameObject trail;
     private TrailRenderer trailRenderer;
     private SpriteRenderer spriteTrailRenderer;
-    private Touch touch;
+    //private Touch touch;
 
     private void Start()
     {
-
         trailRenderer = this.GetComponent<TrailRenderer>();
         spriteTrailRenderer = this.GetComponent<SpriteRenderer>();
         spriteTrailRenderer.enabled = false;
@@ -79,9 +19,12 @@ public class TrailScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.touchCount == 1)
+        foreach (Touch touch in Input.touches)
         {
-            touch = Input.GetTouch(0);
+            if (touch.fingerId != 0)
+            {
+                continue; // Ignore touches with different IDs
+            }
             if (touch.phase == TouchPhase.Began)
             {
                 
@@ -101,7 +44,6 @@ public class TrailScript : MonoBehaviour
             
             else if (touch.phase == TouchPhase.Ended)
             {
-                // EnableTrail(false);
                 Destroy(this.gameObject);
             }
         }
@@ -113,10 +55,10 @@ public class TrailScript : MonoBehaviour
         spriteTrailRenderer.enabled = state;
     }
 
-    public void InitTouch(Touch touch)
-    {
-        this.touch = touch;
-    }
+    //public void InitTouch(Touch touch)
+    //{
+     //   this.touch = touch;
+    //}
     
     public GameObject InstantiateTrail(Touch touch)
     {

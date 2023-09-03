@@ -82,6 +82,27 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: LevelChanger
     methodName: LoadLevel
+  - assembly: Assembly-CSharp
+    fullTypeName: LevelChanger
+    methodName: LoadLevel
+  - assembly: Assembly-CSharp
+    fullTypeName: LevelChanger
+    methodName: LoadLevel
+  - assembly: Assembly-CSharp
+    fullTypeName: LevelChanger
+    methodName: LoadLevel
+  - assembly: Assembly-CSharp
+    fullTypeName: LevelChanger
+    methodName: LoadLevel
+  - assembly: Assembly-CSharp
+    fullTypeName: LevelChanger
+    methodName: LoadLevel
+  - assembly: Assembly-CSharp
+    fullTypeName: LevelChanger
+    methodName: LoadLevel
+  - assembly: Assembly-CSharp
+    fullTypeName: LevelChanger
+    methodName: LoadLevel
   sceneClasses:
     Assets/Scenes/Level Menu.unity:
     - Class: 1
@@ -109,15 +130,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16614}
     - Class: 114
-      Script: {instanceID: 16650}
+      Script: {instanceID: 16616}
     - Class: 114
-      Script: {instanceID: 17184}
+      Script: {instanceID: 16652}
     - Class: 114
-      Script: {instanceID: 17526}
+      Script: {instanceID: 17186}
     - Class: 114
-      Script: {instanceID: 17668}
+      Script: {instanceID: 17528}
     - Class: 114
-      Script: {instanceID: 17884}
+      Script: {instanceID: 17670}
     - Class: 114
       Script: {instanceID: 18728}
     - Class: 114
@@ -172,15 +193,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16614}
     - Class: 114
-      Script: {instanceID: 16650}
+      Script: {instanceID: 16616}
     - Class: 114
-      Script: {instanceID: 17184}
+      Script: {instanceID: 16652}
     - Class: 114
-      Script: {instanceID: 17526}
+      Script: {instanceID: 17186}
     - Class: 114
-      Script: {instanceID: 17668}
+      Script: {instanceID: 17528}
     - Class: 114
-      Script: {instanceID: 17884}
+      Script: {instanceID: 17670}
     - Class: 114
       Script: {instanceID: 18728}
     - Class: 114
@@ -222,8 +243,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 60
       Script: {instanceID: 0}
-    - Class: 61
-      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -241,11 +260,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16614}
     - Class: 114
-      Script: {instanceID: 16650}
+      Script: {instanceID: 16616}
     - Class: 114
-      Script: {instanceID: 17304}
+      Script: {instanceID: 16652}
     - Class: 114
-      Script: {instanceID: 17668}
+      Script: {instanceID: 17306}
+    - Class: 114
+      Script: {instanceID: 17528}
+    - Class: 114
+      Script: {instanceID: 17670}
     - Class: 114
       Script: {instanceID: 18676}
     - Class: 114
@@ -256,6 +279,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 19060}
     - Class: 114
       Script: {instanceID: 19850}
+    - Class: 114
+      Script: {instanceID: 20518}
     - Class: 114
       Script: {instanceID: 21784}
     - Class: 115
@@ -314,11 +339,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16614}
     - Class: 114
-      Script: {instanceID: 16650}
+      Script: {instanceID: 16616}
     - Class: 114
-      Script: {instanceID: 17304}
+      Script: {instanceID: 16652}
     - Class: 114
-      Script: {instanceID: 17668}
+      Script: {instanceID: 17306}
+    - Class: 114
+      Script: {instanceID: 17528}
+    - Class: 114
+      Script: {instanceID: 17670}
     - Class: 114
       Script: {instanceID: 18676}
     - Class: 114
@@ -329,6 +358,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 19060}
     - Class: 114
       Script: {instanceID: 19850}
+    - Class: 114
+      Script: {instanceID: 20518}
     - Class: 114
       Script: {instanceID: 21784}
     - Class: 115
@@ -387,11 +418,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 16614}
     - Class: 114
-      Script: {instanceID: 16650}
+      Script: {instanceID: 16616}
     - Class: 114
-      Script: {instanceID: 17304}
+      Script: {instanceID: 16652}
     - Class: 114
-      Script: {instanceID: 17668}
+      Script: {instanceID: 17306}
+    - Class: 114
+      Script: {instanceID: 17528}
+    - Class: 114
+      Script: {instanceID: 17670}
     - Class: 114
       Script: {instanceID: 18676}
     - Class: 114
@@ -402,6 +437,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 19060}
     - Class: 114
       Script: {instanceID: 19850}
+    - Class: 114
+      Script: {instanceID: 20518}
     - Class: 114
       Script: {instanceID: 21784}
     - Class: 115
@@ -431,6 +468,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: 0b7995e6c59201aa9b4ad6a0aecb4621
+    assemblyName: UnityEngine.UI
+    namespaceName: UnityEngine.UI
+    className: Button
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -535,7 +578,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 802b435e668c60795d4d830fdecdda33
+      Hash: 25175d6348d88e7aa714052618555f3d
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PatternScript
@@ -635,12 +678,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.Animation.Runtime
     namespaceName: UnityEngine.U2D.Animation
     className: Bone
-  - hash:
-      serializedVersion: 2
-      Hash: 0b7995e6c59201aa9b4ad6a0aecb4621
-    assemblyName: UnityEngine.UI
-    namespaceName: UnityEngine.UI
-    className: Button
   - hash:
       serializedVersion: 2
       Hash: 0249933f35dcc970b31eaae0159aebf9
@@ -1260,4 +1297,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Stage 1.unity
   - Assets/Scenes/Stage 2.unity
   - Assets/Scenes/Stage 3.unity
-  playerPath: D:/Users/SenpaiOrigin/Documents/imhungry29-8-20.apk
+  playerPath: C:/Users/Paoka/Desktop/touch1.apk
