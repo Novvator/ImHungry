@@ -119,6 +119,8 @@
 -define:ENABLE_INPUT_SYSTEM
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
+-define:ENABLE_URP
+-define:ENABLE_URP_14_0_0_OR_NEWER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -define:UNITY_EDITOR_ONLY_COMPILATION
@@ -344,6 +346,8 @@
 -r:"Library/PackageCache/com.unity.collections@1.2.4/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll"
 -r:"Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.2D.PixelPerfect.ref.dll"
+-r:"Library/Bee/artifacts/1300b0aE.dag/Unity.RenderPipelines.Universal.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1300b0aE.dag/Unity.RenderPipelines.Universal.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEditor.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEngine.TestRunner.ref.dll"

@@ -344,6 +344,8 @@
 -r:"Library/PackageCache/com.unity.collections@1.2.4/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.7f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
+"Library/PackageCache/com.unity.render-pipelines.universal@14.0.8/Editor/ShaderGUI/MaterialAssemblyReference/RawRenderQueue.cs"
+"Library/PackageCache/com.unity.shadergraph@14.0.8/Editor/Generation/Targets/BuiltIn/Editor/ShaderGUI/MaterialAssemblyReference/RawRenderQueue.cs"
 "Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/AxisEventData.cs"
 "Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/BaseEventData.cs"
 "Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/PointerEventData.cs"
