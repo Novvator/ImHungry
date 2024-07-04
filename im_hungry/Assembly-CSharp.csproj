@@ -65,6 +65,8 @@
     <Compile Include="Assets\FoodScript.cs" />
     <Compile Include="Assets\FlashScreen.cs" />
     <Compile Include="Assets\LevelChanger.cs" />
+    <Compile Include="Assets\DrawingProgress.cs" />
+    <Compile Include="Assets\MoveToStart.cs" />
     <Compile Include="Assets\MenuScript.cs" />
     <Compile Include="Assets\LevelMenuManager.cs" />
     <Compile Include="Assets\PatternScript.cs" />

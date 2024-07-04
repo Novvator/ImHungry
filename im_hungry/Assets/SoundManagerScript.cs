@@ -8,6 +8,8 @@ public class SoundManagerScript : MonoBehaviour
     public static AudioClip eatSound;
     public static AudioClip completeSound;
     public static AudioClip endSound;
+    public static AudioClip winSound;
+    public static AudioClip failSound;
 
     static AudioSource audioSrc;
     // Start is called before the first frame update
@@ -16,6 +18,8 @@ public class SoundManagerScript : MonoBehaviour
         eatSound = Resources.Load<AudioClip>("eating1");
         completeSound = Resources.Load<AudioClip>("okpattern");
         endSound = Resources.Load<AudioClip>("end");
+        failSound = Resources.Load<AudioClip>("fail3");
+        winSound = Resources.Load<AudioClip>("win");
         audioSrc = GetComponent<AudioSource>();
 
     }
@@ -40,6 +44,12 @@ public class SoundManagerScript : MonoBehaviour
                 break;
             case "end":
                 audioSrc.PlayOneShot(endSound);
+                break;
+            case "fail":
+                audioSrc.PlayOneShot(failSound);
+                break;
+            case "win":
+                audioSrc.PlayOneShot(winSound);
                 break;
         }
     }

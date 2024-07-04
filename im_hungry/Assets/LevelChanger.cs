@@ -7,25 +7,22 @@ public class LevelChanger : MonoBehaviour
 {
 
     public Animator animator;
+    public float transitionTime = 1f;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void FadeToLevel ()
+    public void LoadLevel(string level)
     {
-<<<<<<< Updated upstream
-        animator.SetTrigger("FadeOut");
-=======
         Time.timeScale = 1f; // Resume normal time scale
         if (level == "current")
         {   
@@ -35,13 +32,22 @@ public class LevelChanger : MonoBehaviour
         {
             StartCoroutine(LoadLevelCoroutine(level));
         }
->>>>>>> Stashed changes
     }
 
-    public void OnFadeOutComplete()
+    IEnumerator LoadLevelCoroutine(string level)
     {
-        SceneManager.LoadScene(1);
-        animator.SetTrigger("FadeIn");
+        //Play Animation
+        animator.SetTrigger("Start");
+        //Wait
+        yield return new WaitForSeconds(transitionTime);
+        //Load scene
+        SceneManager.LoadScene(level);
 
     }
+
+
+
+    
+
+    
 }

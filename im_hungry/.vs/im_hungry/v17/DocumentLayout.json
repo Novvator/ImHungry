@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "E:\\GameProjects\\ImHungry\\im_hungry\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\PatternScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\PatternScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|E:\\GameProjects\\ImHungry\\im_hungry\\assets\\patternscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\patternscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\LevelChanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LevelChanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|e:\\gameprojects\\imhungry\\im_hungry\\assets\\levelchanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\levelchanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\LevelMenuManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LevelMenuManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|e:\\gameprojects\\imhungry\\im_hungry\\assets\\levelmenumanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\levelmenumanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\TrailScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\TrailScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|e:\\gameprojects\\imhungry\\im_hungry\\assets\\trailscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\trailscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "Assets\\LevelChanger.cs",
               "ToolTip": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\LevelChanger.cs",
               "RelativeToolTip": "Assets\\LevelChanger.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAACAAAAA2AAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwCMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-04T18:56:55.456Z",
               "EditorCaption": ""
@@ -81,7 +81,7 @@
               "RelativeDocumentMoniker": "Assets\\PatternScript.cs",
               "ToolTip": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\PatternScript.cs",
               "RelativeToolTip": "Assets\\PatternScript.cs",
-              "ViewState": "AQIAAG0AAAAAAAAAAAAiwHQAAABEAAAA",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAwwEkAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-04T14:16:28.926Z",
               "EditorCaption": ""

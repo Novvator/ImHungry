@@ -116,7 +116,6 @@ PrefabInstance:
     - target: {fileID: 3801158306931772772, guid: 1f156f1fe371f974ba9920068e6bbefb,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-<<<<<<< Updated upstream:im_hungry/Assets/Prefabs/resumeButton.prefab
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3801158306931772772, guid: 1f156f1fe371f974ba9920068e6bbefb,
@@ -129,25 +128,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Resume
-=======
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3801158306931772772, guid: 1f156f1fe371f974ba9920068e6bbefb,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 8188648436401553951, guid: c535c4c83dfa77443a23b446e43ea0ed,
-        type: 3}
-    - target: {fileID: 3801158306931772772, guid: 1f156f1fe371f974ba9920068e6bbefb,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 3801158306931772772, guid: 1f156f1fe371f974ba9920068e6bbefb,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level Menu
->>>>>>> Stashed changes:im_hungry/Assets/Prefabs/back.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 6343179204161075314, guid: 1f156f1fe371f974ba9920068e6bbefb,
         type: 3}
