@@ -19,7 +19,15 @@ public class PatternScript : MonoBehaviour
     float currentTime = 0f;
     float startingTime = 30f;
     bool startTimer = false;
+<<<<<<< Updated upstream
+=======
+    bool isPaused = false;
+
+    [SerializeField] GameObject Trail;
+    [SerializeField] int scoreGoal;
+>>>>>>> Stashed changes
     [SerializeField] Text countdownText;
+    [SerializeField] GameObject pauseMenuUI;
 
     public GameObject resetButton;
 
@@ -43,6 +51,7 @@ public class PatternScript : MonoBehaviour
     {
         currentTime = startingTime;
         resetButton.SetActive(false);
+<<<<<<< Updated upstream
 
         //choose first pattern/food
         num = Random.Range(0, tubes.Length);
@@ -66,11 +75,40 @@ public class PatternScript : MonoBehaviour
         }
 
 
+=======
+        backButton.SetActive(false);
+        pauseMenuUI.SetActive(false);
+        ScoreScript.scoreGoal = scoreGoal;
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
     void Update()
     {
+<<<<<<< Updated upstream
+=======
+        if (!isPaused)
+        {
+            HandleInput();
+            UpdateTimer();
+        }
+        
+    }
+    
+    public void Pause()
+    {
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f; // Pause the game
+        isPaused = true;
+    }
+
+    public void Resume()
+    {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f; // Resume normal time scale
+        isPaused = false;
+    }
+>>>>>>> Stashed changes
 
         
         if (Input.touchCount == 1)
@@ -211,12 +249,18 @@ public class PatternScript : MonoBehaviour
                 }
             }
 
+<<<<<<< Updated upstream
 
 
         }
 
         //start-stop animation of begin indicator
         if( hitted == true)
+=======
+    void ResetOnTouchRelease()
+    {
+        if (hitted == true)
+>>>>>>> Stashed changes
         {
             //chosenpat.transform.GetChild(3).transform.GetChild(0).GetComponent<Renderer>().enabled = false;
             //chosenpat.transform.GetChild(3).transform.GetChild(0).GetComponent<Animator>().enabled = false;

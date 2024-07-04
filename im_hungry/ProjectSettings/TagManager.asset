@@ -47,6 +47,9 @@ TagManager:
   - name: Stages
     uniqueID: 1390508153
     locked: 0
+  - name: PauseMenu
+    uniqueID: 4061951901
+    locked: 0
   - name: Transition
     uniqueID: 613782563
     locked: 0

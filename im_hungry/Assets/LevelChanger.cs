@@ -23,7 +23,19 @@ public class LevelChanger : MonoBehaviour
 
     public void FadeToLevel ()
     {
+<<<<<<< Updated upstream
         animator.SetTrigger("FadeOut");
+=======
+        Time.timeScale = 1f; // Resume normal time scale
+        if (level == "current")
+        {   
+            StartCoroutine(LoadLevelCoroutine(SceneManager.GetActiveScene().name));
+        }
+        else
+        {
+            StartCoroutine(LoadLevelCoroutine(level));
+        }
+>>>>>>> Stashed changes
     }
 
     public void OnFadeOutComplete()
