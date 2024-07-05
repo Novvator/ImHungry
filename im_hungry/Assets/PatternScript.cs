@@ -146,6 +146,7 @@ public class PatternScript : MonoBehaviour
         {
             hitted = true;
             startTimer = true;
+            chosenpat.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
         }
 
         if (hit.collider.name == chosenpat.transform.GetChild(1).name && hitted)
@@ -176,6 +177,8 @@ public class PatternScript : MonoBehaviour
                 //reset stage triggers
                 chosenpat.transform.GetChild(1).gameObject.SetActive(true);
                 chosenpat.transform.GetChild(2).gameObject.SetActive(true);
+                //reset start circle
+                chosenpat.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
 
                 //reset food sprite
                 chosenfoodscript.OnStage1();
@@ -289,6 +292,7 @@ public class PatternScript : MonoBehaviour
                 endhasPlayed = true;
 
                 completedlvl = true;
+                chosenpat.SetActive(false);
                 resetButton.SetActive(true);
                 backButton.SetActive(true);
             }

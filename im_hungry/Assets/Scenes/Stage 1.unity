@@ -1691,6 +1691,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PatternScript, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 3124083714890618673, guid: ff7204283c91b894db8e67befa4bcbb6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 130.81006
+      objectReference: {fileID: 0}
     - target: {fileID: 3420891061563802068, guid: ff7204283c91b894db8e67befa4bcbb6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
