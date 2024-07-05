@@ -59,7 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BackgroundMoveMenu.cs" />
-    <Compile Include="Assets\Pattern.cs" />
     <Compile Include="Assets\Script Tools\NewBehaviourScript.cs" />
     <Compile Include="Assets\ScoreScript.cs" />
     <Compile Include="Assets\FoodScript.cs" />

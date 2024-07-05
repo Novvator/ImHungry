@@ -316,6 +316,7 @@ public class PatternScript : MonoBehaviour
         if (ScoreScript.scoreValue >= scoreGoal)
         {
             SoundManagerScript.PlaySound("win");
+            //Set stage completed
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " Completed", 1);
         }
         else
