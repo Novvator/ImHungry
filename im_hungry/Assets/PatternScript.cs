@@ -47,6 +47,8 @@ public class PatternScript : MonoBehaviour
     [SerializeField] private Image redFlashImage; // Assign the UI Image in the Inspector
     public float redFlashDuration = 0.45f; // Duration of the red flash effect
     private Color originalColor;
+    private bool redFlashIsOnCooldown = false; // Red Flash Cooldown flag
+    [SerializeField] private float redFlashCooldown = 0.5f; // Cooldown duration in seconds
 
     // Start is called before the first frame update
     void Start()
@@ -132,7 +134,7 @@ public class PatternScript : MonoBehaviour
                 if (!completedlvl) HandlePatternInteraction(hit);
 
             }
-            else
+        else
             {   
                 if (!completedlvl) ResetOnTouchRelease();
             }
@@ -237,8 +239,12 @@ public class PatternScript : MonoBehaviour
         if (hitted == true)
         {
             Debug.Log("Lost target");
-            SoundManagerScript.PlaySound("fail");
-            StartCoroutine(PlayRedFlash());
+            if (!redFlashIsOnCooldown)
+            {
+                SoundManagerScript.PlaySound("fail");
+                StartCoroutine(PlayRedFlash());
+                StartCoroutine(StartRedFlashCooldown());
+            }
             hitted = false;
             trg1 = false;
             trg2 = false;
@@ -254,6 +260,13 @@ public class PatternScript : MonoBehaviour
 
         }
         // Reset logic when touch is released
+    }
+
+    private IEnumerator StartRedFlashCooldown()
+    {
+        redFlashIsOnCooldown = true; // Set cooldown flag
+        yield return new WaitForSeconds(redFlashCooldown); // Wait for the cooldown duration
+        redFlashIsOnCooldown = false; // Reset cooldown flag
     }
 
     IEnumerator PlayRedFlash()
