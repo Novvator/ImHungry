@@ -230,6 +230,9 @@ public class PatternScript : MonoBehaviour
                 trg2 = false;
                 hitted = false;
                 //activeTouchId = -1;
+
+                //cooldown on red flash to avoid flashing on start of next pattern
+                StartCoroutine(StartRedFlashCooldown());
             }
         }
     }

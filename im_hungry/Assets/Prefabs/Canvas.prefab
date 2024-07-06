@@ -328,7 +328,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 571eb1cfaac056d4988e8cbb6a46822e, type: 3}
+    m_Font: {fileID: 12800000, guid: ed91d41e131569642a6d2d987e3f2e36, type: 3}
     m_FontSize: 110
     m_FontStyle: 0
     m_BestFit: 0
@@ -340,7 +340,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 100.120
+  m_Text: 'Score
+
+    100/120'
 --- !u!114 &3296804942288218693
 MonoBehaviour:
   m_ObjectHideFlags: 0
