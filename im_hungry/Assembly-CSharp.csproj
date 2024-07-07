@@ -66,6 +66,7 @@
     <Compile Include="Assets\LevelChanger.cs" />
     <Compile Include="Assets\MenuScript.cs" />
     <Compile Include="Assets\LevelMenuManager.cs" />
+    <Compile Include="Assets\WorldMenuManager.cs" />
     <Compile Include="Assets\PatternScript.cs" />
     <Compile Include="Assets\SoundManagerScript.cs" />
     <Compile Include="Assets\TrailScript.cs" />

@@ -24,6 +24,7 @@ public class PatternScript : MonoBehaviour
 
     [SerializeField] GameObject Trail;
     [SerializeField] int scoreGoal;
+    [SerializeField] string finishedWorld = null;
     [SerializeField] Text countdownText;
     [SerializeField] GameObject pauseMenuUI;
 
@@ -252,9 +253,10 @@ public class PatternScript : MonoBehaviour
             trg1 = false;
             trg2 = false;
 
-            //reset stage triggers
+            //reset stage triggers and green circle
             chosenpat.transform.GetChild(1).gameObject.SetActive(true);
             chosenpat.transform.GetChild(2).gameObject.SetActive(true);
+            chosenpat.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
 
 
 
@@ -321,6 +323,10 @@ public class PatternScript : MonoBehaviour
             SoundManagerScript.PlaySound("win");
             //Set stage completed
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " Completed", 1);
+            if (finishedWorld != null)
+            {
+                PlayerPrefs.SetInt(finishedWorld + " Completed", 1);
+            }
         }
         else
         {
