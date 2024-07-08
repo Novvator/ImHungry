@@ -67,6 +67,7 @@
     <Compile Include="Assets\MenuScript.cs" />
     <Compile Include="Assets\LevelMenuManager.cs" />
     <Compile Include="Assets\WorldMenuManager.cs" />
+    <Compile Include="Assets\ChangeTrailManager.cs" />
     <Compile Include="Assets\PatternScript.cs" />
     <Compile Include="Assets\SoundManagerScript.cs" />
     <Compile Include="Assets\TrailScript.cs" />
@@ -91,9 +92,11 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Resources\Rainbow1.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\Shaders\Shared\ShaderTools.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Resources\Shared\ShaderTools.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
