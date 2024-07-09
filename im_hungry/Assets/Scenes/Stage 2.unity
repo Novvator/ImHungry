@@ -1300,9 +1300,19 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
         type: 3}
+      propertyPath: burgerWin
+      value: 
+      objectReference: {fileID: 1790535869}
+    - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
+        type: 3}
       propertyPath: backButton
       value: 
       objectReference: {fileID: 254363305}
+    - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
+        type: 3}
+      propertyPath: burgerLose
+      value: 
+      objectReference: {fileID: 1790535868}
     - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
         type: 3}
       propertyPath: pauseButton
@@ -1865,6 +1875,18 @@ PolygonCollider2D:
       - {x: 2.1, y: -2.1}
       - {x: 2.1, y: 2.1}
   m_UseDelaunayMesh: 0
+--- !u!1 &1790535868 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2212928897870458832, guid: ff7204283c91b894db8e67befa4bcbb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 254363304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1790535869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4124443558188605304, guid: ff7204283c91b894db8e67befa4bcbb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 254363304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1826524028
 GameObject:
   m_ObjectHideFlags: 0

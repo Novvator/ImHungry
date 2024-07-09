@@ -1002,6 +1002,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
         type: 3}
+      propertyPath: burgerWin
+      value: 
+      objectReference: {fileID: 2981964220889258242}
+    - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
+        type: 3}
       propertyPath: scoreGoal
       value: 80
       objectReference: {fileID: 0}
@@ -1010,6 +1015,11 @@ PrefabInstance:
       propertyPath: backButton
       value: 
       objectReference: {fileID: 1987822852}
+    - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
+        type: 3}
+      propertyPath: burgerLose
+      value: 
+      objectReference: {fileID: 2091059067}
     - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
         type: 3}
       propertyPath: pauseButton
@@ -1589,6 +1599,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2981964220889258240}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2091059067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2212928897870458832, guid: ff7204283c91b894db8e67befa4bcbb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2981964220889258240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2120119148 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1469178119788092537, guid: ff7204283c91b894db8e67befa4bcbb6,
@@ -1859,6 +1875,12 @@ PrefabInstance:
 --- !u!1 &2981964220889258241 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2896110416786852328, guid: ff7204283c91b894db8e67befa4bcbb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2981964220889258240}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2981964220889258242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4124443558188605304, guid: ff7204283c91b894db8e67befa4bcbb6,
     type: 3}
   m_PrefabInstance: {fileID: 2981964220889258240}
   m_PrefabAsset: {fileID: 0}

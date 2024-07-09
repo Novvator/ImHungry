@@ -28,6 +28,8 @@ public class PatternScript : MonoBehaviour
     [SerializeField] Text countdownText;
     [SerializeField] GameObject pauseButton;
     [SerializeField] GameObject pauseMenuUI;
+    [SerializeField] GameObject burgerWin;
+    [SerializeField] GameObject burgerLose;
 
     [SerializeField] private GameObject resetButton;
     [SerializeField] private GameObject backButton;
@@ -313,6 +315,7 @@ public class PatternScript : MonoBehaviour
                 completedlvl = true;
                 pauseButton.SetActive(false);
                 chosenpat.SetActive(false);
+                chosenfood.SetActive(false);
                 resetButton.SetActive(true);
                 backButton.SetActive(true);
             }
@@ -322,16 +325,20 @@ public class PatternScript : MonoBehaviour
     {
         if (ScoreScript.scoreValue >= scoreGoal)
         {
+            burgerWin.SetActive(true);
             SoundManagerScript.PlaySound("win");
             //Set stage completed
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " Completed", 1);
+            
             if (finishedWorld != null)
             {
                 PlayerPrefs.SetInt(finishedWorld + " Completed", 1);
+                
             }
         }
         else
         {
+            burgerLose.SetActive(true);
             SoundManagerScript.PlaySound("end");
         }
     }
