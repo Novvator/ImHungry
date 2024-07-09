@@ -1012,6 +1012,11 @@ PrefabInstance:
       objectReference: {fileID: 1987822852}
     - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
         type: 3}
+      propertyPath: pauseButton
+      value: 
+      objectReference: {fileID: 2981964220889258241}
+    - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
+        type: 3}
       propertyPath: pauseMenuUI
       value: 
       objectReference: {fileID: 1322110299}
@@ -1731,51 +1736,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 560551198}
-    - target: {fileID: 1049164954176705342, guid: ff7204283c91b894db8e67befa4bcbb6,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Pause
-      objectReference: {fileID: 0}
-    - target: {fileID: 1049164954176705342, guid: ff7204283c91b894db8e67befa4bcbb6,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PatternScript, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3124083714890618673, guid: ff7204283c91b894db8e67befa4bcbb6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 130.81006
-      objectReference: {fileID: 0}
     - target: {fileID: 3420891061563802068, guid: ff7204283c91b894db8e67befa4bcbb6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 73256728}
-    - target: {fileID: 3420891061563802068, guid: ff7204283c91b894db8e67befa4bcbb6,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4683755700030036130, guid: ff7204283c91b894db8e67befa4bcbb6,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 560551198}
-    - target: {fileID: 4683755700030036130, guid: ff7204283c91b894db8e67befa4bcbb6,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Pause
-      objectReference: {fileID: 0}
-    - target: {fileID: 4683755700030036130, guid: ff7204283c91b894db8e67befa4bcbb6,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PatternScript, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4683755700030036130, guid: ff7204283c91b894db8e67befa4bcbb6,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 4912398392451057299, guid: ff7204283c91b894db8e67befa4bcbb6,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1876,34 +1841,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5580729782435978749, guid: ff7204283c91b894db8e67befa4bcbb6,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Score
-
-        100/120'
-      objectReference: {fileID: 0}
-    - target: {fileID: 5580729782435978749, guid: ff7204283c91b894db8e67befa4bcbb6,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: ed91d41e131569642a6d2d987e3f2e36,
-        type: 3}
-    - target: {fileID: 5580729782435978749, guid: ff7204283c91b894db8e67befa4bcbb6,
-        type: 3}
-      propertyPath: m_FontData.m_FontStyle
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6303668716819923785, guid: ff7204283c91b894db8e67befa4bcbb6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 73256728}
-    - target: {fileID: 6303668716819923785, guid: ff7204283c91b894db8e67befa4bcbb6,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadLevel
-      objectReference: {fileID: 0}
     - target: {fileID: 8107180588342618619, guid: ff7204283c91b894db8e67befa4bcbb6,
         type: 3}
       propertyPath: m_Camera
@@ -1914,6 +1856,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff7204283c91b894db8e67befa4bcbb6, type: 3}
+--- !u!1 &2981964220889258241 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2896110416786852328, guid: ff7204283c91b894db8e67befa4bcbb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2981964220889258240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8717844309677330575
 PrefabInstance:
   m_ObjectHideFlags: 0

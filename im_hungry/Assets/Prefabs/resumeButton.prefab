@@ -115,6 +115,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3801158306931772772, guid: 1f156f1fe371f974ba9920068e6bbefb,
         type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3801158306931772772, guid: 1f156f1fe371f974ba9920068e6bbefb,
+        type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3801158306931772772, guid: 1f156f1fe371f974ba9920068e6bbefb,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}

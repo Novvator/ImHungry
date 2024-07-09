@@ -26,6 +26,7 @@ public class PatternScript : MonoBehaviour
     [SerializeField] int scoreGoal;
     [SerializeField] string finishedWorld = null;
     [SerializeField] Text countdownText;
+    [SerializeField] GameObject pauseButton;
     [SerializeField] GameObject pauseMenuUI;
 
     [SerializeField] private GameObject resetButton;
@@ -310,6 +311,7 @@ public class PatternScript : MonoBehaviour
                 endhasPlayed = true;
 
                 completedlvl = true;
+                pauseButton.SetActive(false);
                 chosenpat.SetActive(false);
                 resetButton.SetActive(true);
                 backButton.SetActive(true);

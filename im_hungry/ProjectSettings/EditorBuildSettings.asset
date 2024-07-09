@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level Menu 3.unity
     guid: 67cc40e10251b4743a229b13e59858d7
+  - enabled: 1
+    path: Assets/Scenes/Trail Menu.unity
+    guid: e31d48f01bcff3e4c80939b94d62617f
   m_configObjects: {}

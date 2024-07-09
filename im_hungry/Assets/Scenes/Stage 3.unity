@@ -625,6 +625,11 @@ PrefabInstance:
       objectReference: {fileID: 951710561}
     - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
         type: 3}
+      propertyPath: pauseButton
+      value: 
+      objectReference: {fileID: 1609033684}
+    - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
+        type: 3}
       propertyPath: pauseMenuUI
       value: 
       objectReference: {fileID: 989699919}
@@ -1882,6 +1887,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6538856512451588774, guid: 50075563f8b74de40a2d4c5008925a41,
     type: 3}
   m_PrefabInstance: {fileID: 1529684832}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1609033684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2896110416786852328, guid: ff7204283c91b894db8e67befa4bcbb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 703175852}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1737424554 stripped
 MonoBehaviour:
