@@ -31,6 +31,36 @@ def darken_color(hex_color, factor=0.7):
     print(f"darkened color {darkened_hex_color}")
     return darkened_hex_color
 
+def lighten_color(hex_color, factor=0.4):
+    """
+    Lightens a given hexadecimal color.
+
+    Args:
+    hex_color (str): The hex color string (e.g., '#fc835e').
+    factor (float): The factor by which to lighten the color (0 < factor < 1).
+
+    Returns:
+    str: The lightened hex color string (e.g., '#ffe5d5').
+    """
+    # Ensure the hex color string starts with '#'
+    if hex_color.startswith('#'):
+        hex_color = hex_color[1:]
+
+    # Convert the hex color to RGB components
+    r = int(hex_color[0:2], 16)
+    g = int(hex_color[2:4], 16)
+    b = int(hex_color[4:6], 16)
+
+    # Lighten each component by the factor
+    r = int(r + (255 - r) * factor)
+    g = int(g + (255 - g) * factor)
+    b = int(b + (255 - b) * factor)
+
+    # Convert the lightened RGB components back to a hex color string
+    lightened_hex_color = f'#{r:02x}{g:02x}{b:02x}'
+    print(f"lightened color {lightened_hex_color}")
+    return lightened_hex_color
+
 def create_pixelated_button(text, color1, color2, border_color="#000000", border_width=5, width=300, height=100, font_size=80, font_filename="arial.ttf", vertical_offset=0):
     current_dir = os.getcwd()
     
@@ -97,12 +127,12 @@ def create_pixelated_button(text, color1, color2, border_color="#000000", border
     # Create pressed button with darkened colors
     darkened_color1 = darken_color(color1, factor=0.5)
     darkened_color2 = darken_color(color2, factor=0.5)
-    create_button_image(darkened_color1, darkened_color2, save_path_pressed)
+    # create_button_image(darkened_color1, darkened_color2, save_path_pressed)
     
     print(f"Pixelated button '{text}' created and saved as {text}_button.png and {text}_button_pressed.png")
 
 # Example usage with a custom pixelated font
-create_pixelated_button("TRAILS", "#faf20f", "#ffbb00", vertical_offset=0, font_filename="pixelated.ttf", width=1100, height=378,font_size=330,border_width=20)
+create_pixelated_button("YOU LOSE", "#AC9797", "#907F7F", vertical_offset=0, font_filename="pixelated.ttf", width=1200, height=378,font_size=330,border_width=20)
 
 # Example usage with a custom pixelated font
 # create_pixelated_button("WORLD 1", "#faf20f", "#ffbb00", vertical_offset=0, font_filename="pixelated.ttf", width=1100, height=378,font_size=330,border_width=20)

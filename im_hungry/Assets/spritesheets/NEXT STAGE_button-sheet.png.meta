@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c0dce71b5a3575b4c8f07cd122077d97
+guid: cf61180809adf4848b152fd9b5c95e32
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 1590
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: burgerdance_spritesheet_0
+      name: NEXT STAGE_button-sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 1590
+        height: 418
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f2a44d3d9ad034428be9b38e2d513be
-      internalID: 897287381
+      spriteID: 837331e6c7c9dd948bf463a96103fd33
+      internalID: 109925866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: burgerdance_spritesheet_1
+      name: NEXT STAGE_button-sheet_1
       rect:
         serializedVersion: 2
-        x: 256
+        x: 1590
         y: 0
-        width: 256
-        height: 256
+        width: 1590
+        height: 418
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ea00e0768fc36646a1fc22ac98dff08
-      internalID: 1202199105
+      spriteID: df482c0f404d25940ac6cd42da81584b
+      internalID: -925201944
       vertices: []
       indices: 
       edges: []
@@ -175,8 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      burgerdance_spritesheet_0: 897287381
-      burgerdance_spritesheet_1: 1202199105
+      NEXT STAGE_button-sheet_0: 109925866
+      NEXT STAGE_button-sheet_1: -925201944
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

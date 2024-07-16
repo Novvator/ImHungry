@@ -3,11 +3,23 @@
   "WorkspaceRootPath": "E:\\GameProjects\\ImHungry\\im_hungry\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|e:\\gameprojects\\imhungry\\im_hungry\\assets\\soundmanagerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\soundmanagerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|e:\\gameprojects\\imhungry\\im_hungry\\assets\\patternscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\patternscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|e:\\gameprojects\\imhungry\\im_hungry\\assets\\levelchanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\levelchanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|E:\\GameProjects\\ImHungry\\im_hungry\\assets\\trailscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\trailscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|e:\\gameprojects\\imhungry\\im_hungry\\assets\\resources\\waterwave.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|E:\\GameProjects\\ImHungry\\im_hungry\\assets\\resources\\waterwave.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\waterwave.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
@@ -15,11 +27,7 @@
       "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\changetrailmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|E:\\GameProjects\\ImHungry\\im_hungry\\assets\\patternscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\patternscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|e:\\gameprojects\\imhungry\\im_hungry\\assets\\resources\\rainbow1.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|E:\\GameProjects\\ImHungry\\im_hungry\\assets\\resources\\rainbow1.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\rainbow1.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
@@ -34,17 +42,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "PatternScript.cs",
               "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\PatternScript.cs",
               "RelativeDocumentMoniker": "Assets\\PatternScript.cs",
               "ToolTip": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\PatternScript.cs",
               "RelativeToolTip": "Assets\\PatternScript.cs",
-              "ViewState": "AQIAAIEAAAAAAAAAAAAAwD8BAAAFAAAA",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAiwDQAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-04T14:16:28.926Z",
               "IsPinned": true,
@@ -52,7 +60,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "SoundManagerScript.cs",
+              "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\SoundManagerScript.cs",
+              "RelativeDocumentMoniker": "Assets\\SoundManagerScript.cs",
+              "ToolTip": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\SoundManagerScript.cs",
+              "RelativeToolTip": "Assets\\SoundManagerScript.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T21:55:42.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LevelChanger.cs",
+              "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\LevelChanger.cs",
+              "RelativeDocumentMoniker": "Assets\\LevelChanger.cs",
+              "ToolTip": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\LevelChanger.cs",
+              "RelativeToolTip": "Assets\\LevelChanger.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAA9wCsAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T18:49:56.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "WaterWave.shader",
               "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\Resources\\WaterWave.shader",
               "RelativeDocumentMoniker": "Assets\\Resources\\WaterWave.shader",
@@ -60,12 +94,11 @@
               "RelativeToolTip": "Assets\\Resources\\WaterWave.shader",
               "ViewState": "AQIAAAkAAAAAAAAAAAAqwDQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2024-07-09T12:02:46.868Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-09T12:02:46.868Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Rainbow1.shader",
               "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\Resources\\Rainbow1.shader",
               "RelativeDocumentMoniker": "Assets\\Resources\\Rainbow1.shader",
@@ -73,12 +106,11 @@
               "RelativeToolTip": "Assets\\Resources\\Rainbow1.shader",
               "ViewState": "AQIAABcAAAAAAAAAAAAswCsAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2024-07-09T12:01:34.071Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-09T12:01:34.071Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "ShaderTools.cginc",
               "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\Resources\\Shared\\ShaderTools.cginc",
               "RelativeDocumentMoniker": "Assets\\Resources\\Shared\\ShaderTools.cginc",
@@ -90,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ChangeTrailManager.cs",
               "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\ChangeTrailManager.cs",
               "RelativeDocumentMoniker": "Assets\\ChangeTrailManager.cs",
@@ -98,12 +130,11 @@
               "RelativeToolTip": "Assets\\ChangeTrailManager.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAqwB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-08T11:02:18.714Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-08T11:02:18.714Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "TrailScript.cs",
               "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\TrailScript.cs",
               "RelativeDocumentMoniker": "Assets\\TrailScript.cs",
@@ -111,8 +142,7 @@
               "RelativeToolTip": "Assets\\TrailScript.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAEQAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-04T16:24:55.953Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-04T16:24:55.953Z"
             }
           ]
         }

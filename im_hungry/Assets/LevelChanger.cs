@@ -34,6 +34,14 @@ public class LevelChanger : MonoBehaviour
         {
             StartCoroutine(LoadLevelCoroutine(SceneManager.GetActiveScene().name));
         }
+        else if (level == "next")
+        {
+            string subjectString = SceneManager.GetActiveScene().name;
+            int resultInt = Int32.Parse(Regex.Match(subjectString, @"\d+").Value); //extract stage number
+            string level_to_load = "Stage " + (resultInt + 1).ToString();
+            //Debug.Log(level_to_load);
+            StartCoroutine(LoadLevelCoroutine(level_to_load));
+        }
         else if (level == "Level Menu")
         {
             if (SceneManager.GetActiveScene().name.Contains("Stage"))

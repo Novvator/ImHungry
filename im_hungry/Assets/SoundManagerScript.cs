@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class SoundManagerScript : MonoBehaviour
@@ -10,6 +11,8 @@ public class SoundManagerScript : MonoBehaviour
     public static AudioClip endSound;
     public static AudioClip winSound;
     public static AudioClip failSound;
+    public static AudioClip endingSound;
+    public static AudioClip endingSound2;
 
     static AudioSource audioSrc;
     // Start is called before the first frame update
@@ -20,6 +23,8 @@ public class SoundManagerScript : MonoBehaviour
         endSound = Resources.Load<AudioClip>("end");
         failSound = Resources.Load<AudioClip>("fail3");
         winSound = Resources.Load<AudioClip>("win");
+        endingSound = Resources.Load<AudioClip>("ending");
+        endingSound2 = Resources.Load<AudioClip>("ending2");
         audioSrc = GetComponent<AudioSource>();
 
     }
@@ -50,6 +55,12 @@ public class SoundManagerScript : MonoBehaviour
                 break;
             case "win":
                 audioSrc.PlayOneShot(winSound);
+                break;
+            case "ending":
+                audioSrc.PlayOneShot(endingSound);
+                break;   
+            case "ending2":
+                audioSrc.PlayOneShot(endingSound2);
                 break;
         }
     }

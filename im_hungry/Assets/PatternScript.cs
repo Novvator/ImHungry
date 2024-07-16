@@ -5,6 +5,7 @@ using System.Collections.Specialized;
 using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -28,11 +29,10 @@ public class PatternScript : MonoBehaviour
     [SerializeField] Text countdownText;
     [SerializeField] GameObject pauseButton;
     [SerializeField] GameObject pauseMenuUI;
-    [SerializeField] GameObject burgerWin;
-    [SerializeField] GameObject burgerLose;
+    [SerializeField] GameObject endCanvasUI;
 
-    [SerializeField] private GameObject resetButton;
-    [SerializeField] private GameObject backButton;
+    List<GameObject> winComponents = new List<GameObject>();
+    List<GameObject> loseComponents = new List<GameObject>();
 
     [SerializeField] private GameObject[] food;
     [SerializeField] private GameObject[] tubes;
@@ -44,8 +44,13 @@ public class PatternScript : MonoBehaviour
     int num2;
     int lastnum;
     int lastnum2;
+    private Queue<int> patternQueue;
+    private Queue<int> foodQueue;
+    private int lastPattern;
+    private int lastFood;
     bool completedlvl = false;
 
+    private bool[] countdownSoundPlayed = new bool[3]; // To track sounds for 3, 2, and 1 seconds
     bool endhasPlayed = false;
 
     [SerializeField] private Image redFlashImage; // Assign the UI Image in the Inspector
@@ -58,11 +63,13 @@ public class PatternScript : MonoBehaviour
     void Start()
     {
         originalColor = redFlashImage.color;
+        patternQueue = InitializeQueue(tubes.Length);
+        foodQueue = InitializeQueue(food.Length);
         InitializePatternsAndFood();
+        GetEndCanvasChildren();
         currentTime = startingTime;
-        resetButton.SetActive(false);
-        backButton.SetActive(false);
         pauseMenuUI.SetActive(false);
+        endCanvasUI.SetActive(false);
         ScoreScript.scoreGoal = scoreGoal;
     }
 
@@ -92,16 +99,14 @@ public class PatternScript : MonoBehaviour
 
     void InitializePatternsAndFood()
     {
-        int patternIndex = UnityEngine.Random.Range(0, tubes.Length);
-        chosenpat = tubes[patternIndex];
+        chosenpat = tubes[GetNextPattern()];
 
         foreach (GameObject tube in tubes)
         {
             tube.SetActive(tube == chosenpat);
         }
 
-        int foodIndex = UnityEngine.Random.Range(0, food.Length);
-        chosenfood = food[foodIndex];
+        chosenfood = food[GetNextFood()];
         chosenfoodscript = chosenfood.GetComponent<FoodScript>();
 
         foreach (GameObject foodObj in food)
@@ -202,24 +207,8 @@ public class PatternScript : MonoBehaviour
 
                 //choose next food/pattern
 
-
-                lastnum = num;
-                lastnum2 = num2;
-
-                num = Random.Range(0, tubes.Length);
-                num2 = Random.Range(0, food.Length);
-
-                //dont choose last pattern
-
-                if (num == lastnum)
-                {
-                    num = (num + 2) % tubes.Length;
-                }
-
-                if (num2 == lastnum2)
-                {
-                    num2 = (num2 + 2) % food.Length;
-                }
+                num = GetNextPattern();
+                num2 = GetNextFood();
 
                 chosenpat = tubes[num];
                 chosenfood = food[num2];
@@ -239,6 +228,64 @@ public class PatternScript : MonoBehaviour
                 StartCoroutine(StartRedFlashCooldown());
             }
         }
+    }
+
+
+    // shuffling queue
+    private Queue<int> InitializeQueue(int count)
+    {
+        List<int> items = new List<int>();
+        for (int i = 0; i < count; i++)
+        {
+            items.Add(i);
+        }
+        ShuffleList(items);
+        return new Queue<int>(items);
+    }
+
+    private void ShuffleList(List<int> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            int randomIndex = Random.Range(i, list.Count);
+            int temp = list[i];
+            list[i] = list[randomIndex];
+            list[randomIndex] = temp;
+        }
+    }
+
+    private void ShuffleQueue(Queue<int> queue)
+    {
+        List<int> list = new List<int>(queue);
+        ShuffleList(list);
+        queue.Clear();
+        foreach (int item in list)
+        {
+            queue.Enqueue(item);
+        }
+    }
+    private int GetNextItem(Queue<int> queue, ref int lastItem)
+    {
+        int currentItem = queue.Dequeue();
+        if (currentItem == lastItem && queue.Count > 0)
+        {
+            queue.Enqueue(currentItem);
+            currentItem = queue.Dequeue();
+        }
+        lastItem = currentItem;
+        queue.Enqueue(currentItem);
+        ShuffleQueue(queue);
+        return currentItem;
+    }
+
+    public int GetNextPattern()
+    {
+        return GetNextItem(patternQueue, ref lastPattern);
+    }
+
+    public int GetNextFood()
+    {
+        return GetNextItem(foodQueue, ref lastFood);
     }
 
     void ResetOnTouchRelease()
@@ -269,6 +316,7 @@ public class PatternScript : MonoBehaviour
         }
         // Reset logic when touch is released
     }
+
 
     private IEnumerator StartRedFlashCooldown()
     {
@@ -301,6 +349,23 @@ public class PatternScript : MonoBehaviour
             currentTime -= 1 * Time.deltaTime;
             countdownText.text = currentTime.ToString("N1", CultureInfo.InvariantCulture);
 
+            int roundedTime = Mathf.CeilToInt(currentTime);
+            if (roundedTime == 3 && !countdownSoundPlayed[0])
+            {
+                SoundManagerScript.PlaySound("ending");
+                countdownSoundPlayed[0] = true;
+            }
+            else if (roundedTime == 2 && !countdownSoundPlayed[1])
+            {
+                SoundManagerScript.PlaySound("ending");
+                countdownSoundPlayed[1] = true;
+            }
+            else if (roundedTime == 1 && !countdownSoundPlayed[2])
+            {
+                SoundManagerScript.PlaySound("ending");
+                countdownSoundPlayed[2] = true;
+            }
+
             if (currentTime <= 0)
             {
                 currentTime = 0;
@@ -309,15 +374,34 @@ public class PatternScript : MonoBehaviour
             if (currentTime == 0)
             {
                 //play end sound
+                
                 if (!endhasPlayed) { checkIfWin(); }
                 endhasPlayed = true;
 
                 completedlvl = true;
+                endCanvasUI.SetActive(true);
+                
                 pauseButton.SetActive(false);
                 chosenpat.SetActive(false);
                 chosenfood.SetActive(false);
-                resetButton.SetActive(true);
-                backButton.SetActive(true);
+            }
+        }
+    }
+
+    void GetEndCanvasChildren()
+    {
+        string[] winlist = { "burgerdance", "YOU WIN!", "nextStage"};
+        string[] loselist = { "burgercry", "YOU LOSE" };
+
+        foreach (Transform child in endCanvasUI.transform)
+        {
+            if (System.Array.Exists(winlist, element => element == child.gameObject.name))
+            {
+                winComponents.Add(child.gameObject);
+            }
+            else if (System.Array.Exists(loselist, element => element == child.gameObject.name))
+            {
+                loseComponents.Add(child.gameObject);
             }
         }
     }
@@ -325,7 +409,7 @@ public class PatternScript : MonoBehaviour
     {
         if (ScoreScript.scoreValue >= scoreGoal)
         {
-            burgerWin.SetActive(true);
+            SetComponentsActive(winComponents, true);
             SoundManagerScript.PlaySound("win");
             //Set stage completed
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " Completed", 1);
@@ -338,8 +422,17 @@ public class PatternScript : MonoBehaviour
         }
         else
         {
-            burgerLose.SetActive(true);
+            SetComponentsActive(loseComponents, true);
             SoundManagerScript.PlaySound("end");
+        }
+    }
+
+    // Helper method to set active state of components
+    void SetComponentsActive(List<GameObject> components, bool isActive)
+    {
+        foreach (GameObject component in components)
+        {
+            component.SetActive(isActive);
         }
     }
 }
