@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4497565543535367034
+--- !u!1 &843079182760337741
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,62 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4468204846004917305}
-  - component: {fileID: 3408493025384598856}
+  - component: {fileID: 3489156343507996251}
+  - component: {fileID: 2262487503254243676}
   m_Layer: 0
-  m_Name: Scripts
+  m_Name: UnlockPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4468204846004917305
+--- !u!4 &3489156343507996251
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4497565543535367034}
+  m_GameObject: {fileID: 843079182760337741}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.8786182, y: 0.6843526, z: -2.1777344}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3408493025384598856
+--- !u!114 &2262487503254243676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4497565543535367034}
+  m_GameObject: {fileID: 843079182760337741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 144d4e884fb66ec4a9f79297b0f6dc07, type: 3}
+  m_Script: {fileID: 11500000, guid: f867ab87b24795b47bcbaa1ecedc1a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Trail: {fileID: 0}
-  startingTime: 30
-  scoreGoal: 120
-  unlockWorld: 
-  countdownText: {fileID: 0}
-  pauseButton: {fileID: 0}
-  pauseMenuUI: {fileID: 0}
-  endCanvasUI: {fileID: 0}
-  food:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  tubes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  hitted: 0
-  redFlashImage: {fileID: 0}
-  redFlashDuration: 0.3
-  redFlashCooldown: 0.5
-  UnlockMessagePopup: {fileID: 843079182760337741, guid: a218bb23bf12b574b874aa12c71909e0,
+  popupPrefab: {fileID: 7284238693303742966, guid: 5bde62d47cc4e1842bf2bf03da0895e7,
     type: 3}

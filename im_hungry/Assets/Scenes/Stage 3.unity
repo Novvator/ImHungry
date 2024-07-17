@@ -701,7 +701,7 @@ PrefabInstance:
     - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
         type: 3}
       propertyPath: unlockWorld
-      value: World 1
+      value: World 2
       objectReference: {fileID: 0}
     - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
         type: 3}
@@ -728,6 +728,12 @@ PrefabInstance:
       propertyPath: tubes.Array.size
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
+        type: 3}
+      propertyPath: UnlockMessagePopup
+      value: 
+      objectReference: {fileID: 843079182760337741, guid: a218bb23bf12b574b874aa12c71909e0,
+        type: 3}
     - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
         type: 3}
       propertyPath: food.Array.data[0]
@@ -858,6 +864,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 47393745379430151, guid: f777d1456481fd1458f5bbc48b5d3cb0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1815145975}
+    - target: {fileID: 47393745379430151, guid: f777d1456481fd1458f5bbc48b5d3cb0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 215439424995127321, guid: f777d1456481fd1458f5bbc48b5d3cb0,
         type: 3}
       propertyPath: m_Name

@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "E:\\GameProjects\\ImHungry\\im_hungry\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|e:\\gameprojects\\imhungry\\im_hungry\\assets\\soundmanagerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\soundmanagerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|e:\\gameprojects\\imhungry\\im_hungry\\assets\\messagepopupscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\messagepopupscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|e:\\gameprojects\\imhungry\\im_hungry\\assets\\patternscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|E:\\GameProjects\\ImHungry\\im_hungry\\assets\\patternscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\patternscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|e:\\gameprojects\\imhungry\\im_hungry\\assets\\levelchanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|E:\\GameProjects\\ImHungry\\im_hungry\\assets\\levelchanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\levelchanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|E:\\GameProjects\\ImHungry\\im_hungry\\assets\\soundmanagerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\soundmanagerscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|E:\\GameProjects\\ImHungry\\im_hungry\\assets\\safeareascript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\safeareascript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|E:\\GameProjects\\ImHungry\\im_hungry\\assets\\worldmenumanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\worldmenumanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|e:\\gameprojects\\imhungry\\im_hungry\\assets\\popupselfdestroy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|solutionrelative:assets\\popupselfdestroy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3B7869D0-E79A-DD4C-113D-09AC9E7A6387}|Assembly-CSharp.csproj|E:\\GameProjects\\ImHungry\\im_hungry\\assets\\trailscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -52,7 +68,7 @@
               "RelativeDocumentMoniker": "Assets\\PatternScript.cs",
               "ToolTip": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\PatternScript.cs",
               "RelativeToolTip": "Assets\\PatternScript.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAiwDQAAAAnAAAA",
+              "ViewState": "AQIAAIgBAAAAAAAAAAAgwJ4BAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-04T14:16:28.926Z",
               "IsPinned": true,
@@ -60,13 +76,65 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PopUpSelfDestroy.cs",
+              "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\PopUpSelfDestroy.cs",
+              "RelativeDocumentMoniker": "Assets\\PopUpSelfDestroy.cs",
+              "ToolTip": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\PopUpSelfDestroy.cs",
+              "RelativeToolTip": "Assets\\PopUpSelfDestroy.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T11:16:14.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WorldMenuManager.cs",
+              "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\WorldMenuManager.cs",
+              "RelativeDocumentMoniker": "Assets\\WorldMenuManager.cs",
+              "ToolTip": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\WorldMenuManager.cs",
+              "RelativeToolTip": "Assets\\WorldMenuManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T10:26:32.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MessagePopupScript.cs",
+              "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\MessagePopupScript.cs",
+              "RelativeDocumentMoniker": "Assets\\MessagePopupScript.cs",
+              "ToolTip": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\MessagePopupScript.cs",
+              "RelativeToolTip": "Assets\\MessagePopupScript.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T09:46:33.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SafeAreaScript.cs",
+              "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\SafeAreaScript.cs",
+              "RelativeDocumentMoniker": "Assets\\SafeAreaScript.cs",
+              "ToolTip": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\SafeAreaScript.cs",
+              "RelativeToolTip": "Assets\\SafeAreaScript.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T08:04:35.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "SoundManagerScript.cs",
               "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\SoundManagerScript.cs",
               "RelativeDocumentMoniker": "Assets\\SoundManagerScript.cs",
               "ToolTip": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\SoundManagerScript.cs",
               "RelativeToolTip": "Assets\\SoundManagerScript.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAAAgwEIAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-16T21:55:42.47Z",
               "EditorCaption": ""
@@ -79,14 +147,14 @@
               "RelativeDocumentMoniker": "Assets\\LevelChanger.cs",
               "ToolTip": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\LevelChanger.cs",
               "RelativeToolTip": "Assets\\LevelChanger.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAA9wCsAAAAnAAAA",
+              "ViewState": "AQIAACQAAAAAAAAAAADwvyYAAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-16T18:49:56.362Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "WaterWave.shader",
               "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\Resources\\WaterWave.shader",
               "RelativeDocumentMoniker": "Assets\\Resources\\WaterWave.shader",
@@ -98,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "Rainbow1.shader",
               "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\Resources\\Rainbow1.shader",
               "RelativeDocumentMoniker": "Assets\\Resources\\Rainbow1.shader",
@@ -110,7 +178,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "ShaderTools.cginc",
               "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\Resources\\Shared\\ShaderTools.cginc",
               "RelativeDocumentMoniker": "Assets\\Resources\\Shared\\ShaderTools.cginc",
@@ -122,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "ChangeTrailManager.cs",
               "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\ChangeTrailManager.cs",
               "RelativeDocumentMoniker": "Assets\\ChangeTrailManager.cs",
@@ -134,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "TrailScript.cs",
               "DocumentMoniker": "E:\\GameProjects\\ImHungry\\im_hungry\\Assets\\TrailScript.cs",
               "RelativeDocumentMoniker": "Assets\\TrailScript.cs",

@@ -1186,6 +1186,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
         type: 3}
+      propertyPath: unlockWorld
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
+        type: 3}
+      propertyPath: startingTime
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
+        type: 3}
       propertyPath: countdownText
       value: 
       objectReference: {fileID: 2120119148}
@@ -1209,6 +1219,12 @@ PrefabInstance:
       propertyPath: tubes.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
+        type: 3}
+      propertyPath: UnlockMessagePopup
+      value: 
+      objectReference: {fileID: 843079182760337741, guid: a218bb23bf12b574b874aa12c71909e0,
+        type: 3}
     - target: {fileID: 3408493025384598856, guid: fb06ebb2fba011548a17c351a76679f5,
         type: 3}
       propertyPath: food.Array.data[0]
@@ -1883,6 +1899,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 560551198}
+    - target: {fileID: 2466041813214060506, guid: ff7204283c91b894db8e67befa4bcbb6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4912398392451057299, guid: ff7204283c91b894db8e67befa4bcbb6,
         type: 3}
       propertyPath: m_Pivot.x

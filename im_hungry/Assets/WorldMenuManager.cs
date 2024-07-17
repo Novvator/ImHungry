@@ -10,7 +10,7 @@ public class WorldMenuManager : MonoBehaviour
 
         foreach (GameObject button in worldButtons)
         {
-            if (!PlayerPrefs.HasKey("World " + (int.Parse(button.name) - 1) + " Completed"))
+            if (!PlayerPrefs.HasKey("World " + (int.Parse(button.name)) + " Unlocked"))
             {
                 button.GetComponent<Button>().interactable = false;
             }

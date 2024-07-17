@@ -60,10 +60,13 @@
   <ItemGroup>
     <Compile Include="Assets\BackgroundMoveMenu.cs" />
     <Compile Include="Assets\Script Tools\NewBehaviourScript.cs" />
+    <Compile Include="Assets\SafeAreaScript.cs" />
     <Compile Include="Assets\ScoreScript.cs" />
     <Compile Include="Assets\FoodScript.cs" />
     <Compile Include="Assets\FlashScreen.cs" />
+    <Compile Include="Assets\MessagePopupScript.cs" />
     <Compile Include="Assets\LevelChanger.cs" />
+    <Compile Include="Assets\PopUpSelfDestroy.cs" />
     <Compile Include="Assets\MenuScript.cs" />
     <Compile Include="Assets\LevelMenuManager.cs" />
     <Compile Include="Assets\WorldMenuManager.cs" />

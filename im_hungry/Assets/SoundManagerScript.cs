@@ -13,6 +13,7 @@ public class SoundManagerScript : MonoBehaviour
     public static AudioClip failSound;
     public static AudioClip endingSound;
     public static AudioClip endingSound2;
+    public static AudioClip cloudSound;
 
     static AudioSource audioSrc;
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class SoundManagerScript : MonoBehaviour
         winSound = Resources.Load<AudioClip>("win");
         endingSound = Resources.Load<AudioClip>("ending");
         endingSound2 = Resources.Load<AudioClip>("ending2");
+        cloudSound = Resources.Load<AudioClip>("cloud");
         audioSrc = GetComponent<AudioSource>();
 
     }
@@ -61,6 +63,9 @@ public class SoundManagerScript : MonoBehaviour
                 break;   
             case "ending2":
                 audioSrc.PlayOneShot(endingSound2);
+                break;
+            case "cloud":
+                audioSrc.PlayOneShot(cloudSound);
                 break;
         }
     }

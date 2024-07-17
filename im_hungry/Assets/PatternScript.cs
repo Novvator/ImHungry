@@ -18,13 +18,13 @@ public class PatternScript : MonoBehaviour
     private TrailScript activetrailscript;
 
     float currentTime = 0f;
-    float startingTime = 30f;
     bool startTimer = false;
     bool isPaused = false;
 
     [SerializeField] GameObject Trail;
+    [SerializeField] float startingTime = 30f;
     [SerializeField] int scoreGoal;
-    [SerializeField] string finishedWorld = null;
+    [SerializeField] string unlockWorld;
     [SerializeField] Text countdownText;
     [SerializeField] GameObject pauseButton;
     [SerializeField] GameObject pauseMenuUI;
@@ -58,6 +58,9 @@ public class PatternScript : MonoBehaviour
     private bool redFlashIsOnCooldown = false; // Red Flash Cooldown flag
     [SerializeField] private float redFlashCooldown = 0.5f; // Cooldown duration in seconds
 
+    [SerializeField] private GameObject UnlockMessagePopup;
+    private MessagePopupScript PopupScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +73,7 @@ public class PatternScript : MonoBehaviour
         pauseMenuUI.SetActive(false);
         endCanvasUI.SetActive(false);
         ScoreScript.scoreGoal = scoreGoal;
+        if (UnlockMessagePopup != null) { PopupScript = UnlockMessagePopup.GetComponent<MessagePopupScript>(); }
     }
 
     void Update()
@@ -373,13 +377,11 @@ public class PatternScript : MonoBehaviour
             if (currentTime == 0)
             {
                 //play end sound
-                
+                endCanvasUI.SetActive(true);
                 if (!endhasPlayed) { checkIfWin(); }
                 endhasPlayed = true;
 
                 completedlvl = true;
-                endCanvasUI.SetActive(true);
-                
                 pauseButton.SetActive(false);
                 chosenpat.SetActive(false);
                 chosenfood.SetActive(false);
@@ -413,9 +415,10 @@ public class PatternScript : MonoBehaviour
             //Set stage completed
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " Completed", 1);
             
-            if (finishedWorld != null)
+            if (!string.IsNullOrWhiteSpace(unlockWorld))
             {
-                PlayerPrefs.SetInt(finishedWorld + " Completed", 1);
+                PopupScript.ShowUnlockMessage("YOU HAVE UNLOCKED " + unlockWorld + "!");
+                PlayerPrefs.SetInt(unlockWorld + " Unlocked", 1);
                 
             }
         }

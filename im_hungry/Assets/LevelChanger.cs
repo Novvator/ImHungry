@@ -38,9 +38,18 @@ public class LevelChanger : MonoBehaviour
         {
             string subjectString = SceneManager.GetActiveScene().name;
             int resultInt = Int32.Parse(Regex.Match(subjectString, @"\d+").Value); //extract stage number
-            string level_to_load = "Stage " + (resultInt + 1).ToString();
-            //Debug.Log(level_to_load);
-            StartCoroutine(LoadLevelCoroutine(level_to_load));
+
+            //if last stage go to world menu to choose new world
+            if (resultInt == 5) 
+            { 
+                StartCoroutine(LoadLevelCoroutine("World Menu"));
+            }
+            else
+            {
+                string level_to_load = "Stage " + (resultInt + 1).ToString();
+                StartCoroutine(LoadLevelCoroutine(level_to_load));
+            }
+            
         }
         else if (level == "Level Menu")
         {
@@ -81,11 +90,11 @@ public class LevelChanger : MonoBehaviour
         }
         else if (world1Levels < level && level <= world1Levels + world2Levels)
         {
-            return "2";
+            return " 2";
         }
         else
         {
-            return "3";
+            return " 3";
         }
 
 
