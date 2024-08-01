@@ -13,7 +13,7 @@
 
 **imhungry** is a fun and engaging mobile game built with Unity where players navigate patterns using touch controls to complete checkpoints. The objective is to follow the sequence of checkpoints within a time limit, using intuitive touch mechanics. This game features multiple levels, each with unique patterns that challenge the player's reflexes and pattern recognition skills.
 
-![Gameplay Screenshot 2](imhungry%20game%20assets/Screenshot_3.webp)
+![Gameplay Screenshot 2](imhungry%20game%20assets/Screenshot_2.webp) ![Gameplay Screenshot 3](imhungry%20game%20assets/Screenshot_3.webp)
 
 ## Features
 
