@@ -1,6 +1,6 @@
 # imhungry
 
-![Gameplay Screenshot](imhungry game assets/Screenshot1.png)
+![Gameplay Screenshot](imhungry%20game%20assets/Screenshot_1.webp)
 
 ## Table of Contents
 
