@@ -1,6 +1,6 @@
 # imhungry
 
-![Gameplay Screenshot](imhungry assets/gameplay_screenshot1.png)
+![Gameplay Screenshot](imhungry game assets/Screenshot1.png)
 
 ## Table of Contents
 
