@@ -4,39 +4,67 @@ using UnityEngine;
 
 public class FoodScript : MonoBehaviour
 {
-    float speed = 12f;
-    [SerializeField] Sprite sprite1;
-    [SerializeField] Sprite sprite2;
-    [SerializeField] Sprite sprite3;
+    // Movement speed towards the target position
+    public float speed = 12f;
+
+    // Sprites for the different stages (set at runtime by the spawner)
+    private Sprite[] stageSprites = new Sprite[0];
+
     private SpriteRenderer spriteRenderer;
-    [SerializeField] GameObject target;
-    //float Wradius = 1;
-    // Start is called before the first frame update
-    void Start()
+
+    // The world position this food will move towards
+    private Vector3 targetPosition;
+
+    // Whether this food is currently moving to the target
+    private bool isMoving = false;
+
+    void Awake()
     {
-        // Get the Animator component
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Time.deltaTime * speed);
+        // Only move if explicitly told to move
+        if (isMoving)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
+        }
     }
 
+    // Initialize the food at runtime with an array of sprites
+    public void Init(Sprite[] sprites)
+    {
+        if (sprites != null && sprites.Length > 0)
+        {
+            stageSprites = sprites;
+            spriteRenderer.sprite = stageSprites[0];
+        }
+    }
+
+    // Start moving towards the target position (called by pattern logic)
+    public void MoveToTarget(Vector3 target)
+    {
+        targetPosition = target;
+        isMoving = true;
+    }
 
     public void OnStage1()
     {
-        spriteRenderer.sprite = sprite1;
+        if (stageSprites.Length > 0) spriteRenderer.sprite = stageSprites[0];
     }
 
     public void OnStage2()
     {
-        spriteRenderer.sprite = sprite2;
+        if (stageSprites.Length > 1) spriteRenderer.sprite = stageSprites[1];
     }
 
     public void OnStage3()
     {
-        spriteRenderer.sprite = sprite3;
+        if (stageSprites.Length > 2) spriteRenderer.sprite = stageSprites[2];
     }
 }

@@ -33,7 +33,9 @@ public class PatternScript : MonoBehaviour
     List<GameObject> winComponents = new List<GameObject>();
     List<GameObject> loseComponents = new List<GameObject>();
 
-    [SerializeField] private GameObject[] food;
+    // Foods are created at runtime by FoodSpawner; do not assign in the inspector
+    private GameObject[] food;
+    private FoodSpawner spawner;
     [SerializeField] private GameObject[] tubes;
 
     public bool hitted = false;
@@ -44,10 +46,10 @@ public class PatternScript : MonoBehaviour
     int lastnum;
     int lastnum2;
     private Queue<int> patternQueue;
-    private Queue<int> foodQueue;
     private int lastPattern;
-    private int lastFood;
     bool completedlvl = false;
+    // Set to true once Start() has finished initialization (spawner spawned foods and arrays populated)
+    private bool isInitialized = false;
 
     private bool[] countdownSoundPlayed = new bool[3]; // To track sounds for 3, 2, and 1 seconds
     bool endhasPlayed = false;
@@ -62,11 +64,37 @@ public class PatternScript : MonoBehaviour
     private MessagePopupScript PopupScript;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
+        // Ensure a FoodSpawner exists and keep a reference to it
+        spawner = FindObjectOfType<FoodSpawner>();
+        if (spawner == null)
+        {
+            GameObject spgo = new GameObject("FoodSpawner");
+            spawner = spgo.AddComponent<FoodSpawner>();
+        }
+
+        // Spawn the first food immediately
+        chosenfood = spawner.SpawnNextFood();
+        if (chosenfood == null)
+        {
+            Debug.LogError("PatternScript: Failed to spawn initial food.");
+            isInitialized = true;
+            yield break;
+        }
+        chosenfoodscript = chosenfood.GetComponent<FoodScript>();
+        chosenfood.transform.localScale = Vector3.one * 3.5f;
+
+        // Validate we have tubes before proceeding
+        if (tubes == null || tubes.Length == 0)
+        {
+            Debug.LogError("PatternScript: No pattern tubes found. Assign tubes in the inspector or ensure tubes exist in the scene.");
+            isInitialized = true;
+            yield break;
+        }
+
         originalColor = redFlashImage.color;
         patternQueue = InitializeQueue(tubes.Length);
-        foodQueue = InitializeQueue(food.Length);
         InitializePatternsAndFood();
         GetEndCanvasChildren();
         currentTime = startingTime;
@@ -74,16 +102,20 @@ public class PatternScript : MonoBehaviour
         endCanvasUI.SetActive(false);
         ScoreScript.scoreGoal = scoreGoal;
         if (UnlockMessagePopup != null) { PopupScript = UnlockMessagePopup.GetComponent<MessagePopupScript>(); }
+        // Mark initialization complete so Update() can run safely
+        isInitialized = true;
     }
 
     void Update()
     {
+        if (!isInitialized) return; // Wait until Start() finished setup
+
         if (!isPaused)
         {
             HandleInput();
             UpdateTimer();
         }
-        
+
     }
     
     public void Pause()
@@ -109,12 +141,18 @@ public class PatternScript : MonoBehaviour
             tube.SetActive(tube == chosenpat);
         }
 
-        chosenfood = food[GetNextFood()];
-        chosenfoodscript = chosenfood.GetComponent<FoodScript>();
-
-        foreach (GameObject foodObj in food)
+        // Ensure we have a chosenfood (spawned in Start). If not, spawn one now.
+        if (chosenfood == null && spawner != null)
         {
-            foodObj.SetActive(foodObj == chosenfood);
+            chosenfood = spawner.SpawnNextFood();
+        }
+        if (chosenfood != null)
+        {
+            chosenfoodscript = chosenfood.GetComponent<FoodScript>();
+            chosenfood.transform.localScale = Vector3.one * 3.5f;
+            chosenfood.SetActive(true);
+            // Ensure it starts at stage 1
+            chosenfoodscript.OnStage1();
         }
     }
 
@@ -208,18 +246,25 @@ public class PatternScript : MonoBehaviour
                 chosenpat.SetActive(false);
                 chosenfood.SetActive(false);
 
-                //choose next food/pattern
+                // choose next pattern and spawn next food
 
                 num = GetNextPattern();
-                num2 = GetNextFood();
 
                 chosenpat = tubes[num];
-                chosenfood = food[num2];
-                chosenfoodscript = chosenfood.GetComponent<FoodScript>();
-
-                //set next chosen food/pattern
                 chosenpat.SetActive(true);
-                chosenfood.SetActive(true);
+
+                // destroy previous food and spawn the next one
+                if (chosenfood != null)
+                {
+                    Destroy(chosenfood);
+                }
+                chosenfood = spawner != null ? spawner.SpawnNextFood() : null;
+                if (chosenfood != null)
+                {
+                    chosenfoodscript = chosenfood.GetComponent<FoodScript>();
+                    chosenfood.transform.localScale = Vector3.one * 3.5f;
+                    chosenfood.SetActive(true);
+                }
 
                 //reset triggers
                 trg1 = false;
@@ -285,11 +330,7 @@ public class PatternScript : MonoBehaviour
     {
         return GetNextItem(patternQueue, ref lastPattern);
     }
-
-    public int GetNextFood()
-    {
-        return GetNextItem(foodQueue, ref lastFood);
-    }
+    
 
     void ResetOnTouchRelease()
     {
