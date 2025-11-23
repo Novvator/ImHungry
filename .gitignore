@@ -71,3 +71,5 @@ im_hungry/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 # Temporary auto-generated Android Assets
 im_hungry/[Aa]ssets/[Ss]treamingAssets/aa.meta
 im_hungry/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+shadercompiler-UnityShaderCompiler.exe0.log
