@@ -591,6 +591,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1561511319980132123, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 526592681}
+    - target: {fileID: 1561511319980132123, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561511319980132123, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Stage 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933642766171118062, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 526592681}
+    - target: {fileID: 1933642766171118062, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933642766171118062, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Stage 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2158548740632693349, guid: 11e9d3bef25469e469935b132dedf861,
         type: 3}
       propertyPath: m_Pivot.x
@@ -695,6 +725,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531859175094100160, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 526592681}
+    - target: {fileID: 5531859175094100160, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531859175094100160, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Stage 4
       objectReference: {fileID: 0}
     - target: {fileID: 6138378822936952475, guid: 11e9d3bef25469e469935b132dedf861,
         type: 3}
