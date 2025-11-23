@@ -127,12 +127,12 @@ def create_pixelated_button(text, color1, color2, border_color="#000000", border
     # Create pressed button with darkened colors
     darkened_color1 = darken_color(color1, factor=0.5)
     darkened_color2 = darken_color(color2, factor=0.5)
-    # create_button_image(darkened_color1, darkened_color2, save_path_pressed)
+    create_button_image(darkened_color1, darkened_color2, save_path_pressed)
     
     print(f"Pixelated button '{text}' created and saved as {text}_button.png and {text}_button_pressed.png")
 
 # Example usage with a custom pixelated font
-create_pixelated_button("YOU LOSE", "#AC9797", "#907F7F", vertical_offset=0, font_filename="pixelated.ttf", width=1200, height=378,font_size=330,border_width=20)
+create_pixelated_button("STAGE 1", "#da3800", "#e2ffff", vertical_offset=0, font_filename="pixelated.ttf", width=1100, height=378,font_size=330,border_width=20)
 
 # Example usage with a custom pixelated font
 # create_pixelated_button("WORLD 1", "#faf20f", "#ffbb00", vertical_offset=0, font_filename="pixelated.ttf", width=1100, height=378,font_size=330,border_width=20)

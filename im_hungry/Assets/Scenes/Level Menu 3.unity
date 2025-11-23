@@ -254,6 +254,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1561511319980132123, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 447f90819057cc841b9a9ae7dc90c963,
+        type: 3}
+    - target: {fileID: 1561511319980132123, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 447f90819057cc841b9a9ae7dc90c963,
+        type: 3}
+    - target: {fileID: 1933642766171118062, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 66bb93ecc5b06914487644ea889d3bd0,
+        type: 3}
+    - target: {fileID: 1933642766171118062, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 66bb93ecc5b06914487644ea889d3bd0,
+        type: 3}
     - target: {fileID: 2158548740632693349, guid: 11e9d3bef25469e469935b132dedf861,
         type: 3}
       propertyPath: m_Pivot.x
@@ -359,11 +383,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5531859175094100160, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 03703bd753514724c90e01347edb1ef9,
+        type: 3}
+    - target: {fileID: 5531859175094100160, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 03703bd753514724c90e01347edb1ef9,
+        type: 3}
     - target: {fileID: 6138378822936952475, guid: 11e9d3bef25469e469935b132dedf861,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1971310872}
+    - target: {fileID: 6276228973576402653, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 29a97ac3abf7d6f499d407a2aa06b420,
+        type: 3}
     - target: {fileID: 6456724863448233568, guid: 11e9d3bef25469e469935b132dedf861,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -389,11 +431,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelMenuCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8166568439599342091, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 88004c0ed85564e48a982de908a6f117,
+        type: 3}
     - target: {fileID: 8355943555911134718, guid: 11e9d3bef25469e469935b132dedf861,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6df97b9f59dd64b45a4dbee51af60a60,
+      objectReference: {fileID: 21300000, guid: f8e24be4a5ae3974599f06797a69da7a,
+        type: 3}
+    - target: {fileID: 8427475098978785623, guid: 11e9d3bef25469e469935b132dedf861,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0974b0015d871f846bbda606e9f4c651,
         type: 3}
     - target: {fileID: 9061941488609229648, guid: 11e9d3bef25469e469935b132dedf861,
         type: 3}
