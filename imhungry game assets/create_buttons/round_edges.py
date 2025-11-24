@@ -132,7 +132,7 @@ def create_pixelated_button(text, color1, color2, border_color="#000000", border
     print(f"Pixelated button '{text}' created and saved as {text}_button.png and {text}_button_pressed.png")
 
 # Example usage with a custom pixelated font
-create_pixelated_button("STAGE 1", "#da3800", "#e2ffff", vertical_offset=0, font_filename="pixelated.ttf", width=1100, height=378,font_size=330,border_width=20)
+create_pixelated_button("", "#faf20f", "#ffbb00", vertical_offset=0, font_filename="pixelated.ttf", width=300, height=150,font_size=330,border_width=20)
 
 # Example usage with a custom pixelated font
 # create_pixelated_button("WORLD 1", "#faf20f", "#ffbb00", vertical_offset=0, font_filename="pixelated.ttf", width=1100, height=378,font_size=330,border_width=20)

@@ -1,115 +1,71 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
-// FoodSpawner: spawns foods at a fixed spawn position and moves them to a target position.
-// It loads sprites from Assets/foods/{name}/{name}1.png in the Editor, or Resources/foods/{name}/{name}1 at runtime.
 public class FoodSpawner : MonoBehaviour
 {
+    [Header("Spawn Settings")]
     public Vector3 spawnPosition = new Vector3(4f, 2.5f, 0f);
     public Vector3 targetPosition = new Vector3(0f, 2.5f, 0f);
     public float moveDuration = 0.5f;
-    public float spawnDelay = 0.15f; // delay between spawning each food
+    public float spawnDelay = 0.15f;
 
-    // Optional override list of food names (if empty the spawner will auto-detect in Editor or use fallback list)
+    [Header("Food Names Override")]
     public string[] foodNameOverrides;
 
     private List<string> availableFoodNames = new List<string>();
-    private int nextIndex = 0;
+    private int lastIndex = -1; // track last spawned food
 
     void Awake()
     {
-        // Build the internal food name list once
+        // Use overrides if provided
         if (foodNameOverrides != null && foodNameOverrides.Length > 0)
         {
             availableFoodNames.AddRange(foodNameOverrides);
         }
 
-#if UNITY_EDITOR
+        // Fallback list if none provided
         if (availableFoodNames.Count == 0)
         {
-            if (AssetDatabase.IsValidFolder("Assets/foods"))
-            {
-                string[] sub = AssetDatabase.GetSubFolders("Assets/foods");
-                foreach (var s in sub)
-                {
-                    availableFoodNames.Add(Path.GetFileName(s));
-                }
-            }
-        }
-#endif
-
-        if (availableFoodNames.Count == 0)
-        {
-            availableFoodNames.AddRange(new string[] { "burg", "cola", "fries", "gyros", "nuggies" });
+            availableFoodNames.AddRange(new[] { "burg", "cola", "fries", "gyros", "nuggies" });
         }
     }
 
-    // Spawn a single next food GameObject and return it
+    /// <summary>
+    /// Spawns the next food object at spawnPosition and moves it to targetPosition.
+    /// Sequential logic: no food repeats immediately.
+    /// </summary>
     public GameObject SpawnNextFood()
     {
-        if (availableFoodNames.Count == 0)
+        string foodName = GetNextFoodName();
+
+        if (foodName == null)
         {
             Debug.LogError("FoodSpawner: No food names available to spawn.");
             return null;
         }
 
-        string foodName = availableFoodNames[nextIndex];
-        nextIndex = (nextIndex + 1) % availableFoodNames.Count;
+        Sprite[] sprites = LoadSprites(foodName);
 
-        Sprite s1 = null;
-        Sprite s2 = null;
-        Sprite s3 = null;
-
-#if UNITY_EDITOR
-        string p1 = $"Assets/foods/{foodName}/{foodName}1.png";
-        string p2 = $"Assets/foods/{foodName}/{foodName}2.png";
-        string p3 = $"Assets/foods/{foodName}/{foodName}3.png";
-        s1 = AssetDatabase.LoadAssetAtPath<Sprite>(p1);
-        s2 = AssetDatabase.LoadAssetAtPath<Sprite>(p2);
-        s3 = AssetDatabase.LoadAssetAtPath<Sprite>(p3);
-#endif
-
-        if (s1 == null)
+        if (sprites.Length == 0)
         {
-            s1 = Resources.Load<Sprite>($"foods/{foodName}/{foodName}1");
-            s2 = Resources.Load<Sprite>($"foods/{foodName}/{foodName}2");
-            s3 = Resources.Load<Sprite>($"foods/{foodName}/{foodName}3");
-        }
-
-        if (s1 == null)
-        {
-            Debug.LogWarning($"FoodSpawner: Could not find sprites for '{foodName}'. Skipping spawn.");
+            Debug.LogWarning($"FoodSpawner: No sprites found for '{foodName}'. Skipping spawn.");
             return null;
         }
 
+        // Create GameObject
         GameObject go = new GameObject(foodName);
-        go.transform.SetParent(this.transform);
+        go.transform.SetParent(transform);
         go.transform.position = spawnPosition;
         go.transform.localScale = Vector3.one * 3.5f;
 
-        var sr = go.AddComponent<SpriteRenderer>();
-        sr.sprite = s1;
+        SpriteRenderer sr = go.AddComponent<SpriteRenderer>();
+        sr.sprite = sprites[0];
 
-        var col = go.AddComponent<BoxCollider2D>();
-        col.isTrigger = false;
+        go.AddComponent<BoxCollider2D>();
 
-        var fs = go.AddComponent<FoodScript>();
-        // Assign sprites using the public Init method
-        var spriteList = new List<Sprite>();
-        if (s1 != null) spriteList.Add(s1);
-        if (s2 != null) spriteList.Add(s2);
-        if (s3 != null) spriteList.Add(s3);
-        fs.Init(spriteList.ToArray());
-        Debug.Log($"FoodSpawner: Called Init for {foodName} with {spriteList.Count} sprites");
-
-        GameObject target = GameObject.Find("FoodTarget") ?? new GameObject("FoodTarget");
-        target.transform.position = targetPosition;
+        FoodScript fs = go.AddComponent<FoodScript>();
+        fs.Init(sprites);
         fs.MoveToTarget(targetPosition);
 
         StartCoroutine(MoveToPosition(go.transform, targetPosition, moveDuration));
@@ -117,17 +73,70 @@ public class FoodSpawner : MonoBehaviour
         return go;
     }
 
-    IEnumerator MoveToPosition(Transform t, Vector3 target, float duration)
+    /// <summary>
+    /// Returns the next food name sequentially, skipping last spawned.
+    /// Works for any number of foods, including 2-food cases.
+    /// </summary>
+    private string GetNextFoodName()
     {
-        float elapsed = 0f;
+        int count = availableFoodNames.Count;
+
+        if (count == 0) return null;
+
+        // Only 1 food → always return it
+        if (count == 1) return availableFoodNames[0];
+
+        // Only 2 foods → alternate perfectly
+        if (count == 2)
+        {
+            lastIndex = (lastIndex == 0 ? 1 : 0);
+            return availableFoodNames[lastIndex];
+        }
+
+        // 3 or more foods → sequential, skip last
+        int next = (lastIndex + 1) % count;
+
+        if (next == lastIndex) // safety
+            next = (next + 1) % count;
+
+        lastIndex = next;
+        return availableFoodNames[next];
+    }
+
+    /// <summary>
+    /// Loads up to 3 sprites for a food from Resources/foods/<foodName>/<foodName>1,2,3
+    /// </summary>
+    private Sprite[] LoadSprites(string foodName)
+    {
+        List<Sprite> list = new List<Sprite>();
+
+        string basePath = $"foods/{foodName}/{foodName}";
+
+        for (int i = 1; i <= 3; i++)
+        {
+            Sprite s = Resources.Load<Sprite>($"{basePath}{i}");
+            if (s != null)
+                list.Add(s);
+        }
+
+        return list.ToArray();
+    }
+
+    /// <summary>
+    /// Moves a transform smoothly to a target position over duration.
+    /// </summary>
+    private IEnumerator MoveToPosition(Transform t, Vector3 target, float duration)
+    {
         Vector3 start = t.position;
+        float elapsed = 0f;
+
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-            float p = Mathf.Clamp01(elapsed / duration);
-            t.position = Vector3.Lerp(start, target, p);
+            t.position = Vector3.Lerp(start, target, elapsed / duration);
             yield return null;
         }
+
         t.position = target;
     }
 }

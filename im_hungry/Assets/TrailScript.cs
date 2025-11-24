@@ -16,6 +16,7 @@ public class TrailScript : MonoBehaviour
         spriteTrailRenderer = this.GetComponent<SpriteRenderer>();
         spriteTrailRenderer.enabled = false;
 
+        // PlayerPrefs.SetString("Current Trail", "Fire"); // or "Default-Line"
         UpdateTrailMaterial();
     }
 
