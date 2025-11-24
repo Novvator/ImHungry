@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PatternScript : MonoBehaviour
+public class PatternDualScript : MonoBehaviour
 {
     private GameObject chosenpat;
     private GameObject chosenfood;
