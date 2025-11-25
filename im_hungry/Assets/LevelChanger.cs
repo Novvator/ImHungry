@@ -40,7 +40,7 @@ public class LevelChanger : MonoBehaviour
             int resultInt = Int32.Parse(Regex.Match(subjectString, @"\d+").Value); //extract stage number
 
             //if last stage go to world menu to choose new world
-            if (resultInt == 5) 
+            if (resultInt == 3) 
             { 
                 StartCoroutine(LoadLevelCoroutine("World Menu"));
             }

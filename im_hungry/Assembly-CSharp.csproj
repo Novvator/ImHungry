@@ -45,6 +45,7 @@
      <Compile Include="Assets\SafeAreaScript.cs" />
      <Compile Include="Assets\ScoreScript.cs" />
      <Compile Include="Assets\FoodScript.cs" />
+     <Compile Include="Assets\PatternDualScript.cs" />
      <Compile Include="Assets\FlashScreen.cs" />
      <Compile Include="Assets\MessagePopupScript.cs" />
      <Compile Include="Assets\LevelChanger.cs" />

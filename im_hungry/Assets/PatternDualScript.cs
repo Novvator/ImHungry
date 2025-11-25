@@ -24,7 +24,8 @@ public class PatternDualScript : MonoBehaviour
     bool startTimer = false;
     bool isPaused = false;
 
-    [SerializeField] GameObject Trail;
+    [SerializeField] GameObject Trail_1;
+    [SerializeField] GameObject Trail_2;
     [SerializeField] float startingTime = 30f;
     [SerializeField] int scoreGoal;
     [SerializeField] string unlockWorld;
@@ -179,7 +180,7 @@ public class PatternDualScript : MonoBehaviour
                 {
                     
                     
-                    activetrail_1 = Instantiate(Trail, pos, Quaternion.identity);
+                    activetrail_1 = Instantiate(Trail_1, pos, Quaternion.identity);
                     activetrailscript_1 = activetrail_1.GetComponent<TrailScript>();
                     //activetrailscript.InitTouch(touch);
                 
@@ -201,7 +202,7 @@ public class PatternDualScript : MonoBehaviour
                 {
                     
                     
-                    activetrail_2 = Instantiate(Trail, pos, Quaternion.identity);
+                    activetrail_2 = Instantiate(Trail_2, pos, Quaternion.identity);
                     activetrailscript_2 = activetrail_2.GetComponent<TrailScript>();
                     //activetrailscript.InitTouch(touch);
                 
