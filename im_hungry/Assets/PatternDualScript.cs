@@ -17,8 +17,8 @@ public class PatternDualScript : MonoBehaviour
     private GameObject activetrail_1;
     private GameObject activetrail_2;
 
-    private TrailScript activetrailscript_1;
-    private TrailScript activetrailscript_2;
+    private DualTrailScript activetrailscript_1;
+    private DualTrailScript activetrailscript_2;
 
     float currentTime = 0f;
     bool startTimer = false;
@@ -181,8 +181,9 @@ public class PatternDualScript : MonoBehaviour
                     
                     
                     activetrail_1 = Instantiate(Trail_1, pos, Quaternion.identity);
-                    activetrailscript_1 = activetrail_1.GetComponent<TrailScript>();
-                    //activetrailscript.InitTouch(touch);
+                    activetrailscript_1 = activetrail_1.GetComponent<DualTrailScript>();
+                    activetrailscript_1.SetFingerId(0);
+
                 
                 }
                 if (hit_1 != null && hit_1.collider != null && touch.phase != TouchPhase.Ended)
@@ -203,8 +204,8 @@ public class PatternDualScript : MonoBehaviour
                     
                     
                     activetrail_2 = Instantiate(Trail_2, pos, Quaternion.identity);
-                    activetrailscript_2 = activetrail_2.GetComponent<TrailScript>();
-                    //activetrailscript.InitTouch(touch);
+                    activetrailscript_2 = activetrail_2.GetComponent<DualTrailScript>();
+                    activetrailscript_2.SetFingerId(1);
                 
                 }
                 if (hit_2 != null && hit_2.collider != null && touch.phase != TouchPhase.Ended)

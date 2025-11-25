@@ -864,6 +864,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 2092097651398815336}
+    - target: {fileID: 1049164954176705342, guid: ff7204283c91b894db8e67befa4bcbb6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 1049164954176705342, guid: ff7204283c91b894db8e67befa4bcbb6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PatternDualScript, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4912398392451057299, guid: ff7204283c91b894db8e67befa4bcbb6,
         type: 3}
@@ -1077,7 +1087,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2092097651398815336}
     - target: {fileID: 2101332511857717698, guid: cb98512ac03064c4ebd5a7fc8bcc48c7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -1086,7 +1096,7 @@ PrefabInstance:
     - target: {fileID: 2101332511857717698, guid: cb98512ac03064c4ebd5a7fc8bcc48c7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PatternScript, Assembly-CSharp
+      value: PatternDualScript, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7135806732376500991, guid: cb98512ac03064c4ebd5a7fc8bcc48c7,
         type: 3}
@@ -1972,13 +1982,13 @@ PrefabInstance:
         type: 3}
       propertyPath: Trail_1
       value: 
-      objectReference: {fileID: 8132035923134161590, guid: d8ca301e3f4e6c042a915dc5168bc509,
+      objectReference: {fileID: 2782394608920104809, guid: 4021a5aec4d919c4f864023301b6a916,
         type: 3}
     - target: {fileID: 6806202319552625806, guid: 2a59ca4f0747fc6458055bd90802b7db,
         type: 3}
       propertyPath: Trail_2
       value: 
-      objectReference: {fileID: 8132035923134161590, guid: d8ca301e3f4e6c042a915dc5168bc509,
+      objectReference: {fileID: 2782394608920104809, guid: 4021a5aec4d919c4f864023301b6a916,
         type: 3}
     - target: {fileID: 6806202319552625806, guid: 2a59ca4f0747fc6458055bd90802b7db,
         type: 3}
@@ -2040,6 +2050,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a59ca4f0747fc6458055bd90802b7db, type: 3}
+--- !u!114 &2092097651398815336 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6806202319552625806, guid: 2a59ca4f0747fc6458055bd90802b7db,
+    type: 3}
+  m_PrefabInstance: {fileID: 2092097651398815335}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4073db1a10f9f449a1511775e4cd3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5921547671521066300
 PrefabInstance:
   m_ObjectHideFlags: 0

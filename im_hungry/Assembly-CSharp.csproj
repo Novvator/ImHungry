@@ -48,6 +48,7 @@
      <Compile Include="Assets\PatternDualScript.cs" />
      <Compile Include="Assets\FlashScreen.cs" />
      <Compile Include="Assets\MessagePopupScript.cs" />
+     <Compile Include="Assets\DualTrailScript.cs" />
      <Compile Include="Assets\LevelChanger.cs" />
      <Compile Include="Assets\FoodSpawner.cs" />
      <Compile Include="Assets\PopUpSelfDestroy.cs" />
