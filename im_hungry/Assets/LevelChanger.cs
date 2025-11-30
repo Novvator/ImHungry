@@ -11,9 +11,9 @@ public class LevelChanger : MonoBehaviour
 
     public Animator animator;
     public float transitionTime = 1f;
-    private int world1Levels = 3;
-    private int world2Levels = 3;
-    private int world3Levels = 3;
+    private int world1Levels = 5;
+    private int world2Levels = 5;
+    private int world3Levels = 5;
 
     private void Awake()
     {
@@ -40,7 +40,7 @@ public class LevelChanger : MonoBehaviour
             int resultInt = Int32.Parse(Regex.Match(subjectString, @"\d+").Value); //extract stage number
 
             //if last stage go to world menu to choose new world
-            if (resultInt == 3) 
+            if (resultInt % 5 == 0) 
             { 
                 StartCoroutine(LoadLevelCoroutine("World Menu"));
             }

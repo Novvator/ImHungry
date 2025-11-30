@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 102
+  controlID: 101
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 44
+  controlID: 43
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 45
+  controlID: 44
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 379
     height: 589
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -215,8 +215,8 @@ MonoBehaviour:
     y: 0
     width: 1151
     height: 589
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 15}
@@ -271,8 +271,8 @@ MonoBehaviour:
     y: 0
     width: 390
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -315,7 +315,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -139654
+  m_LastSelectedObjectID: -236142
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -425,7 +425,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 48f8ffff52f8ffff5cf8fffff4faffff0efbffff
+      m_ExpandedIDs: 66fafbff00fbfbff80fffbff3002fcfff003fcffb005fcffda06fcff0408fcffb40afcff020dfcfff00efcffb010fcff3e12fcff9a13fcffe813fcff6a14fcffee14fcff1415fcff0617fcff9418fcfffa19fcff8a1afcffba1afcffc01dfcff3e23fcffd823fcff7828fcff2c2bfcfff02cfcffb42efcffe22ffcff1031fcffc433fcff1636fcff0838fcffcc39fcff5e3bfcffc03cfcff1a3dfcffa83dfcff383efcff623efcff5840fcffea41fcff5643fcfff043fcff2444fcff4e48fcffcc4bfcff6c4ffcff8652fcff6c55fcff1258fcffb65afcff745dfcffe85ffcff3e62fcffa266fcffd269fcff6a6afcffee6efcffa271fcff6673fcff2a75fcff5876fcff8677fcff3a7afcff8c7cfcff7e7efcff4280fcffd481fcff3683fcff9083fcff1e84fcffae84fcffd884fcffce86fcff6088fcffcc89fcff668afcff9c8afcff2e8efcff388efcff428efcff608efcff628efcffc493fcff5c94fcfff898fcffa89bfcff689dfcff289ffcff52a0fcff7ca1fcff2ca4fcff7aa6fcff68a8fcff28aafcffb6abfcff12adfcff60adfcffe2adfcff66aefcff8caefcff7eb0fcff0cb2fcff72b3fcff02b4fcff32b4fcff08b9fcff22bcfcff82bffcffe2c2fcffb8c5fcff60c8fcffaacbfcff76cdfcff02d0fcff74d2fcff04d6fcfffadafcffaedefcff60e2fcff12e6fcff62e9fcff5aecfcff22effcffe4f1fcffaef4fcff66fafcfff0fcfcfff2fefcffde00fdff0003fdffc462fdffe462fdffee62fdfff862fdff1663fdff3063fdff3466fdff3a66fdff7066fdff7a66fdff8466fdffa266fdffa466fdffe267fdffdabefdffe4befdffeebefdff0cbffdff0ebffdff9cc4fdffaecafdff96cefdfffed1fdff94d4fdff44d7fdff68d9fdff78dbfdffdaf7fdffe4f7fdffeef7fdff0cf8fdff26f8fdff4a11feff5411feff5e11feff7c11feff7e11feffbe16feff1a1bfeff221ffeffaa23feff1229feff6a2dfeffc430feffca34feffb638feff163cfeff8841feffa045feffec54feff2459feff2e5dfeff9a60feffb463feff5067feff0e6afeff0a6efeff3671feffca79feff367cfeffc48dfeff7654ffff9e7ffffff0bcffff2cc2ffff8af6ffffe2faffffecfafffff4faffff0efbffffd664000042650000346a0000d29e0000309f00008a9f0000e49f0000aaa0000078a1000052a200002ca3000002a40000baa4000078a500003ea6000004a70000bea7000014d2000078d200003ed300000cd40000e6d40000c0d5000096d600004ed700000cd80000d2d8000098d90000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1163,7 +1163,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1171,16 +1171,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\GameProjects\ImHungry\im_hungry
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 12690000
-    m_LastClickedID: 26898
-    m_ExpandedIDs: 00000000c066000000ca9a3bffffff7f
+    m_SelectedIDs: 3e690000
+    m_LastClickedID: 26942
+    m_ExpandedIDs: 00000000e8660000346900004669000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1208,7 +1208,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c0660000
+    m_ExpandedIDs: 00000000e8660000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1306,7 +1306,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 55
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

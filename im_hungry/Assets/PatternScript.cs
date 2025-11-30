@@ -29,6 +29,7 @@ public class PatternScript : MonoBehaviour
     [SerializeField] GameObject pauseButton;
     [SerializeField] GameObject pauseMenuUI;
     [SerializeField] GameObject endCanvasUI;
+    [SerializeField] private bool randomizeTransform = false;
 
     List<GameObject> winComponents = new List<GameObject>();
     List<GameObject> loseComponents = new List<GameObject>();
@@ -62,6 +63,44 @@ public class PatternScript : MonoBehaviour
 
     [SerializeField] private GameObject UnlockMessagePopup;
     private MessagePopupScript PopupScript;
+
+    private void ApplyRandomFlip(GameObject pattern)
+    {
+        int choice = Random.Range(0, 3); 
+        // 0 = no flip
+        // 1 = horizontal flip
+        // 2 = vertical flip
+
+        Vector3 scale = pattern.transform.localScale;
+
+        switch (choice)
+        {
+            case 1: // horizontal flip
+                scale.x = -Mathf.Abs(scale.x);
+                break;
+
+            case 2: // vertical flip
+                scale.y = -Mathf.Abs(scale.y);
+                break;
+
+            default: // no flip
+                scale.x = Mathf.Abs(scale.x);
+                scale.y = Mathf.Abs(scale.y);
+                break;
+        }
+
+        pattern.transform.localScale = scale;
+    }
+
+    private void ApplyRandomTransform(GameObject pattern)
+    {
+        if (!randomizeTransform) return; // If checkbox is OFF, keep default transform
+
+        int[] angles = { 0, 90, 180, 270 };
+        int angle = angles[Random.Range(0, angles.Length)];
+        pattern.transform.rotation = Quaternion.Euler(0, 0, angle);
+        ApplyRandomFlip(pattern);
+    }
 
     // Start is called before the first frame update
     IEnumerator Start()
@@ -135,6 +174,7 @@ public class PatternScript : MonoBehaviour
     void InitializePatternsAndFood()
     {
         chosenpat = tubes[GetNextPattern()];
+        ApplyRandomTransform(chosenpat);
 
         foreach (GameObject tube in tubes)
         {
@@ -251,6 +291,8 @@ public class PatternScript : MonoBehaviour
                 num = GetNextPattern();
 
                 chosenpat = tubes[num];
+                ApplyRandomTransform(chosenpat);
+
                 chosenpat.SetActive(true);
 
                 // destroy previous food and spawn the next one
