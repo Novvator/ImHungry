@@ -1,34 +1,25 @@
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class MessagePopupScript : MonoBehaviour
 {
-    [SerializeField] GameObject popupPrefab; // Assign this in the inspector
-    private byte alphaValue = 220;
+    [SerializeField] GameObject popupPrefab;
 
-    public void ShowUnlockMessage(string message)
+    public void ShowUnlockPopup(string levelName)
     {
-        if (popupPrefab != null)
+        List<UnlockItem> unlocks = UnlockDatabase.Instance.GetUnlocksForLevel(levelName);
+
+        if (unlocks == null || unlocks.Count == 0)
         {
-            GameObject popup = Instantiate(popupPrefab);
-            popup.transform.SetParent(GameObject.Find("CanvasEnd").transform, false); // Ensure it's part of the UI
-            RectTransform rectTransform = popup.GetComponent<RectTransform>();
-            Image image = popup.GetComponent<Image>();
-            if (image != null)
-            {
-                Color currentColor = image.color;
-                currentColor.a = alphaValue / 255f; // Convert 220 to a value between 0 and 1
-                image.color = currentColor;
-            }
-            if (rectTransform != null)
-            {
-                rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.y, -450);
-            }
-            popup.GetComponentInChildren<UnityEngine.UI.Text>().text = message; // Assuming there's a Text component in children
+            Debug.Log("No unlocks for this level.");
+            return;
         }
-        else
-        {
-            Debug.LogError("Popup Prefab is not assigned!");
-        }
+
+        GameObject popup = Instantiate(popupPrefab);
+        popup.transform.SetParent(GameObject.Find("CanvasEnd").transform, false);
+
+        UnlockPopupController controller = popup.GetComponent<UnlockPopupController>();
+        controller.Initialize(unlocks);
     }
 }
