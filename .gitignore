@@ -73,3 +73,5 @@ im_hungry/[Aa]ssets/[Ss]treamingAssets/aa.meta
 im_hungry/[Aa]ssets/[Ss]treamingAssets/aa/*
 
 shadercompiler-UnityShaderCompiler.exe0.log
+im_hungry/Assembly-CSharp.csproj
+im_hungry/im_hungry.sln
