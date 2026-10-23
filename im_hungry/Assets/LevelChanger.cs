@@ -37,6 +37,11 @@ public class LevelChanger : MonoBehaviour
                 StartCoroutine(LoadLevelCoroutine("Stage " + (stage + 1)));
             }
         }
+        else if (level == "Level Menu" && currentScene == EndlessModeScript.SceneName)
+        {
+            //endless mode is started from the main menu, so its back buttons return there
+            StartCoroutine(LoadLevelCoroutine("Main Menu"));
+        }
         else if (level == "Level Menu" && currentScene.Contains("Stage"))
         {
             //go back to the level menu of the world this stage belongs to

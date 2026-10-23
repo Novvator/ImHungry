@@ -68,4 +68,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage 15.unity
     guid: 6c8afc32f18a3e24dbbf5c770f7da8dc
+  - enabled: 1
+    path: Assets/Scenes/Endless.unity
+    guid: 64f194845c664c1fb7cee21bbc8bb6a5
   m_configObjects: {}
