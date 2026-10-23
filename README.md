@@ -42,11 +42,13 @@
 
 **Technologies Used:**
 
-  - Unity: Version 2019.3.12f1
+  - Unity: Version 2022.3.7f1 (URP)
   - C# Scripting: For game logic and mechanics
   - UI Design: Built with Unity's UI system for interactive elements
 
 **Game Architecture:**
-  - Pattern Script: Manages the logic for pattern creation, checkpoint validation, and player interactions.
+  - Pattern scripts: `PatternGameBase` runs the shared stage loop (food spawning, pattern rotation, timer, scoring, win/lose). `PatternScript` (one finger) and `PatternDualScript` (two fingers) only handle touch input and checkpoints.
+  - Progression: `StageProgress` holds the world/stage layout (5 stages per world) and the saved unlock state used by the menus and `LevelChanger`.
+  - Foods: `FoodSpawner` loads sprites from `Resources/foods/<name>/<name>1-3`. Each stage scene picks its foods in the spawner's Food Name Overrides.
   - UI Management: Includes scripts for handling the pause menu and pop-up notifications.
   - Audio Manager: Plays sound effects for various game actions like hitting checkpoints or failing a pattern.

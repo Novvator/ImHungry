@@ -24,10 +24,10 @@ public class FoodSpawner : MonoBehaviour
             availableFoodNames.AddRange(foodNameOverrides);
         }
 
-        // Fallback list if none provided
+        // Fallback list if none provided: every food in Resources/foods
         if (availableFoodNames.Count == 0)
         {
-            availableFoodNames.AddRange(new[] { "burg", "cola", "fries", "gyros", "nuggies" });
+            availableFoodNames.AddRange(new[] { "burg", "cola", "fries", "nuggies", "gyros", "greek_salad", "fish", "sashimi", "maki", "rice" });
         }
     }
 
