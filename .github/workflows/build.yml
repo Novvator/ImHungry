@@ -2,7 +2,7 @@ name: Build and publish
 
 # Builds the game in the cloud on every push, so it can be played without opening Unity.
 # - WebGL build is published to GitHub Pages (play in a browser).
-# - Android APK is attached to the workflow run as a downloadable artifact.
+# - Android APK (manual runs only) is attached to the workflow run as a downloadable artifact.
 # Needs repository secrets UNITY_LICENSE, UNITY_EMAIL and UNITY_PASSWORD (see BUILDING.md).
 
 on:
@@ -64,6 +64,8 @@ jobs:
 
   android:
     name: Android APK
+    # Only on a manual run (Actions > Build and publish > Run workflow), so pushes stay fast.
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       # The Android build image is large; make room on the runner first.
