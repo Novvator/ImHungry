@@ -7,8 +7,8 @@ Every push to `claude_start` (or `start_new`) builds the game on GitHub Actions
 - **Browser (WebGL):** published to https://novvator.github.io/ImHungry/
   Works on desktop (the mouse acts as your finger) and in a phone browser
   (real touch, including two-finger stages).
-- **Android:** only built when you start the run by hand (pushes build just
-  the browser version, to keep them quick). Open the finished run in the Actions tab and download the
+- **Android:** only built when you start the run by hand and tick **Also
+  build the Android APK** (otherwise only the browser version is built). Open the finished run in the Actions tab and download the
   `ImHungry-apk` artifact. Unzip it and install the `.apk` on your phone
   (allow "install unknown apps" for your browser or file manager).
 
