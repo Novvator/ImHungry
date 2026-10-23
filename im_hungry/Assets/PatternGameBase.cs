@@ -65,6 +65,25 @@ public abstract class PatternGameBase : MonoBehaviour
     // Reacts to the player touching one of the pattern's colliders
     protected abstract void HandlePatternInteraction(RaycastHit2D hit);
 
+    // Hooks for other game modes (see EndlessModeScript). Defaults are the normal stage rules.
+    protected virtual void AddPatternScore() { ScoreScript.scoreValue += 10; }
+    protected virtual void OnAttemptFailed() { }
+    protected virtual bool ShouldRandomizeTransform => randomizeTransform;
+    protected virtual void OnTimeUp() { checkIfWin(); }
+
+    protected Text CountdownText => countdownText;
+    protected GameObject EndCanvas => endCanvasUI;
+
+    // Adds seconds to the clock and lets the 3-2-1 warning play again if it was pushed back above it
+    protected void AddTime(float seconds)
+    {
+        currentTime += seconds;
+        for (int i = 0; i < countdownSoundPlayed.Length; i++)
+        {
+            if (currentTime > 3 - i) countdownSoundPlayed[i] = false;
+        }
+    }
+
     private void ApplyRandomFlip(GameObject pattern)
     {
         int choice = Random.Range(0, 3);
@@ -95,7 +114,7 @@ public abstract class PatternGameBase : MonoBehaviour
 
     private void ApplyRandomTransform(GameObject pattern)
     {
-        if (!randomizeTransform) return; // If checkbox is OFF, keep default transform
+        if (!ShouldRandomizeTransform) return; // If checkbox is OFF, keep default transform
 
         int[] angles = { 0, 90, 180, 270 };
         int angle = angles[Random.Range(0, angles.Length)];
@@ -217,7 +236,7 @@ public abstract class PatternGameBase : MonoBehaviour
         ResetPatternState();
 
         //update score
-        ScoreScript.scoreValue += 10;
+        AddPatternScore();
 
         //disable previous pattern
         chosenpat.SetActive(false);
@@ -255,6 +274,8 @@ public abstract class PatternGameBase : MonoBehaviour
 
         //when leaving tube reset the food to its first sprite
         if (chosenfoodscript != null) chosenfoodscript.OnStage1();
+
+        OnAttemptFailed();
     }
 
     // shuffling queue
@@ -368,8 +389,7 @@ public abstract class PatternGameBase : MonoBehaviour
             {
                 //play end sound
                 endCanvasUI.SetActive(true);
-                if (!endhasPlayed) { checkIfWin(); }
-                endhasPlayed = true;
+                if (!endhasPlayed) { endhasPlayed = true; OnTimeUp(); }
 
                 completedlvl = true;
                 pauseButton.SetActive(false);

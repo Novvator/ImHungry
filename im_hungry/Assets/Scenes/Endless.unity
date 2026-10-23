@@ -2624,13 +2624,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d084031c6fd14dd0819d09f524244626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Trail: {fileID: 8132035923134161590, guid: d8ca301e3f4e6c042a915dc5168bc509, type: 3}
   startingTime: 30
+  scoreGoal: 0
+  unlockWorld: 
   countdownText: {fileID: 1737424554}
-  scoreText: {fileID: 0}
   pauseButton: {fileID: 1609033684}
   pauseMenuUI: {fileID: 989699919}
   endCanvasUI: {fileID: 589602009}
+  randomizeTransform: 0
   tubes:
   - {fileID: 779175521}
   - {fileID: 1781576596}
@@ -2638,6 +2639,12 @@ MonoBehaviour:
   - {fileID: 1933446934}
   - {fileID: 886544076}
   - {fileID: 184864160}
+  redFlashImage: {fileID: 739950709}
+  redFlashDuration: 0.3
+  redFlashCooldown: 0.5
+  UnlockMessagePopup: {fileID: 0}
+  Trail: {fileID: 8132035923134161590, guid: d8ca301e3f4e6c042a915dc5168bc509, type: 3}
+  hitted: 0
   pointsPerFood: 10
   foodsPerMultiplierStep: 3
   maxMultiplier: 5
@@ -2645,10 +2652,6 @@ MonoBehaviour:
   minTimeBonus: 1
   timeBonusDecayPerFood: 0.1
   foodsBeforeRandomTransform: 5
-  hitted: 0
-  redFlashImage: {fileID: 739950709}
-  redFlashDuration: 0.3
-  redFlashCooldown: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
