@@ -31,6 +31,8 @@ jobs:
   webgl:
     name: WebGL
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -55,6 +57,20 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build/WebGL/ImHungry
+
+      # Also keep the latest build on the webgl-build branch, so it can be fetched with git
+      # (or served by Pages from a branch) without downloading workflow artifacts.
+      - name: Push build to webgl-build branch
+        run: |
+          cp -r build/WebGL/ImHungry "$RUNNER_TEMP/site"
+          cd "$RUNNER_TEMP/site"
+          touch .nojekyll
+          git init -q -b webgl-build
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "WebGL build of ${GITHUB_SHA::7} from ${GITHUB_REF_NAME}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git" webgl-build
 
   deploy-pages:
     name: Publish to GitHub Pages
