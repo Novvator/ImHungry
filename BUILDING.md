@@ -53,3 +53,10 @@ are any, otherwise the left mouse button is reported as finger 0. All touch
 scripts read `TouchInput.touches`, so the same code works on phones, in the
 browser and in the Editor's Game view. Two-finger stages need a real touch
 screen.
+
+## Browser page
+
+The WebGL build uses the `Portrait` template in `Assets/WebGLTemplates/`. The
+game's UI uses constant pixel sizes designed for a ~1080x2400 phone, so the
+page shows a phone-shaped (9:20) canvas that fits the window and renders it
+at 2400 pixels tall. That keeps the layout identical on desktops and phones.

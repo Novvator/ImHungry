@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes">
+    <title>{{{ PRODUCT_NAME }}}</title>
+    <style>
+      html, body { margin: 0; height: 100%; background: #231f20; overflow: hidden; }
+      body { display: flex; align-items: center; justify-content: center; }
+      #unity-canvas { display: block; background: #231f20; touch-action: none; }
+      #loading { position: absolute; color: #fff4c9; font: 20px sans-serif; }
+    </style>
+  </head>
+  <body>
+    <canvas id="unity-canvas" tabindex="-1"></canvas>
+    <div id="loading">Loading…</div>
+    <script>
+      // The game's UI uses constant pixel sizes made for a ~1080x2400 phone screen.
+      // Show a phone-shaped canvas that fits the window and render it at that resolution,
+      // so the layout matches a phone on any screen.
+      var canvas = document.querySelector("#unity-canvas");
+      var loading = document.querySelector("#loading");
+      var targetHeight = 2400, aspect = 9 / 20;
+      var config = {
+        dataUrl: "Build/{{{ DATA_FILENAME }}}",
+        frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
+        codeUrl: "Build/{{{ CODE_FILENAME }}}",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
+        productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
+        productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
+      };
+
+      function fit() {
+        var h = Math.min(window.innerHeight, window.innerWidth / aspect);
+        canvas.style.height = h + "px";
+        canvas.style.width = (h * aspect) + "px";
+        config.devicePixelRatio = targetHeight / h;
+      }
+      fit();
+      window.addEventListener("resize", fit);
+
+      var script = document.createElement("script");
+      script.src = "Build/{{{ LOADER_FILENAME }}}";
+      script.onload = function () {
+        createUnityInstance(canvas, config, function (progress) {
+          loading.textContent = "Loading… " + Math.round(progress * 100) + "%";
+        }).then(function () {
+          loading.style.display = "none";
+        }).catch(function (message) {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>
