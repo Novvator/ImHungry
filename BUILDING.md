@@ -1,6 +1,6 @@
 # Playing a build without opening Unity
 
-Every push to `start_new` or `claude_start` builds the game on GitHub Actions
+Every push to `claude_start` (or `start_new`) builds the game on GitHub Actions
 (`.github/workflows/build.yml`). You can also start it by hand from the
 **Actions** tab: pick **Build and publish**, then **Run workflow**.
 
@@ -39,7 +39,8 @@ account. A free Personal license is fine.
 1. Repo **Settings > Pages > Build and deployment > Source**: choose
    **GitHub Actions**.
 2. Repo **Settings > Environments > github-pages > Deployment branches**: add
-   `start_new` and `claude_start` (by default only `master` may publish).
+   `claude_start` (and `start_new` if you build from it too; by default only
+   `master` may publish).
 
 After that, re-run the workflow (or push) and the link above goes live.
 

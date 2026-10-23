@@ -7,7 +7,7 @@ name: Build and publish
 
 on:
   push:
-    branches: [start_new, claude_start]
+    branches: [claude_start, start_new]
   workflow_dispatch:
 
 permissions:
