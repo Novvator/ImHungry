@@ -1,202 +1,21 @@
-﻿//using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Globalization;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class PatternScript : MonoBehaviour
+// Single-finger stages. Pattern children: 0 = "fdcc" start (child 0 is the start circle),
+// 1 and 2 = checkpoints, 3 = finish.
+public class PatternScript : PatternGameBase
 {
-    private GameObject chosenpat;
-    private GameObject chosenfood;
-    private FoodScript chosenfoodscript;
     private GameObject activetrail;
     private TrailScript activetrailscript;
 
-    float currentTime = 0f;
-    bool startTimer = false;
-    bool isPaused = false;
-
     [SerializeField] GameObject Trail;
-    [SerializeField] float startingTime = 30f;
-    [SerializeField] int scoreGoal;
-    [SerializeField] string unlockWorld;
-    [SerializeField] Text countdownText;
-    [SerializeField] GameObject pauseButton;
-    [SerializeField] GameObject pauseMenuUI;
-    [SerializeField] GameObject endCanvasUI;
-    [SerializeField] private bool randomizeTransform = false;
-
-    List<GameObject> winComponents = new List<GameObject>();
-    List<GameObject> loseComponents = new List<GameObject>();
-
-    // Foods are created at runtime by FoodSpawner; do not assign in the inspector
-    private GameObject[] food;
-    private FoodSpawner spawner;
-    [SerializeField] private GameObject[] tubes;
 
     public bool hitted = false;
     bool trg1 = false;
     bool trg2 = false;
-    int num;
-    int num2;
-    int lastnum;
-    int lastnum2;
-    private Queue<int> patternQueue;
-    private int lastPattern;
-    bool completedlvl = false;
-    // Set to true once Start() has finished initialization (spawner spawned foods and arrays populated)
-    private bool isInitialized = false;
 
-    private bool[] countdownSoundPlayed = new bool[3]; // To track sounds for 3, 2, and 1 seconds
-    bool endhasPlayed = false;
+    protected override bool IsTracing => hitted;
 
-    [SerializeField] private Image redFlashImage; // Assign the UI Image in the Inspector
-    public float redFlashDuration = 0.45f; // Duration of the red flash effect
-    private Color originalColor;
-    private bool redFlashIsOnCooldown = false; // Red Flash Cooldown flag
-    [SerializeField] private float redFlashCooldown = 0.5f; // Cooldown duration in seconds
-
-    [SerializeField] private GameObject UnlockMessagePopup;
-    private MessagePopupScript PopupScript;
-
-    private void ApplyRandomFlip(GameObject pattern)
-    {
-        int choice = Random.Range(0, 3); 
-        // 0 = no flip
-        // 1 = horizontal flip
-        // 2 = vertical flip
-
-        Vector3 scale = pattern.transform.localScale;
-
-        switch (choice)
-        {
-            case 1: // horizontal flip
-                scale.x = -Mathf.Abs(scale.x);
-                break;
-
-            case 2: // vertical flip
-                scale.y = -Mathf.Abs(scale.y);
-                break;
-
-            default: // no flip
-                scale.x = Mathf.Abs(scale.x);
-                scale.y = Mathf.Abs(scale.y);
-                break;
-        }
-
-        pattern.transform.localScale = scale;
-    }
-
-    private void ApplyRandomTransform(GameObject pattern)
-    {
-        if (!randomizeTransform) return; // If checkbox is OFF, keep default transform
-
-        int[] angles = { 0, 90, 180, 270 };
-        int angle = angles[Random.Range(0, angles.Length)];
-        pattern.transform.rotation = Quaternion.Euler(0, 0, angle);
-        ApplyRandomFlip(pattern);
-    }
-
-    // Start is called before the first frame update
-    IEnumerator Start()
-    {
-        // Ensure a FoodSpawner exists and keep a reference to it
-        spawner = FindObjectOfType<FoodSpawner>();
-        if (spawner == null)
-        {
-            GameObject spgo = new GameObject("FoodSpawner");
-            spawner = spgo.AddComponent<FoodSpawner>();
-        }
-
-        // Spawn the first food immediately
-        chosenfood = spawner.SpawnNextFood();
-        if (chosenfood == null)
-        {
-            Debug.LogError("PatternScript: Failed to spawn initial food.");
-            isInitialized = true;
-            yield break;
-        }
-        chosenfoodscript = chosenfood.GetComponent<FoodScript>();
-        chosenfood.transform.localScale = Vector3.one * 3.5f;
-
-        // Validate we have tubes before proceeding
-        if (tubes == null || tubes.Length == 0)
-        {
-            Debug.LogError("PatternScript: No pattern tubes found. Assign tubes in the inspector or ensure tubes exist in the scene.");
-            isInitialized = true;
-            yield break;
-        }
-
-        originalColor = redFlashImage.color;
-        patternQueue = InitializeQueue(tubes.Length);
-        InitializePatternsAndFood();
-        GetEndCanvasChildren();
-        currentTime = startingTime;
-        pauseMenuUI.SetActive(false);
-        endCanvasUI.SetActive(false);
-        ScoreScript.scoreGoal = scoreGoal;
-        if (UnlockMessagePopup != null) { PopupScript = UnlockMessagePopup.GetComponent<MessagePopupScript>(); }
-        // Mark initialization complete so Update() can run safely
-        isInitialized = true;
-    }
-
-    void Update()
-    {
-        if (!isInitialized) return; // Wait until Start() finished setup
-
-        if (!isPaused)
-        {
-            HandleInput();
-            UpdateTimer();
-        }
-
-    }
-    
-    public void Pause()
-    {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f; // Pause the game
-        isPaused = true;
-    }
-
-    public void Resume()
-    {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f; // Resume normal time scale
-        isPaused = false;
-    }
-
-    void InitializePatternsAndFood()
-    {
-        chosenpat = tubes[GetNextPattern()];
-        ApplyRandomTransform(chosenpat);
-
-        foreach (GameObject tube in tubes)
-        {
-            tube.SetActive(tube == chosenpat);
-        }
-
-        // Ensure we have a chosenfood (spawned in Start). If not, spawn one now.
-        if (chosenfood == null && spawner != null)
-        {
-            chosenfood = spawner.SpawnNextFood();
-        }
-        if (chosenfood != null)
-        {
-            chosenfoodscript = chosenfood.GetComponent<FoodScript>();
-            chosenfood.transform.localScale = Vector3.one * 3.5f;
-            chosenfood.SetActive(true);
-            // Ensure it starts at stage 1
-            chosenfoodscript.OnStage1();
-        }
-    }
-
-    void HandleInput()
+    protected override void HandleInput()
     {
         foreach (Touch touch in Input.touches)
         {
@@ -209,315 +28,67 @@ public class PatternScript : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector3.zero);
             if (touch.phase == TouchPhase.Began)
             {
-                
-                
                 activetrail = Instantiate(Trail, pos, Quaternion.identity);
                 activetrailscript = activetrail.GetComponent<TrailScript>();
-                //activetrailscript.InitTouch(touch);
-                
             }
-            
-            
 
-        if (hit != null && hit.collider != null && touch.phase != TouchPhase.Ended)
+            if (completedlvl) continue;
+
+            if (hit.collider != null && touch.phase != TouchPhase.Ended)
             {
-                if (!completedlvl) HandlePatternInteraction(hit);
-
+                HandlePatternInteraction(hit);
             }
-        else
-            {   
-                if (!completedlvl) ResetOnTouchRelease();
+            else
+            {
+                FailAttempt();
             }
         }
     }
 
-    void HandlePatternInteraction(RaycastHit2D hit)
+    protected override void HandlePatternInteraction(RaycastHit2D hit)
     {
+        string name = hit.collider.name;
 
-        if (hit.collider.name == "fdcc")
+        if (name == "fdcc")
         {
             hitted = true;
             startTimer = true;
             chosenpat.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
         }
 
-        if (hit.collider.name == chosenpat.transform.GetChild(1).name && hitted)
+        if (name == chosenpat.transform.GetChild(1).name && hitted)
         {
             SoundManagerScript.PlaySound("eating1");
             //prevent replay of sound
             chosenpat.transform.GetChild(1).gameObject.SetActive(false);
-            chosenfoodscript.OnStage2();
+            AdvanceFood(2);
             trg1 = true;
         }
 
-        if (hit.collider.name == chosenpat.transform.GetChild(2).name && hitted && trg1)
+        if (name == chosenpat.transform.GetChild(2).name && hitted && trg1)
         {
             SoundManagerScript.PlaySound("eating1");
             //prevent replay of sound
             chosenpat.transform.GetChild(2).gameObject.SetActive(false);
-            chosenfoodscript.OnStage3();
+            AdvanceFood(3);
             trg2 = true;
         }
 
-        if (hit.collider.name == chosenpat.transform.GetChild(3).name && hitted && trg1 & trg2)
+        if (name == chosenpat.transform.GetChild(3).name && hitted && trg1 && trg2)
         {
-            // Handle pattern interaction logic
-            {
-                //play sound
-                SoundManagerScript.PlaySound("okpattern");
-
-                //reset stage triggers
-                chosenpat.transform.GetChild(1).gameObject.SetActive(true);
-                chosenpat.transform.GetChild(2).gameObject.SetActive(true);
-                //reset start circle
-                chosenpat.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-
-                //reset food sprite
-                chosenfoodscript.OnStage1();
-
-                //reset position of food
-                chosenfood.transform.position = new Vector3(4f, 2.5f, 0f);
-
-                //update score
-                ScoreScript.scoreValue += 10;
-
-                //disable previous food/pattern
-
-                chosenpat.SetActive(false);
-                chosenfood.SetActive(false);
-
-                // choose next pattern and spawn next food
-
-                num = GetNextPattern();
-
-                chosenpat = tubes[num];
-                ApplyRandomTransform(chosenpat);
-
-                chosenpat.SetActive(true);
-
-                // destroy previous food and spawn the next one
-                if (chosenfood != null)
-                {
-                    Destroy(chosenfood);
-                }
-                chosenfood = spawner != null ? spawner.SpawnNextFood() : null;
-                if (chosenfood != null)
-                {
-                    chosenfoodscript = chosenfood.GetComponent<FoodScript>();
-                    chosenfood.transform.localScale = Vector3.one * 3.5f;
-                    chosenfood.SetActive(true);
-                }
-
-                //reset triggers
-                trg1 = false;
-                trg2 = false;
-                hitted = false;
-                //activeTouchId = -1;
-
-                //cooldown on red flash to avoid flashing on start of next pattern
-                StartCoroutine(StartRedFlashCooldown());
-            }
+            CompletePattern();
         }
     }
 
-
-    // shuffling queue
-    private Queue<int> InitializeQueue(int count)
+    protected override void ResetPatternState()
     {
-        List<int> items = new List<int>();
-        for (int i = 0; i < count; i++)
-        {
-            items.Add(i);
-        }
-        ShuffleList(items);
-        return new Queue<int>(items);
-    }
+        hitted = false;
+        trg1 = false;
+        trg2 = false;
 
-    private void ShuffleList(List<int> list)
-    {
-        for (int i = 0; i < list.Count; i++)
-        {
-            int randomIndex = Random.Range(i, list.Count);
-            int temp = list[i];
-            list[i] = list[randomIndex];
-            list[randomIndex] = temp;
-        }
-    }
-
-    private void ShuffleQueue(Queue<int> queue)
-    {
-        List<int> list = new List<int>(queue);
-        ShuffleList(list);
-        queue.Clear();
-        foreach (int item in list)
-        {
-            queue.Enqueue(item);
-        }
-    }
-    private int GetNextItem(Queue<int> queue, ref int lastItem)
-    {
-        int currentItem = queue.Dequeue();
-        if (currentItem == lastItem && queue.Count > 0)
-        {
-            queue.Enqueue(currentItem);
-            currentItem = queue.Dequeue();
-        }
-        lastItem = currentItem;
-        queue.Enqueue(currentItem);
-        ShuffleQueue(queue);
-        return currentItem;
-    }
-
-    public int GetNextPattern()
-    {
-        return GetNextItem(patternQueue, ref lastPattern);
-    }
-    
-
-    void ResetOnTouchRelease()
-    {
-        if (hitted == true)
-        {
-            Debug.Log("Lost target");
-            if (!redFlashIsOnCooldown)
-            {
-                SoundManagerScript.PlaySound("fail");
-                StartCoroutine(PlayRedFlash());
-                StartCoroutine(StartRedFlashCooldown());
-            }
-            hitted = false;
-            trg1 = false;
-            trg2 = false;
-
-            //reset stage triggers and green circle
-            chosenpat.transform.GetChild(1).gameObject.SetActive(true);
-            chosenpat.transform.GetChild(2).gameObject.SetActive(true);
-            chosenpat.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-
-
-
-            //when leaving tube to reset first burger
-            chosenfoodscript.OnStage1();
-
-        }
-        // Reset logic when touch is released
-    }
-
-
-    private IEnumerator StartRedFlashCooldown()
-    {
-        redFlashIsOnCooldown = true; // Set cooldown flag
-        yield return new WaitForSeconds(redFlashCooldown); // Wait for the cooldown duration
-        redFlashIsOnCooldown = false; // Reset cooldown flag
-    }
-
-    IEnumerator PlayRedFlash()
-    {
-        redFlashImage.gameObject.SetActive(true);
-
-        // Smoothly fade in the red flash
-        float startTime = Time.time;
-        while (Time.time - startTime < redFlashDuration)
-        {
-            float normalizedTime = (Time.time - startTime) / redFlashDuration;
-            redFlashImage.color = Color.Lerp(originalColor, Color.clear, normalizedTime);
-            yield return null;
-        }
-
-        // Restore the original color
-        redFlashImage.color = originalColor;
-        redFlashImage.gameObject.SetActive(false);
-    }
-    void UpdateTimer()
-    {
-        if (startTimer == true)
-        {
-            currentTime -= 1 * Time.deltaTime;
-            countdownText.text = currentTime.ToString("N1", CultureInfo.InvariantCulture);
-
-            int roundedTime = Mathf.CeilToInt(currentTime);
-            if (roundedTime == 3 && !countdownSoundPlayed[0])
-            {
-                SoundManagerScript.PlaySound("ending");
-                countdownSoundPlayed[0] = true;
-            }
-            else if (roundedTime == 2 && !countdownSoundPlayed[1])
-            {
-                SoundManagerScript.PlaySound("ending");
-                countdownSoundPlayed[1] = true;
-            }
-            else if (roundedTime == 1 && !countdownSoundPlayed[2])
-            {
-                SoundManagerScript.PlaySound("ending");
-                countdownSoundPlayed[2] = true;
-            }
-
-            if (currentTime <= 0)
-            {
-                currentTime = 0;
-            }
-
-            if (currentTime == 0)
-            {
-                //play end sound
-                endCanvasUI.SetActive(true);
-                if (!endhasPlayed) { checkIfWin(); }
-                endhasPlayed = true;
-
-                completedlvl = true;
-                pauseButton.SetActive(false);
-                chosenpat.SetActive(false);
-                chosenfood.SetActive(false);
-            }
-        }
-    }
-
-    void GetEndCanvasChildren()
-    {
-        string[] winlist = { "burgerdance", "YOU WIN!", "nextStage"};
-        string[] loselist = { "burgercry", "YOU LOSE" };
-
-        foreach (Transform child in endCanvasUI.transform)
-        {
-            if (System.Array.Exists(winlist, element => element == child.gameObject.name))
-            {
-                winComponents.Add(child.gameObject);
-            }
-            else if (System.Array.Exists(loselist, element => element == child.gameObject.name))
-            {
-                loseComponents.Add(child.gameObject);
-            }
-        }
-    }
-    void checkIfWin()
-    {
-        if (ScoreScript.scoreValue >= scoreGoal)
-        {
-            SetComponentsActive(winComponents, true);
-            SoundManagerScript.PlaySound("win");
-            //Set stage completed
-            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " Completed", 1);
-            
-            if (!string.IsNullOrWhiteSpace(unlockWorld))
-            {
-                PopupScript.ShowUnlockMessage("YOU HAVE UNLOCKED " + unlockWorld + "!");
-                PlayerPrefs.SetInt(unlockWorld + " Unlocked", 1);
-                
-            }
-        }
-        else
-        {
-            SetComponentsActive(loseComponents, true);
-            SoundManagerScript.PlaySound("end");
-        }
-    }
-
-    // Helper method to set active state of components
-    void SetComponentsActive(List<GameObject> components, bool isActive)
-    {
-        foreach (GameObject component in components)
-        {
-            component.SetActive(isActive);
-        }
+        //reset stage triggers and start circle
+        chosenpat.transform.GetChild(1).gameObject.SetActive(true);
+        chosenpat.transform.GetChild(2).gameObject.SetActive(true);
+        chosenpat.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
     }
 }
