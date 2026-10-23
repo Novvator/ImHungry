@@ -1,0 +1,99 @@
+name: Build and publish
+
+# Builds the game in the cloud on every push, so it can be played without opening Unity.
+# - WebGL build is published to GitHub Pages (play in a browser).
+# - Android APK is attached to the workflow run as a downloadable artifact.
+# Needs repository secrets UNITY_LICENSE, UNITY_EMAIL and UNITY_PASSWORD (see BUILDING.md).
+
+on:
+  push:
+    branches: [start_new, claude_start]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PROJECT_PATH: im_hungry
+
+jobs:
+  webgl:
+    name: WebGL
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - uses: actions/cache@v4
+        with:
+          path: ${{ env.PROJECT_PATH }}/Library
+          key: Library-WebGL-${{ hashFiles('im_hungry/Assets/**', 'im_hungry/Packages/**', 'im_hungry/ProjectSettings/**') }}
+          restore-keys: Library-WebGL-
+
+      - uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: ${{ env.PROJECT_PATH }}
+          targetPlatform: WebGL
+          buildName: ImHungry
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/WebGL/ImHungry
+
+  deploy-pages:
+    name: Publish to GitHub Pages
+    needs: webgl
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  android:
+    name: Android APK
+    runs-on: ubuntu-latest
+    steps:
+      # The Android build image is large; make room on the runner first.
+      - uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          android: true
+          large-packages: false
+
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - uses: actions/cache@v4
+        with:
+          path: ${{ env.PROJECT_PATH }}/Library
+          key: Library-Android-${{ hashFiles('im_hungry/Assets/**', 'im_hungry/Packages/**', 'im_hungry/ProjectSettings/**') }}
+          restore-keys: Library-Android-
+
+      - uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: ${{ env.PROJECT_PATH }}
+          targetPlatform: Android
+          buildName: ImHungry
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ImHungry-apk
+          path: build/Android/*.apk
+          retention-days: 14

@@ -15,7 +15,7 @@ public class TrailCreator : MonoBehaviour
 
     void HandleTouchInput()
     {
-        foreach (Touch touch in Input.touches)
+        foreach (Touch touch in TouchInput.touches)
         {
             // Only track the first finger
             if (touch.fingerId != 0) continue;

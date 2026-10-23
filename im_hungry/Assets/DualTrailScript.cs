@@ -29,7 +29,7 @@ public class DualTrailScript : MonoBehaviour
         // If this instance was not assigned a finger, do nothing
         if (fingerId == -1) return;
 
-        foreach (Touch touch in Input.touches)
+        foreach (Touch touch in TouchInput.touches)
         {
             if (touch.fingerId != fingerId)
                 continue; // Only follow OUR finger

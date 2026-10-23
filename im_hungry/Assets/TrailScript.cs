@@ -22,7 +22,7 @@ public class TrailScript : MonoBehaviour
 
     private void Update()
     {
-        foreach (Touch touch in Input.touches)
+        foreach (Touch touch in TouchInput.touches)
         {
             if (touch.fingerId != 0)
             {

@@ -30,7 +30,7 @@ public class PatternDualScript : PatternGameBase
 
     protected override void HandleInput()
     {
-        foreach (Touch touch in Input.touches)
+        foreach (Touch touch in TouchInput.touches)
         {
             if (touch.fingerId > 1)
             {

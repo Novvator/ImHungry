@@ -17,7 +17,7 @@ public class PatternScript : PatternGameBase
 
     protected override void HandleInput()
     {
-        foreach (Touch touch in Input.touches)
+        foreach (Touch touch in TouchInput.touches)
         {
             if (touch.fingerId != 0)
             {
