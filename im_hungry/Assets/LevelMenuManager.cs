@@ -10,7 +10,14 @@ public class LevelMenuManager : MonoBehaviour
 
         foreach (GameObject button in levelButtons)
         {
-            if (!PlayerPrefs.HasKey("Stage " + (int.Parse(button.name) - 1) + " Completed"))
+            // Buttons are named after their stage number ("1", "2", ...)
+            if (!int.TryParse(button.name, out int stage))
+            {
+                Debug.LogWarning("LevelMenuManager: button name is not a stage number: " + button.name);
+                continue;
+            }
+
+            if (!StageProgress.IsStageUnlocked(stage))
             {
                 button.GetComponent<Button>().interactable = false;
             }

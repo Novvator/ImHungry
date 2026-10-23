@@ -10,7 +10,14 @@ public class WorldMenuManager : MonoBehaviour
 
         foreach (GameObject button in worldButtons)
         {
-            if (!PlayerPrefs.HasKey("World " + (int.Parse(button.name)) + " Unlocked"))
+            // Buttons are named after their world number ("2", "3", ...)
+            if (!int.TryParse(button.name, out int world))
+            {
+                Debug.LogWarning("WorldMenuManager: button name is not a world number: " + button.name);
+                continue;
+            }
+
+            if (!StageProgress.IsWorldUnlocked(world))
             {
                 button.GetComponent<Button>().interactable = false;
             }

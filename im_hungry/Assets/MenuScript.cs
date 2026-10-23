@@ -8,7 +8,7 @@ public class MenuScript : MonoBehaviour
 {
     public void PlayGame ()
     {
-        SceneManager.LoadScene("pattern scene");
+        SceneManager.LoadScene("World Menu");
     }
     // Start is called before the first frame update
     void Start()
